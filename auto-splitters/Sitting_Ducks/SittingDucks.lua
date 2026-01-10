@@ -56,9 +56,9 @@ end
 
 function update()
     current.duckTimems = current.duckTimeHours * 3600000 + current.duckTimeSeconds * 1000
-    print(current.duckTimems)
-    print(current.duckTimeSeconds)
-    print("=====")
+    -- print(current.duckTimems)
+    -- print(current.duckTimeSeconds)
+    -- print("return false")
 end
 
 function start()
@@ -72,9 +72,9 @@ function gameTime()
     if dolrt == true then
         if current.loading ~= 0 then
             loadtime = loadtime + (current.duckTimems - old.duckTimems)
-        else
-            return current.duckTimems - loadtime
         end
+        print(current.duckTimems - loadtime)
+        return current.duckTimems - loadtime
     else
         return current.duckTimems
     end
@@ -84,4 +84,5 @@ function split()
     if current.missionComplete > old.missionComplete then
         return true
     end
+    return false
 end
