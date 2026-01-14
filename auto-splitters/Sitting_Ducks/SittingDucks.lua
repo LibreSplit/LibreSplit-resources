@@ -1,8 +1,8 @@
 process("OVERLAY.exe")
 
 -- User settings
-local dolrt = true
-local version = "PL"
+local dolrt = false
+local version = "auto"
 -- Do not edit below this line!
 
 local current = {
@@ -25,11 +25,38 @@ local loadtime = 0
 
 function startup()
     useGameTime = true
+    if version == "auto" then
+        -- I can't be checking for md5sum of exe file in the current version of Libresplit, but this works too
+        -- EU version does something weird (due to nocd patch maybe?) and returns 4096
+        -- if we want checking for speed fix, check if corresponding patch address is int 1015580809
+        -- instant load patch is more complicated, will have to re from patcher
+        local modsize = getModuleSize()
+        if modsize == 1757184 then
+            version = "PL"
+            -- PL patch: 0xC8A36
+            -- RU patch: 0xC8A16
+        elseif modsize == 4096 then
+            version = "EU"
+            -- patch: 0xC8C46
+        elseif modsize == 1753088 then
+            version = "US"
+            -- patch: 0xC9156
+        else
+            -- stop or something
+            version = "unknown"
+            print("Could not determine game version. Go find Tepiloxtl on Discord/sr.com and tell them")
+        end
+    end
+    -- To check another version, uncomment these:
+    -- print("modsize " .. tostring(getModuleSize()))
+    -- print("patch at " .. sig_scan("89 88 88 3C", 0))
+    -- print("patch val " .. readAddress("int", 0xC8A16))
 end
 
-function isLoading()
-    return true
-end
+-- This is broken for now, without this the timer jitters when load remover is in effect
+-- function isLoading()
+--     return current.loading
+-- end
 
 function state()
     old = shallow_copy_tbl(current)
@@ -56,14 +83,10 @@ end
 
 function update()
     current.duckTimems = current.duckTimeHours * 3600000 + current.duckTimeSeconds * 1000
-    -- print(current.duckTimems)
-    -- print(current.duckTimeSeconds)
-    -- print("return false")
 end
 
 function start()
     if current.duckTimeSeconds < old.duckTimeSeconds then
-        -- print("The thing")
         return true
     end
 end
@@ -73,16 +96,17 @@ function gameTime()
         if current.loading ~= 0 then
             loadtime = loadtime + (current.duckTimems - old.duckTimems)
         end
-        print(current.duckTimems - loadtime)
-        return current.duckTimems - loadtime
+        timer = current.duckTimems - loadtime
+        -- print(timer)
     else
-        return current.duckTimems
+        timer = current.duckTimems
     end
+    return timer
 end
 
 function split()
     if current.missionComplete > old.missionComplete then
+        -- print_tbl(current)
         return true
     end
-    return false
 end
