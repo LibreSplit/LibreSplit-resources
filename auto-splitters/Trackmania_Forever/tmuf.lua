@@ -38,7 +38,7 @@ function update()
         current.isLoading = true
     end
 
-    if bitoper(old.raceState, 0x400, AND) == 0 and bitoper(current.raceState, 0x400, AND) ~= 0 then
+    if b_and(old.raceState, 0x400) == 0 and b_and(current.raceState, 0x400) ~= 0 then
         current.isLoading = true
     end
 
@@ -60,7 +60,7 @@ end
 
 function start()
 
-    if current.playground == 0 or current.playerInfosBufferSize == 0 or current.currentPlayerInfo == 0 or bitoper(current.raceState, 0x200, AND) == 0 then
+    if current.playground == 0 or current.playerInfosBufferSize == 0 or current.currentPlayerInfo == 0 or b_and(current.raceState, 0x200) == 0 then
         return false
     elseif (old.raceTime < 0 and current.raceTime >= 0) then
         currentRunTime = current.raceTime
@@ -71,24 +71,13 @@ function start()
     return false
 end
 
-OR, XOR, AND = 1, 3, 4
-
-function bitoper(a, b, oper)
-    local r, m, s = 0, 2 ^ 31
-    repeat
-        s, a, b = a + b + m, a % m, b % m
-        r, m = r + m * oper % (s - a - b), m / 2
-    until m < 1
-    return r
-end
-
 function split()
     if current.playground == 0 and current.playerInfosBufferSize == 0 and current.currentPlayerInfo == 0 then
         return false
     end
 
     --Race state isn't 0
-    if bitoper(old.raceState, 0x400, AND) == 0 and bitoper(current.raceState, 0x400, AND) ~= 0 then
+    if b_and(old.raceState, 0x400) == 0 and b_and(current.raceState, 0x400) ~= 0 then
         totalRunTime = totalRunTime + currentRunTime
         print("Split: ", totalRunTime)
         return true
@@ -99,7 +88,7 @@ end
 
 function gameTime()
 
-    if current.playground == 0 or current.playerInfosBufferSize == 0 or current.currentPlayerInfo == 0 or bitoper(current.raceState, 0x200, AND) == 0 then
+    if current.playground == 0 or current.playerInfosBufferSize == 0 or current.currentPlayerInfo == 0 or b_and(current.raceState, 0x200) == 0 then
         return sumGameTime
     end
     
