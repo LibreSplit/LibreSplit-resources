@@ -12,7 +12,7 @@ local magic_signature = nil
 local settings =
 {
     --False for full game, true for single episodes
-    episodeRun = false,
+    episodeRun = true,
     --Do not use currently
     ignoreHub = false, --Ignore start.bsp for IGT runs
     ignoreIntermission = false -- RTA or IGT
@@ -213,21 +213,6 @@ function isLoading()
 end
 
 -- Helper functions
---Replaces old.variable = current.variable?
-function shallow_copy_tbl(t)
-    local t2 = {}
-    for k,v in pairs(t) do
-        t2[k] = v
-    end
-    return t2
-end
-
-function print_tbl(t)
-    for k,v in pairs(t) do
-        print(k, " -> ", v)
-    end
-end
-
 function indexOf(array, value)
     for i, v in ipairs(array) do
         if v == value then
