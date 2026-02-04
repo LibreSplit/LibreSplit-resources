@@ -5,12 +5,12 @@ process("portal2_linux")
 
 -- Def for action
 local action_dict = {
-    none = 0,
-    start = 1,
-    restart = 2,
-    split = 3,
-    end_t = 4,
-    reset = 5
+    [0] = "none",
+    [1] = "start",
+    [2] = "restart",
+    [3] = "split",
+    [4] = "end",
+    [5] = "reset"
 };
 
 -- Layout of SAR info we need
@@ -20,10 +20,8 @@ local SAR = {
     action = nil
 }
 
-function startup()
-    refreshRate = 60;
-    useGameTime = true;
-end
+-- Mem address for SAR
+local target = nil;
 
 function clear_table(table)
     for n in pairs(table) do
@@ -31,36 +29,75 @@ function clear_table(table)
     end
 end
 
+local last_action = 0;
+
+-- Returns true when action memory address is updated in SAR
+function action_changed()
+    if SAR.action ~= last_action then
+        last_action = SAR.action;
+        return true;
+    end
+    return false
+end
+
+-- Update SAR memory values
+function update_sar()
+    local total = readAddress('int', target);
+    local ipt = readAddress('float', target + sizeOf("int"));                    -- sizeOf(int)
+    local action = readAddress('int', target + sizeOf("int") + sizeOf("float")); -- sizeOf(int) + sizeOf(float)
+    -- print(string.format("[SAR]: total: %d, ipt: %f, action: %d", SAR.total, SAR.ipt, SAR.action))
+
+    clear_table(SAR);
+    SAR.total = total;
+    SAR.ipt = ipt;
+    SAR.action = action;
+end
+
 -- Find where SAR is loaded in memory, then load SAR values into local sar variable
 function find_interface()
-    local target = sig_scan(
-        "53 41 52 5F 54 49 4D 45 52 5F 53 54 41 52 54 00", -- char start[16]
-        "?? ?? ?? ??",                                     -- int total
-        "?? ?? ?? ??",                                     -- float ipt
-        "?? ?? ?? ??",                                     -- int action
-        "53 41 52 5F 54 49 4D 45 52 5F 45 4E 44 00",       -- char end[14]
+    target = sig_scan(
+        "53 41 52 5F 54 49 4D 45 52 5F 53 54 41 52 54 00 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 53 41 52 5F 54 49 4D 45 52 5F 45 4E 44 00",
+        -- char start[16]                                int total   float ipt   int action  char end[14]
         16
     );
 
     if target ~= nil then
-        print("[LIBRESPLIT] Public Inferface found at 0x", string.format("%x", target));
+        -- print("[SAR]: Public Inferface found at 0x", string.format("%x", target));
         local total = readAddress('int', target);
-        local ipt = readAddress('float', target + 4);  -- sizeof(int)
-        local action = readAddress('int', target + 8); -- sizeof(int) + sizeof(float)
+        local ipt = readAddress('float', target + sizeOf("int"));                    -- sizeOf(int)
+        local action = readAddress('int', target + sizeOf("int") + sizeOf("float")); -- sizeOf(int) + sizeOf(float)
 
         clear_table(SAR);
         SAR.total = total;
         SAR.ipt = ipt;
         SAR.action = action;
 
-        return true
+        return true;
     end
 
-    print("[LIBRESPLIT] Memory scan failed")
-    return false
+    print("[SAR] Memory scan failed");
+    return false;
+end
+
+function startup()
+    refreshRate = 60;
+    useGameTime = true;
+    find_interface();
 end
 
 function state()
-    find_interface();
-    print(string.format("[SAR]: total: %d, ipt: %.2f, action: %d", SAR.total, SAR.ipt, SAR.action))
+    update_sar()
+end
+
+function gameTime()
+    -- print(SAR.total * SAR.ipt * 1000)
+    return SAR.total * SAR.ipt * 1000;
+end
+
+function start()
+    return action_changed() and (SAR.action == 1 or SAR.action == 2);
+end
+
+function reset()
+    return action_changed and SAR.action == 5;
 end
