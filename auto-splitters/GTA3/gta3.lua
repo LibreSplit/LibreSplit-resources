@@ -1,0 +1,142 @@
+process("gta3.exe")
+local enable = {}
+
+local version = "Steam"
+enable.missions = true
+enable.usjs = false
+enable.packages = false
+
+local current = {}
+local old = {}
+local missionList = {
+    {addr = 0x35B75C, label = "Luigi's Girls"},
+    {addr = 0x35B76C, label = "Don't Spank Ma Bitch Up"},
+    {addr = 0x35B770, label = "Drive Misty For Me"},
+    {addr = 0x35B80C, label = "The Crook"},
+    {addr = 0x35B810, label = "The Thieves"},
+    {addr = 0x35B814, label = "The Wife"},
+    {addr = 0x35B818, label = "Her Lover"},
+    {addr = 0x35B780, label = "Mike Lips Last Lunch"},
+    {addr = 0x35B784, label = "Farewell 'Chunky' Lee Chong"},
+    {addr = 0x35B788, label = "Van Heist"},
+    {addr = 0x35B78C, label = "Cipriani's Chauffeur"},
+    {addr = 0x35B79C, label = "Taking Out the Laundry"},
+    {addr = 0x35B790, label = "Dead Skunk in the Trunk"},
+    {addr = 0x35B838, label = "Turismo"},
+    {addr = 0x35B794, label = "The Getaway"},
+    {addr = 0x35B7A0, label = "The Pick-Up"},
+    {addr = 0x35B970, label = "Patriot Playground"},
+    {addr = 0x35B7A4, label = "Salvatore's Called a Meeting"},
+    {addr = 0x35B7B4, label = "Chaperone"},
+    {addr = 0x35B7B8, label = "Cutting the Grass"},
+    {addr = 0x35B7A8, label = "Triads and Tribulations"},
+    {addr = 0x35B774, label = "Pump-Action Pimp"},
+    {addr = 0x35B9EC, label = "Diablo Destruction"},
+    {addr = 0x35B778, label = "The Fuzz Ball"},
+    {addr = 0x35B7E4, label = "I Scream, You Scream"},
+    {addr = 0x35B7E8, label = "Trial By Fire"},
+    {addr = 0x35B7EC, label = "Big'N'Veiny"},
+    {addr = 0x35B9F0, label = "Mafia Massacre"},
+    {addr = 0x35B7AC, label = "Blow Fish"},
+    {addr = 0x35B7BC, label = "Bomb Da Base: Act I"},
+    {addr = 0x35B7C0, label = "Bomb Da Base: Act II"},
+    {addr = 0x35B7C4, label = "Last Requests"},
+    {addr = 0x35B878, label = "Sayonara Salvatore"},
+    {addr = 0x35B8D4, label = "Bling-Bling Scramble"},
+    {addr = 0x35B87C, label = "Under Surveillance"},
+    {addr = 0x35B8AC, label = "Kanbu Bust-Out"},
+    {addr = 0x35B9F8, label = "Casino Calamity"},
+    {addr = 0x35B8B0, label = "Grand Theft Auto"},
+    {addr = 0x35B8D8, label = "Uzi Rider"},
+    {addr = 0x35B97C, label = "Multistorey Mayhem"},
+    {addr = 0x35B880, label = "Paparazzi Purge"},
+    {addr = 0x35B884, label = "Payday For Ray"},
+    {addr = 0x35B890, label = "Silence The Sneak"},
+    {addr = 0x35B888, label = "Two-Faced Tanner"},
+    {addr = 0x35B8B4, label = "Deal Steal"},
+    {addr = 0x35B8B8, label = "Shima"},
+    {addr = 0x35B8BC, label = "Smack Down"},
+    {addr = 0x35B974, label = "A Ride In The Park"},
+    {addr = 0x35B894, label = "Arms Shortage"},
+    {addr = 0x35B898, label = "Evidence Dash"},
+    {addr = 0x35B89C, label = "Gone Fishing"},
+    {addr = 0x35B8DC, label = "Gangcar Round-Up"},
+    {addr = 0x35B8A0, label = "Plaster Blaster"},
+    {addr = 0x35B8E0, label = "Kingdom Come"},
+    {addr = 0x35B8C4, label = "Liberator"},
+    {addr = 0x35B8C8, label = "Waka-Gashira Wipeout!"},
+    {addr = 0x35B8CC, label = "A Drop In The Ocean"},
+    {addr = 0x35B8FC, label = "Grand Theft Aero"},
+    {addr = 0x35B8A4, label = "Marked Man"},
+    {addr = 0x35B900, label = "Escort Service"},
+    {addr = 0x35B9F4, label = "Rumpo Rampage"},
+    {addr = 0x35B924, label = "Uzi Money"},
+    {addr = 0x35B928, label = "Toyminator"},
+    {addr = 0x35B92C, label = "Rigged to Blow"},
+    {addr = 0x35B930, label = "Bullion Run"},
+    {addr = 0x35B910, label = "Bait"},
+    {addr = 0x35B904, label = "Decoy"},
+    {addr = 0x35B908, label = "Love's Disappearance"},
+    {addr = 0x35B914, label = "Espresso-2-Go!"},
+    {addr = 0x35B918, label = "S.A.M."},
+    {addr = 0x35B948, label = "The Exchange"},
+    {addr = 0x35B934, label = "Rumble"},
+    {addr = 0x35B978, label = "Gripped!"}
+}
+local missionCount = #missionList
+current.missionStates = {}
+old.missionStates = {}
+local completedMissions = {}
+
+function startup()
+    main_module_size = getModuleSize();
+    refreshRate = 30
+    print("base " .. getBaseAddress())
+    for i = 1, missionCount do
+        completedMissions[i] = false
+    end
+end
+
+function start()
+    if (old.gameState == 8 and current.gameState == 9) then
+        return true
+    end 
+end
+
+-- function reset()
+--     if (old.gameState == 8 and current.gameState == 9) then
+--         return true
+--     end 
+-- end
+
+function state()
+    old = shallow_copy_tbl(current)
+    old.missionStates = shallow_copy_tbl(current.missionStates)
+    for i = 1, missionCount do
+        if completedMissions[i] == false then
+            local address = missionList[i].addr
+            local val = readAddress("int", address)
+            current.missionStates[i] = val
+        end
+    end
+    current.gameState = readAddress("int", "0x505A2C")
+    print(current.gameState)
+end
+
+function split()
+    --Procedure, via LiveSplit ASL
+    --Loop over all missions
+    --1. Check if mission is enabled
+    --2. Check if the mission was just passed
+    --3. Check if we didn't split for this mission already
+    --If all checks passes, split
+    for i = 1, missionCount do
+        if completedMissions[i] == false then
+            if old.missionStates and old.missionStates[i] and current.missionStates[i] > old.missionStates[i] then
+                completedMissions[i] = true
+                print("Mission Complete: " .. missionList[i].label)
+                return true
+            end
+        end
+    end
+end
