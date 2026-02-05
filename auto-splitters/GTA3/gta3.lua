@@ -13,13 +13,13 @@ enable.anyfinalsplit = false
 -- Split once you reach 100% game completion
 elable.hundofinalsplit = false
 
--- Split after each USJ
+-- USJ autosplitter, values: false, "each", "all"
 enable.usjs = false
 
--- Split after each collected package
+-- Packages autosplitter, values: false, "each", "all"
 enable.packages = false
 
--- Split after finishing each Rampage
+-- Rampages autosplitter, values: false, "each", "all"
 enable.rampages = false
 -- ==== Autosplitter configuration ends ====
 
@@ -113,6 +113,15 @@ end
 if enable.hundofinalsplit == true then
     current.progressMade = 0
 end
+if enable.usjs != false then
+    current.usjs = 0
+end
+if enable.packages != false then
+    current.packages = 0
+end
+if enable.rampages != false then
+    current.rampages = 0
+end
 
 
 function startup()
@@ -155,6 +164,15 @@ function state()
     if enable.hundofinalsplit == true then
         current.progressMade = readAddress("int", 0x50651C)
     end
+    if enable.usjs != false then
+        current.usjs = readAddress("int", 0x35BFB0)
+    end
+    if enable.packages != false then
+        current.packages = readAddress("int", 0x35C3D4)
+    end
+    if enable.rampages != false then
+        current.rampages = readAddress("int", 0x35C0AC)
+    end
 end
 
 function split()
@@ -183,6 +201,39 @@ function split()
     if enable.hundofinalsplit == true then
         if current.progressMade == 154 and current.progressMade != old.progressMade then
             return true
+        end
+    end
+    if enable.usjs != false then
+        if enable.usjs == "each" then
+            if current.usjs > old.usjs then
+                return true
+            end
+        elseif enable.usjs == "all" then
+            if current.usjs == 20 and current.usjs != old.usjs then
+                return true
+            end
+        end
+    end
+    if enable.packages != false then
+        if enable.packages == "each" then
+            if current.packages > old.packages then
+                return true
+            end
+        elseif enable.packages == "all" then
+            if current.packages == 100 and current.packages != old.packages then
+                return true
+            end
+        end
+    end
+    if enable.rampages != false then
+        if enable.rampages == "each" then
+            if current.rampages > old.rampages then
+                return true
+            end
+        elseif enable.rampages == "all" then
+            if current.rampages == 20 and current.rampages != old.rampages then
+                return true
+            end
         end
     end
 end
