@@ -1,3 +1,6 @@
+-- GTA3 Autosplitter for Libresplit
+-- Original code by: zoton2, iguaan, hoxi
+-- Libresplit lua port: Tepiloxtl
 process("gta3.exe")
 local enable = {}
 
