@@ -6,7 +6,6 @@ process('TmForever.exe')
 
 local currentRunTime = 0
 local totalRunTime = 0
-local sumGameTime = 0
 local current = { isLoading = false, playground, playerInfosBufferSize, currentPlayerInfo, raceTime, raceState }
 local old = { isLoading = false, playground, playerInfosBufferSize, currentPlayerInfo, raceTime, raceState }
 
@@ -42,12 +41,12 @@ function update()
         current.isLoading = true
     end
 
-    if (old.raceTime < 0 and current.raceTime >= 0) then
-        local oldRaceTime = math.max(old.raceTime, 0)
-        local newRaceTime = math.max(current.raceTime, 0)
-        currentRunTime = currentRunTime + (newRaceTime - oldRaceTime)
-        current.isLoading = false
-    end
+--     if (old.raceTime < 0 and current.raceTime >= 0) then
+--         local oldRaceTime = math.max(old.raceTime, 0)
+--         local newRaceTime = math.max(current.raceTime, 0)
+--         currentRunTime = currentRunTime + (newRaceTime - oldRaceTime)
+--         current.isLoading = false
+--     end
 
 
     --print("counter: ", counter)
@@ -89,15 +88,14 @@ end
 function gameTime()
 
     if current.playground == 0 or current.playerInfosBufferSize == 0 or current.currentPlayerInfo == 0 or b_and(current.raceState, 0x200) == 0 then
-        return sumGameTime
+        return currentRunTime
     end
     
     if current.raceTime >= 0 then
         local oldRaceTime = math.max(old.raceTime, 0)
         local newRaceTime = math.max(current.raceTime, 0)
         currentRunTime = currentRunTime + (newRaceTime - oldRaceTime)
-        sumGameTime = currentRunTime + totalRunTime
     end
     
-    return sumGameTime
+    return currentRunTime
 end
