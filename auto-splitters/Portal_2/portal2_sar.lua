@@ -84,9 +84,6 @@ local init = false;
 function startup()
     refreshRate = 120;
     useGameTime = true;
-    if find_interface() then
-        init = true
-    end
 end
 
 function state()
