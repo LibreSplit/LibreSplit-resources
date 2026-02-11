@@ -182,9 +182,7 @@ function TableContains(tbl, value)
 end
 function startup()
     refreshrate = 60
-    
 end
-
 function state()
     old.FMV = current.FMV
     old.cutscene = current.cutscene
@@ -209,15 +207,19 @@ function state()
     current.GLA = readAddress("int", 0x20D0014)
     current.Ammo = readAddress("int", 0x20D0000)
     current.bowAmmo = readAddress("int", 0x20CFD80)
-    
+    --[[print("current fmv: " .. tostring(current.FMV))
+    print("current loading: " .. tostring(current.isloading))
+    print("current cutscene: " .. current.cutscene)
+    print("current bowAmmo: " .. current.bowAmmo) --]]   
 end
 
 function start()
     -- starts after the fmv
-    if current.level == "cine_chaos_beach" and current.saveSlot >= 1 then
+    if current.FMV and current.isloading and current.cutscene >= 520 and current.level == "cine_chaos_beach" and old.level ~= "cine_chaos_beach" and current.saveSlot >= 1 then
         CompletedSpecialSplits = {}
         EnabledSettings = {}
         PopulateEnabledSettings()
+        print("started on new save")
         return true
     end
     -- starts after the load or when reloading checkpoint
@@ -225,6 +227,7 @@ function start()
         CompletedSpecialSplits = {}
         EnabledSettings = {}
         PopulateEnabledSettings()
+        print("started on premade save")
         return true
     end
 end
@@ -335,7 +338,7 @@ function split()
     end
 end
 
-function isloading()
+function isLoading()
    --[[ if current.cutscene ~= 8 and (current.bowAmmo == -1 or current.isloading == true or current.FMV == true) then
         return true
     elseif current.bowAmmo == -1 or current.isloading == true or current.FMV == true then
@@ -344,10 +347,14 @@ function isloading()
         return true
     end
     --]]
-    if current.level == "qt_the_ritual" and current.cutscene == 712 and old.cutscene ~= 712 then
+--[[    if current.level == "qt_the_ritual" and current.cutscene == 712 and old.cutscene ~= 712 then
         return false
-    elseif (current.FMV or current.isloading or current.bowAmmo == -1 or current.cutscene ~=8) and current.level ~= "main_menu" then
+    else-
+    if current.FMV or current.isloading or current.bowAmmo == -1 or current.cutscene ~=8 then
+        print("2nd if statement")
         return true
-    end
-    
+    end-]]
+    --return current.FMV or current.isloading or current.bowAmmo == -1 or current.cutscene ~=8
+    return (current.isloading or current.FMV or current.cutscene > 8 or current.bowAmmo == -1) and current.level ~= "main_menu"
+
 end
