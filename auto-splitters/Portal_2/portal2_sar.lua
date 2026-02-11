@@ -90,7 +90,7 @@ function state()
     if init then
         update_sar()
     else
-        find_interface()
+        init = find_interface()
     end
 end
 
