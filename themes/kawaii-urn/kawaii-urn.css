@@ -1,0 +1,344 @@
+/***********************************
+ *  "Kawaii Urn" by mellowa (May)  *
+ **********************************/
+
+@define-color default-background #ffd4d5;
+@define-color alt-background #fcdfe3;
+@define-color box-background #f9e57e;
+@define-color last-split-fg #ffffff;
+@define-color default-text #392b35;
+@define-color accent #ff5871;
+@define-color accent-fg #ffe0e1;
+@define-color accent-text #ff315e;
+@define-color accent-text-even #864b23;
+@define-color time-text #5a4454;
+@define-color behind-bg #f998ad;
+@define-color sob-bg #ffd694;
+@define-color ahead-bg #c8f09a;
+@define-color done-bg #c3defa;
+@define-color losing-bg #ff8082;
+@define-color box-ahead #6bb61a;
+@define-color box-behind #ff7733;
+@define-color box-losing #f73505;
+@define-color box-sob #c8b104;
+
+* {
+    font-family:
+        Cherry Bomb One,
+        Noto Sans;
+}
+
+scrollbar* {
+    background-color: transparent;
+    border: none;
+    color: transparent;
+}
+
+.window,
+.header {
+    background-color: @default-background;
+    color: @default-text;
+    padding-bottom: 2px;
+    margin-bottom: 7px;
+}
+
+.header {
+    background-color: @accent;
+    color: @accent-fg;
+    padding-right: 10px;
+    border-radius: 30px;
+    font-weight: 900;
+}
+
+.title {
+    font-size: 16pt;
+    font-weight: 900;
+}
+
+.attempt-count {
+    color: alpha(@accent-fg, 0.5);
+    font-size: 12pt;
+    font-weight: 700;
+    padding-top: 6px;
+    padding-bottom: 2px;
+    margin-right: 2px;
+}
+
+.time {
+    color: @time-text;
+}
+
+.timer {
+    background-image: url("assets/timerAhead.png");
+    background-size: cover;
+    color: @default-text;
+    font-size: 28pt;
+    min-height: 30px;
+    padding-top: 15px;
+    padding-right: 10px;
+    padding-bottom: 3px;
+    border-radius: 0 0 20px 20px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.timer.delay,
+.timer.done {
+    background-image: url("assets/timerNoRun.png");
+}
+
+.timer.behind {
+    background-image: url("assets/timerBehind.png");
+}
+
+.timer.losing {
+    background-image: url("assets/timerLosing.png");
+}
+
+.timer .timer-millis {
+    font-family: monospace;
+    color: transparent;
+    background-color: transparent;
+    font-size: 0pt;
+}
+
+.split {
+    padding: 2px 10px 2px 10px;
+    border-radius: 10px;
+    background-color: transparent;
+    transition: 0.5s margin ease;
+    min-height: 20px;
+    font-size: 11pt;
+}
+
+.split:nth-child(even) {
+    background-color: @alt-background;
+}
+
+.split-title {
+    font-weight: 600;
+}
+
+.split-icon {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    margin-right: 3px;
+    border-radius: 100%;
+}
+
+.split-time {
+    color: @time-text;
+    font-weight: 500;
+}
+
+.split-last {
+    padding: 2.5px 10px 2.5px 10px;
+    border-radius: 10px;
+    background-color: @alt-background;
+    transition: 0.5s margin ease;
+    min-height: 20px;
+    font-size: 11pt;
+}
+
+.split-last .split-time {
+    color: alpha(@default-text, 0.8);
+}
+
+.current-split {
+    margin-left: 10px;
+    margin-right: 10px;
+    background-image: url("assets/currentSplitBackground.png");
+    background-size: cover;
+    color: @accent-text;
+    transition: margin linear 75ms;
+    border-radius: 10px;
+    padding-top: 11px;
+    background-color: transparent;
+}
+
+.current-split:nth-child(even) {
+    margin-left: 10px;
+    margin-right: 10px;
+    background-image: url("assets/currentSplitBackgroundEven.png");
+    background-size: cover;
+    color: @accent-text-even;
+    transition: margin 75ms linear;
+    border-radius: 10px;
+    padding-top: 11px;
+    background-color: transparent;
+}
+
+.current-split .split-time {
+    color: alpha(@accent-text, 0.8);
+    font-weight: 800;
+}
+
+.current-split:nth-child(even) .split-time {
+    color: alpha(@accent-text-even, 0.8);
+    font-weight: 800;
+}
+
+.split-delta {
+    color: @default-text;
+    background-color: transparent;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    border-radius: 50px;
+    transition: ease 0.3s background-color;
+    min-width: 60px;
+}
+
+.current-split .delta,
+.current-split .split-delta,
+.delta {
+    color: @default-text;
+    background-color: @ahead-bg;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    border-radius: 50px;
+    transition: ease 0.3s background-color;
+    min-width: 60px;
+}
+
+.delta.behind {
+    color: @default-text;
+    background-color: @behind-bg;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    border-radius: 50px;
+    transition: ease 0.3s background-color;
+    min-width: 60px;
+}
+
+.delta.losing {
+    color: @default-text;
+    background-color: @losing-bg;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    border-radius: 50px;
+    transition: ease 0.3s background-color;
+    min-width: 60px;
+}
+
+.delta.best-segment {
+    color: @default-text;
+    background-color: @sob-bg;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    border-radius: 50px;
+    transition: ease 0.3s background-color;
+    min-width: 60px;
+}
+/* PS */
+.window box.footer:nth-child(4) {
+    margin-top: 5px;
+    padding: 25px 10px 1px 10px;
+    background-image: url("assets/boxTop.png");
+    background-size: cover;
+    font-size: 11pt;
+}
+/* SOB */
+.window box.footer:nth-child(5) {
+    border-radius: 0px;
+    padding: 1px 10px 1px 10px;
+    background-color: @box-background;
+    font-size: 11pt;
+}
+/* PB */
+.window box.footer:nth-child(6) {
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    padding: 1px 10px 10px 10px;
+    background-color: @box-background;
+    font-size: 11pt;
+}
+
+.window box.footer:nth-child(7) {
+    background-color: transparent;
+}
+
+.prev-segment {
+    color: @box-ahead;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    border-radius: 0px;
+    transition: ease 0.3s background-color;
+    min-width: 0px;
+    background-color: transparent;
+}
+
+.prev-segment.behind {
+    color: @box-behind;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    border-radius: 0px;
+    transition: ease 0.3s background-color;
+    min-width: 0px;
+    background-color: transparent;
+}
+
+.prev-segment.losing {
+    color: @box-losing;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    border-radius: 0px;
+    transition: ease 0.3s background-color;
+    min-width: 0px;
+    background-color: transparent;
+}
+
+.prev-segment.best-segment {
+    color: @box-sob;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    border-radius: 0px;
+    transition: ease 0.3s background-color;
+    min-width: 0px;
+    background-color: transparent;
+}
+
+.sum-of-bests {
+    color: @box-sob;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    border-radius: 0px;
+    transition: ease 0.3s background-color;
+    min-width: 0px;
+    background-color: transparent;
+}
+
+.personal-best {
+    color: @box-ahead;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    border-radius: 0px;
+    transition: ease 0.3s background-color;
+    min-width: 0px;
+    background-color: transparent;
+}
+
+.time.timer {
+    background: none;
+}
