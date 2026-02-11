@@ -53,10 +53,11 @@ function startup()
     -- print("patch val " .. readAddress("int", 0xC8A16))
 end
 
--- This is broken for now, without this the timer jitters when load remover is in effect
--- function isLoading()
---     return current.loading
--- end
+function isLoading()
+    if current.loading ~= 0 then
+        return true
+    end
+end
 
 function state()
     old = shallow_copy_tbl(current)
@@ -79,6 +80,7 @@ function state()
         current.duckTimeHours = readAddress("float", 0x1D6A80, 0x26D8)
         current.featherCount = readAddress("int", 0x1D6A80, 0x1F54)
     end
+--     print(current.loading)
 end
 
 function update()
