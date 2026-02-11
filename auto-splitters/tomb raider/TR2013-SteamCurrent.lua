@@ -11,11 +11,11 @@ local settings = {
     ["Neck high water"] = { tooltip = "Splits after leaving the neck high water", cond = "survival_den_rambotunnel_survival_den_puzzleroom", enabled = false },
     ["Puzzle Room"] = { tooltip = "Splits right before falling down the slide with cave collapsing", cond = "survival_den_puzzleroom_survival_den03", enabled = false },
     ["Let go of me you Bastard"] = { tooltip = "Splits right before the jump of qte's", cond = "survival_den03_survival_den04", enabled = false },
-    ["Scavenger's Den"] = { tooltip = "Complete the climbing QTE at the end of the intro.", cond = "survival_den04_oceanvista", enabled = false },
+    ["Scavenger's Den"] = { tooltip = "Complete the climbing QTE at the end of the intro.", cond = "survival_den04_oceanvista", enabled = true },
     --#endregion
     --#region costal forest splits
     ["Coastal Bluffs"] = { tooltip = "Lara reaches the area where the bow is.", cond = "oceanvista_ac_forest", enabled = false },
-    ["Bow"] = { tooltip = "Lara gets the bow.", cond = "skip", enabled = false },
+    ["Bow"] = { tooltip = "Lara gets the bow.", cond = "skip", enabled = true },
     ["First Skill"] = { tooltip = "Splits during the cutscene after you acquire your first skill", cond = "skip", enabled = false },
     ["Costal Forest(south)"] = { tooltip = "Splits when Lara climbs the ladder of the bunker.", cond = "ac_bunker_ac_main", enabled = false },
     ["Costal Forest(north) earlier"] = { tooltip = "Splits after gate cutscene", cond = "ac_main_connector_acmain_to_mountainclimb_a", enabled = false },
@@ -207,15 +207,16 @@ function state()
     current.GLA = readAddress("int", 0x20D0014)
     current.Ammo = readAddress("int", 0x20D0000)
     current.bowAmmo = readAddress("int", 0x20CFD80)
-    --[[print("current fmv: " .. tostring(current.FMV))
+    --[[ print("current fmv: " .. tostring(current.FMV))
     print("current loading: " .. tostring(current.isloading))
     print("current cutscene: " .. current.cutscene)
-    print("current bowAmmo: " .. current.bowAmmo) --]]   
+    print("current bowAmmo: " .. current.bowAmmo)--]]   
+    
 end
 
 function start()
     -- starts after the fmv
-    if current.FMV and current.isloading and current.cutscene >= 520 and current.level == "cine_chaos_beach" and old.level ~= "cine_chaos_beach" and current.saveSlot >= 1 then
+    if current.FMV and current.isloading and current.cutscene ~= 8 and current.level == "cine_chaos_beach" and old.level ~= "cine_chaos_beach" and current.saveSlot >= 1 then
         CompletedSpecialSplits = {}
         EnabledSettings = {}
         PopulateEnabledSettings()
@@ -355,6 +356,6 @@ function isLoading()
         return true
     end-]]
     --return current.FMV or current.isloading or current.bowAmmo == -1 or current.cutscene ~=8
-    return (current.isloading or current.FMV or current.cutscene > 8 or current.bowAmmo == -1) and current.level ~= "main_menu"
+    return (current.isloading or current.FMV or current.cutscene > 8 or current.cutscene < 8 or current.bowAmmo == -1) and current.level ~= "main_menu"
 
 end
