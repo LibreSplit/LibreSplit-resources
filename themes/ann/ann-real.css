@@ -1,0 +1,1175 @@
+/*****************************
+ *  "Real Ann" by AsahiNyan  *
+ ****************************/
+
+@define-color default-background #0d0d0d;
+@define-color alt-background #191919;
+@define-color last-split-bg #ffffff;
+@define-color default-text #ffffff;
+@define-color attempt-text #5d5d5d;
+@define-color cs-border #efefef;
+@define-color time-text #dadada;
+@define-color behind-bg #ff6811;
+@define-color sob-bg #f6d949;
+@define-color sob-fg #ffecce;
+@define-color ahead-bg #39e82d;
+@define-color done-bg #2b7afa;
+@define-color wr-fg #d4ecff;
+@define-color losing-t #ff3737;
+@define-color losing-bg @losing-t;
+@define-color ahead-fg #95e85e;
+@define-color behind-fg #ff9469;
+@define-color losing-fg #ff6c6c;
+@define-color sob-fg #ffdc74;
+
+* { font-weight: 900; font-family: Noto Sans; }
+
+scrollbar* { background-color: transparent; border: none; color: transparent; }
+
+.window, .header { background-color: @default-background; color: @default-text; padding-bottom: 2px; border-bottom: 1px solid alpha(@default-text,0.2); margin-bottom: 7px; }
+
+.title { color: @default-text; font-weight: 900; font-size: 16pt; }
+
+.attempt-count { color: @attempt-text; font-size: 12pt; font-weight: 700; padding-top: 6px; padding-bottom: 2px; margin-right: 2px; }
+
+.time { color: @time-text; }
+
+.time.behind, .time.best-segment, time.best-split, .time.losing { color: @default-color; }
+
+.timer { font-size: 24pt; font-family: Noto Sans Mono; font-weight: 900; color: @ahead-bg; background-color: alpha(currentcolor,0.115); padding: 0px 10px 4px 30px; margin-bottom: 10px; margin-top: 9px; border-radius: 15px; transition: 0.7s background-color ease; border: 1px solid alpha(currentcolor,0.135); }
+
+.timer .timer-millis { font-size: 17pt; background-color: transparent; padding-bottom: 3px; color: alpha(@ahead-bg,0.7); }
+
+.timer.behind .timer-millis { color: alpha(@behind-bg,0.7); }
+
+.timer.losing .timer-millis { color: alpha(@losing-bg,0.7); }
+
+.timer.delay .timer-millis { color: alpha(@done-bg,0.7); }
+
+.timer.behind, .timer.behind:backdrop { background-color: alpha(currentcolor,0.1); color: @behind-bg; transition: 0.7s background-color ease; margin-bottom: 10px; }
+
+.timer.losing, .timer.losing:backdrop { background-color: alpha(currentcolor,0.1); color: @losing-bg; transition: 0.7s background-color ease; margin-bottom: 10px; border-radius: 15px}
+
+.timer.delay, .timer.delay:backdrop, .timer.done, .timer.done:backdrop { background-color: alpha(currentcolor,0.1); color: @done-bg; transition: 0.7s background-color ease; margin-bottom: 10px; }
+
+.split { padding: 0px 10px 0px 10px; margin: 2px 0px 2px 0px; border-radius: 10px; min-height: 25px; background-color: transparent; transition: 0.5s all ease; }
+
+.split-title { font-weight: 600; }
+
+.split-icon { margin-top: 4px; margin-bottom: 4px; margin-right: 3px; border-radius: 100%; }
+
+.split-time { color: @time-text; font-weight: 500; }
+
+.split-last { font-weight: 900; background-color: alpha(@last-split-bg,0.075); color: alpha(@last-split-bg,1); border: 1px solid alpha(@last-split-bg,0.1); border-radius: 10px; margin-bottom: 2px; margin-top: 2px; }
+
+.split-last .split-time { color: alpha(@last-split-bg,0.8); }
+
+.current-split { margin-left: 20px; margin-right: 06px; background-color: alpha(currentcolor,0.2); color: @default-text; font-weight: 900; transition: all 75ms cubic-bezier(0, 0, 0.2, 1), background-size 0ms, background-image 0ms, border 0ms; box-shadow: 0 0 0 3px alpha(currentcolor,0.3); background-size: 100%; text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000; box-shadow: none; border-radius: 10px; box-shadow: 0 0 0 2px alpha(@cs-border,0.3) }
+
+.current-split .split-time { color: alpha(@default-text,0.8); text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000; font-weight: 800; }
+
+.split-delta { color: @ahead-bg; background-color: transparent; padding-left: 10px; padding-right: 10px; margin-top: 3px; margin-bottom: 3px; border-radius: 50px; transition: ease 0.3s background-color; min-width: 60px; }
+
+.current-split .delta, .current-split .split-delta, .delta { color: @ahead-bg; background-color: alpha(@default-background,0.4); padding-left: 10px; padding-right: 10px; margin-top: 3px; margin-bottom: 3px; border-radius: 50px; transition: ease 0.3s background-color; min-width: 60px; }
+
+.behind, .current-split .delta.behind { color: @behind-bg; background-color: alpha(@default-background,0.4); padding-left: 10px; padding-right: 10px; margin-top: 3px; margin-bottom: 3px; border-radius: 50px; transition: ease 0.3s background-color; min-width: 60px; }
+
+.losing, .current-split .delta.losing { color: @losing-bg; background-color: alpha(@default-background,0.4); padding-left: 10px; padding-right: 10px; margin-top: 3px; margin-bottom: 3px; border-radius: 50px; transition: ease 0.3s background-color; min-width: 60px; }
+
+.best-segment, .current-split .delta.best-segment { color: @sob-bg; background-color: alpha(@default-background,0.4); padding-left: 10px; padding-right: 10px; margin-top: 3px; margin-bottom: 3px; border-radius: 50px; transition: ease 0.3s background-color; min-width: 60px; }
+/* PS */
+.window box.footer:nth-child(4) { border-top-left-radius: 15px; border-top-right-radius: 15px; border: 1px solid alpha(@default-text,0.2); border-bottom: none; padding: 10px 10px 5px 10px; background-color: @alt-background; border-bottom: 1px solid alpha(@default-text,0.05); }
+/* SOB */
+.window box.footer:nth-child(5) { border-radius: 0px; border-left: 1px solid alpha(@default-text,0.2); border-right: 1px solid alpha(@default-text,0.2); padding: 5px 10px 5px 10px; background-color: @alt-background; border-bottom: 1px solid alpha(@default-text,0.05); }
+/* PB */
+.window box.footer:nth-child(6) { border-bottom-left-radius: 15px; border-bottom-right-radius: 15px; border: 1px solid alpha(@default-text,0.2); border-top: none; padding: 5px 10px 10px 10px; background-color: @alt-background; }
+
+.window box.footer:nth-child(7) { background-color: transparent; }
+
+.prev-segment { color: @ahead-bg; font-weight: 900; padding-left: 0px; padding-right: 0px; margin-top: 0px; margin-bottom: 0px; border-radius: 0px; transition: ease 0.3s background-color; min-width: 0px; background-color: transparent; }
+
+.prev-segment.behind { color: @behind-fg; font-weight: 900; padding-left: 0px; padding-right: 0px; margin-top: 0px; margin-bottom: 0px; border-radius: 0px; transition: ease 0.3s background-color; min-width: 0px; background-color: transparent; }
+
+.prev-segment.losing { color: @losing-fg; font-weight: 900; padding-left: 0px; padding-right: 0px; margin-top: 0px; margin-bottom: 0px; border-radius: 0px; transition: ease 0.3s background-color; min-width: 0px; background-color: transparent; }
+
+.prev-segment.best-segment { color: @sob-fg; font-weight: 900; padding-left: 0px; padding-right: 0px; margin-top: 0px; margin-bottom: 0px; border-radius: 0px; transition: ease 0.3s background-color; min-width: 0px; background-color: transparent; }
+
+.sum-of-bests { color: @sob-fg; font-weight: 900; padding-left: 0px; padding-right: 0px; margin-top: 0px; margin-bottom: 0px; border-radius: 0px; transition: ease 0.3s background-color; min-width: 0px; background-color: transparent; }
+
+.personal-best { color: @ahead-fg; font-weight: 900; padding-left: 0px; padding-right: 0px; margin-top: 0px; margin-bottom: 0px; border-radius: 0px; transition: ease 0.3s background-color; min-width: 0px; background-color: transparent; }
+
+
+
+/* ██████  ██    ██ ███████ ████████  ██████  ███    ███     ███████ ██████  ██      ██ ████████  */
+/* ██      ██    ██ ██         ██    ██    ██ ████  ████     ██      ██   ██ ██      ██    ██     */
+/* ██      ██    ██ ███████    ██    ██    ██ ██ ████ ██     ███████ ██████  ██      ██    ██     */
+/* ██      ██    ██      ██    ██    ██    ██ ██  ██  ██          ██ ██      ██      ██    ██     */
+/* ██████   ██████  ███████    ██     ██████  ██      ██     ███████ ██      ███████ ██    ██     */
+c
+/**********
+ *  SM64  *
+ *********/
+/* WF */
+.split-title-wf.current-split,
+.split-title-wf--9-.current-split,
+.split-title-wf--10-.current-split,
+.split-title-wf--6-.current-split,
+.split-title-wf--4-.current-split,
+.split-title-wf--26-.current-split,
+.split-title-wf--8-.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/sm64/wf.png"); }
+
+/* BitDW */
+.split-title-bitdw.current-split,
+.split-title-bitdw--12-.current-split,
+.split-title-bitdw--13-.current-split,
+.split-title-bitdw--9-.current-split,
+.split-title-bitdw--1-.current-split,
+.split-title-bowser-1.current-split,
+.split-title-bitdw--12-.current-split,
+.split-title-dw--1-.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/sm64/bitdw.png"); }
+
+/* CCM */
+.split-title-ccm.current-split,
+.split-title-ccm--18-.current-split,
+.split-title-ccm--17-.current-split,
+.split-title-ccm--8-.current-split,
+.split-title-ccm--59-.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/sm64/ccm.png"); }
+
+/* BBH */
+.split-title-bbh.current-split,
+.split-title-bbh--20-.current-split,
+.split-title-bbh--19-.current-split,
+.split-title-bbh--66-.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/sm64/bbh.png"); }
+
+/* SSL */
+.split-title-ssl.current-split,
+.split-title-ssl--24-.current-split,
+.split-title-ssl--10-.current-split,
+.split-title-ssl--11-.current-split,
+.split-title-ssl--7-.current-split,
+.split-title-ssl--34-.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/sm64/ssl.png"); }
+
+/* LLL */
+.split-title-lll.current-split,
+.split-title-lll--30-.current-split,
+.split-title-lll--11-.current-split,
+.split-title-lll--12-.current-split,
+.split-title-lll--50-.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/sm64/lll.png"); }
+
+/* HMC */
+.split-title-hmc.current-split,
+.split-title-hmc--36-.current-split,
+.split-title-hmc--15-.current-split,
+.split-title-hmc--58-.current-split,
+.split-title-hmc100--36-.current-split,
+.split-title-hmc-100--36-.current-split,
+.split-title-hmc--42-.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/sm64/hmc.png"); }
+
+/* DDD */
+.split-title-ddd.current-split,
+.split-title-ddd-100.current-split,
+.split-title-ddd-100--68-.current-split,
+.split-title-ddd100--68-.current-split,
+.split-title-ddd--39-.current-split,
+.split-title-ddd--33-.current-split,
+.split-title-ddd--16-.current-split,
+.split-title-ddd--1-.current-split,
+.split-title-ddd--74-.current-split,
+.split-title-ddd--73-.current-split,
+.split-title-upstairs--74-.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/sm64/ddd.png"); }
+
+/* BitFS */
+.split-title-bitfs.current-split,
+.split-title-bitfs--40-.current-split,
+.split-title-bitfs--34-.current-split,
+.split-title-bitfs--71-.current-split,
+.split-title-bitfs--74-.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/sm64/bitfs.png"); }
+
+/* WDW */
+.split-title-wdw.current-split,
+.split-title-wdw--45-.current-split,
+.split-title-wdw--39-.current-split,
+.split-title-wdw--81-.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/sm64/wdw.png"); }
+
+/* THI */
+.split-title-thi.current-split,
+.split-title-thi--48-.current-split,
+.split-title-thi--42-.current-split,
+.split-title-thi--88-.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/sm64/thi.png"); }
+
+/* TTM */
+.split-title-ttm.current-split,
+.split-title-ttm--54-.current-split,
+.split-title-ttm--48-.current-split,
+.split-title-ttm--96-.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/sm64/ttm.png"); }
+
+/* SL */
+.split-title-sl.current-split,
+.split-title-sl--59-.current-split,
+.split-title-sl--52-.current-split,
+.split-title-sl--103-.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/sm64/sl.png"); }
+
+/* RR */
+.split-title-rr.current-split,
+.split-title-rr--63-.current-split,
+.split-title-rr--62-.current-split,
+.split-title-rr--119-.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/sm64/rr.png"); }
+
+/* TTC */
+.split-title-ttc.current-split,
+.split-title-ttc--70-.current-split,
+.split-title-ttc--69-.current-split,
+.split-title-ttc--111-.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/sm64/ttc.png"); }
+
+/* BitS */
+.split-title-bits.current-split,
+.split-title-bits--120-.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/sm64/bits.png"); }
+
+/* JRB */
+.split-title-jrb.current-split,
+.split-title-jrb--16-.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/sm64/jrb.png"); }
+
+/* VC */
+.split-title-vc.current-split,
+.split-title-vc--52-.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/sm64/vc.png"); }
+
+/* WMOTR */
+.split-title-wmotr.current-split,
+.split-title-cloud--104-.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/sm64/wmotr.png"); }
+
+/* BOB */
+.split-title-bob.current-split,
+.split-title-bob--26-.current-split,
+.split-title-bob--1-.current-split,
+.split-title-bob--2-.current-split,
+.split-title-bob2--13-.current-split,
+.split-title-bob-2--13-.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/sm64/bob.png"); }
+
+/* LBLJ */
+.split-title-lblj.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/sm64/lblj.png"); }
+
+/* SBLJ */
+.split-title-sblj.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/sm64/sblj.png"); }
+
+/* BLJ */
+.split-title-blj.current-split,
+.split-title-blj--16-.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/sm64/blj.png"); }
+
+/* WC */
+.split-title-wc.current-split,
+.split-title-wc--12-.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/sm64/wc.png"); }
+
+/* PSS */
+.split-title-pss.current-split,
+.split-title-pss--3-.current-split,
+.split-title-pss--19-.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/sm64/pss.png"); }
+
+/* Mips */
+.split-title-mips.current-split,
+.split-title-mips--15-.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/sm64/mips.png"); }
+
+
+/**************
+ *  LEMMINGS  *
+ *************/
+/* F1 / TR15 */
+.split-title-f1.current-split,
+.split-title-f1-10-.current-split,
+.split-title-f1--10--.current-split,
+.split-title-just-dig-.current-split,
+.split-title-just-dig--10-.current-split,
+.split-title-just-dig---10--.current-split,
+.split-title-tr15.current-split,
+.split-title-tr15-60-.current-split,
+.split-title-tr15--60--.current-split,
+.split-title-ozone-friendly-lemmings.current-split,
+.split-title-ozone-friendly-lemmings-60-.current-split,
+.split-title-ozone-friendly-lemmings--60--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/f1-tr15.png"); }
+
+/* F2 / TR18 */
+.split-title-f2.current-split,
+.split-title-f2-10-.current-split,
+.split-title-f2--10--.current-split,
+.split-title-only-floaters-can-survive-this.current-split,
+.split-title-only-floaters-can-survive-this-10-.current-split,
+.split-title-only-floaters-can-survive-this--10--.current-split,
+.split-title-tr18.current-split,
+.split-title-tr18-90-.current-split,
+.split-title-tr18--90--.current-split,
+.split-title-it-s-lemmingentry-watson.current-split,
+.split-title-it-s-lemmingentry-watson-90-.current-split,
+.split-title-it-s-lemmingentry-watson--90--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/f2-tr18.png"); }
+
+/* F3 */
+.split-title-f3.current-split,
+.split-title-f3-10-.current-split,
+.split-title-f3--10--.current-split,
+.split-title-tailor-made-for-blockers.current-split,
+.split-title-tailor-made-for-blockers-10-.current-split,
+.split-title-tailor-made-for-blockers--10--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/f3.png"); }
+
+/* F4 / M20 */
+.split-title-f4.current-split,
+.split-title-f4-100-.current-split,
+.split-title-f4--100--.current-split,
+.split-title-now-use-miners-and-climbers.current-split,
+.split-title-now-use-miners-and-climbers-100-.current-split,
+.split-title-now-use-miners-and-climbers--100--.current-split,
+.split-title-m20.current-split,
+.split-title-m20-100-.current-split,
+.split-title-m20--100--.current-split,
+.split-title-no-added-colours-or-lemmings.current-split,
+.split-title-no-added-colours-or-lemmings-100-.current-split,
+.split-title-no-added-colours-or-lemmings--100--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/f4-m20.png"); }
+
+/* F5 / TR16 */
+.split-title-f5.current-split,
+.split-title-f5-10-.current-split,
+.split-title-f5--10--.current-split,
+.split-title-you-need-bashers-this-time.current-split,
+.split-title-you-need-bashers-this-time-10-.current-split,
+.split-title-you-need-bashers-this-time--10--.current-split,
+.split-title-tr16.current-split,
+.split-title-tr16-80-.current-split,
+.split-title-tr16--80--.current-split,
+.split-title-luvly-jubly.current-split,
+.split-title-luvly-jubly-80-.current-split,
+.split-title-luvly-jubly-80--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/f5-tr16.png"); }
+
+/* F6 / TR17 */
+.split-title-f6.current-split,
+.split-title-f6-20-.current-split,
+.split-title-f6--20--.current-split,
+.split-title-a-task-for-blockers-and-bombers.current-split,
+.split-title-a-task-for-blockers-and-bombers-20-.current-split,
+.split-title-a-task-for-blockers-and-bombers--20--.current-split,
+.split-title-tr17.current-split,
+.split-title-tr17-96-.current-split,
+.split-title-tr17--96--.current-split,
+.split-title-diet-lemmingaid.current-split,
+.split-title-diet-lemmingaid-96-.current-split,
+.split-title-diet-lemmingaid--96--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/f6-tr17.png"); }
+
+/* F7 / TR19 */
+.split-title-f7.current-split,
+.split-title-f7-50-.current-split,
+.split-title-f7--50--.current-split,
+.split-title-builders-will-help-you-here.current-split,
+.split-title-builders-will-help-you-here-50-.current-split,
+.split-title-builders-will-help-you-here--50--.current-split,
+.split-title-tr19.current-split,
+.split-title-tr19-100-.current-split,
+.split-title-tr19--100--.current-split,
+.split-title-postcard-from-lemmingland.current-split,
+.split-title-postcard-from-lemmingland-100-.current-split,
+.split-title-postcard-from-lemmingland--100--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/f7-tr19.png"); }
+
+/* F8 / TR22 */
+.split-title-f8.current-split,
+.split-title-f8-95-.current-split,
+.split-title-f8--95--.current-split,
+.split-title-not-as-complicated-as-it-looks.current-split,
+.split-title-not-as-complicated-as-it-looks-95-.current-split,
+.split-title-not-as-complicated-as-it-looks--95--.current-split,
+.split-title-tr22.current-split,
+.split-title-tr22-90-.current-split,
+.split-title-tr22--90--.current-split,
+.split-title-turn-around-young-lemmings-.current-split,
+.split-title-turn-around-young-lemmings--90-.current-split,
+.split-title-turn-around-young-lemmings---90--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/f8-tr22.png"); }
+
+/* F9 / TR25 */
+.split-title-f9.current-split,
+.split-title-f9-90-.current-split,
+.split-title-f9--90--.current-split,
+.split-title-not-as-complicated-as-it-looks.current-split,
+.split-title-not-as-complicated-as-it-looks-90-.current-split,
+.split-title-not-as-complicated-as-it-looks--90--.current-split,
+.split-title-tr26.current-split,
+.split-title-tr26-100-.current-split,
+.split-title-tr26--100--.current-split,
+.split-title-i-have-a-cunning-plan.current-split,
+.split-title-i-have-a-cunning-plan--100-.current-split,
+.split-title-turn-around-young-lemmings---100--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/f9-tr26.png"); }
+
+/* F10 / TX9 */
+.split-title-f10.current-split,
+.split-title-f10-50-.current-split,
+.split-title-f10--50--.current-split,
+.split-title-smile-if-you-love-lemmings.current-split,
+.split-title-smile-if-you-love-lemmings-50-.current-split,
+.split-title-smile-if-you-love-lemmings--50--.current-split,
+.split-title-tx9.current-split,
+.split-title-tx9-100-.current-split,
+.split-title-tx9--100--.current-split,
+.split-title-perseverance.current-split,
+.split-title-perseverance--100-.current-split,
+.split-title-perseverance---100--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/f10-tx9.png"); }
+
+/* F11 / TX19 */
+.split-title-f11.current-split,
+.split-title-f11-83-.current-split,
+.split-title-f11--83--.current-split,
+.split-title-keep-your-hair-on-mr--lemming.current-split,
+.split-title-keep-your-hair-on-mr--lemming-83-.current-split,
+.split-title-keep-your-hair-on-mr--lemming--83--.current-split,
+.split-title-tx18.current-split,
+.split-title-tx18-86-.current-split,
+.split-title-tx18--86--.current-split,
+.split-title-tribute-to-m-c-escher.current-split,
+.split-title-tribute-to-m-c-escher--86-.current-split,
+.split-title-tribute-to-m-c-escher---86--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/f11-tx18.png"); }
+
+/* F12 / TR23 */
+.split-title-f12.current-split,
+.split-title-f12-50-.current-split,
+.split-title-f12--50--.current-split,
+.split-title-patience.current-split,
+.split-title-patience-50-.current-split,
+.split-title-patience--50--.current-split,
+.split-title-tr23.current-split,
+.split-title-tr23-60-.current-split,
+.split-title-tr23--60--.current-split,
+.split-title-from-the-boundary-line.current-split,
+.split-title-from-the-boundary-line--60-.current-split,
+.split-title-from-the-boundary-line---60--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/f12-tr23.png"); }
+
+/* F13 / TR2 / TX30 / M11 */
+.split-title-f13.current-split,
+.split-title-f13-100-.current-split,
+.split-title-f13--100--.current-split,
+.split-title-tr2.current-split,
+.split-title-tr2-100-.current-split,
+.split-title-tr2--100--.current-split,
+.split-title-tx30.current-split,
+.split-title-tx30-100-.current-split,
+.split-title-tx30--100--.current-split,
+.split-title-m11.current-split,
+.split-title-m11-100-.current-split,
+.split-title-m11--100--.current-split,
+.split-title-we-all-fall-down.current-split,
+.split-title-we-all-fall-down-100-.current-split,
+.split-title-we-all-fall-down--100--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/f13-tr2-tx30-m11.png"); }
+
+/* F14 / TR30 */
+.split-title-f14.current-split,
+.split-title-f14-75-.current-split,
+.split-title-f14--75--.current-split,
+.split-title-origins-and-lemmings.current-split,
+.split-title-origins-and-lemmings-75-.current-split,
+.split-title-origins-and-lemmings--75--.current-split,
+.split-title-tr30.current-split,
+.split-title-tr30-90-.current-split,
+.split-title-tr30--90--.current-split,
+.split-title-the-crankshaft.current-split,
+.split-title-the-crankshaft--60-.current-split,
+.split-title-the-crankshaft---60--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/f14-tr30.png"); }
+
+/* F15 / TX1 */
+.split-title-f15.current-split,
+.split-title-f15-80-.current-split,
+.split-title-f15--80--.current-split,
+.split-title-don-t-let-your-eyes-deceive-you.current-split,
+.split-title-don-t-let-your-eyes-deceive-you-80-.current-split,
+.split-title-don-t-let-your-eyes-deceive-you--80--.current-split,
+.split-title-tx1.current-split,
+.split-title-tx1-99-.current-split,
+.split-title-tx1--99--.current-split,
+.split-title-if-at-first-yuo-don-t-succeed--.current-split,
+.split-title-if-at-first-yuo-don-t-succeed----99-.current-split,
+.split-title-if-at-first-yuo-don-t-succeed-----99--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/f15-tx1.png"); }
+
+/* F16 / TX3 */
+.split-title-f16.current-split,
+.split-title-f16-62-.current-split,
+.split-title-f16--62--.current-split,
+.split-title-don-t-do-anything-too-hasty.current-split,
+.split-title-don-t-do-anything-too-hasty-62-.current-split,
+.split-title-don-t-do-anything-too-hasty--62--.current-split,
+.split-title-tx3.current-split,
+.split-title-tx3-100-.current-split,
+.split-title-tx3--100--.current-split,
+.split-title-heaven-can-wait-we-hope-----.current-split,
+.split-title-heaven-can-wait-we-hope------100-.current-split,
+.split-title-heaven-can-wait-we-hope-------100--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/f16-tx3.png"); }
+
+/* F17 / TX6 */
+.split-title-f17.current-split,
+.split-title-f17-40-.current-split,
+.split-title-f17--40--.current-split,
+.split-title-easy-when-you-know-how.current-split,
+.split-title-easy-when-you-know-how-40-.current-split,
+.split-title-easy-when-you-know-how--40--.current-split,
+.split-title-tx6.current-split,
+.split-title-tx6-60-.current-split,
+.split-title-tx6--60--.current-split,
+.split-title-compression-method-1.current-split,
+.split-title-compression-method-1-60-.current-split,
+.split-title-compression-method-1--60--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/f17-tx6.png"); }
+
+/* F18 / TX19 */
+.split-title-f18.current-split,
+.split-title-f18-71-.current-split,
+.split-title-f18--71--.current-split,
+.split-title-let-s-block-and-blow.current-split,
+.split-title-let-s-block-and-blow-71-.current-split,
+.split-title-let-s-block-and-blow--71--.current-split,
+.split-title-tx19.current-split,
+.split-title-tx19-91-.current-split,
+.split-title-tx19--91--.current-split,
+.split-title-bomboozal.current-split,
+.split-title-bomboozal-91-.current-split,
+.split-title-bomboozal--91--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/f18-tx19.png"); }
+
+/* F19 / TX25 */
+.split-title-f19.current-split,
+.split-title-f19-70-.current-split,
+.split-title-f19--70--.current-split,
+.split-title-take-good-care-of-my-lemmings.current-split,
+.split-title-take-good-care-of-my-lemmings-70-.current-split,
+.split-title-take-good-care-of-my-lemmings--70--.current-split,
+.split-title-tx25.current-split,
+.split-title-tx25-90-.current-split,
+.split-title-tx25--90--.current-split,
+.split-title-follow-the-leader---.current-split,
+.split-title-follow-the-leader----90-.current-split,
+.split-title-follow-the-leader-----90--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/f19-tx25.png"); }
+
+/* F20 / M7 */
+.split-title-f20.current-split,
+.split-title-f20-60-.current-split,
+.split-title-f20--60--.current-split,
+.split-title-we-are-now-at-lemcom-one.current-split,
+.split-title-we-are-now-at-lemcom-one-60-.current-split,
+.split-title-we-are-now-at-lemcom-one--60--.current-split,
+.split-title-m7.current-split,
+.split-title-m7-90-.current-split,
+.split-title-m7--90--.current-split,
+.split-title-poles-apart.current-split,
+.split-title-poles-apart-90-.current-split,
+.split-title-poles-apart--90--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/f20-m7.png"); }
+
+/* F21 / M26 */
+.split-title-f21.current-split,
+.split-title-f21-60-.current-split,
+.split-title-f21--60--.current-split,
+.split-title-you-live-and-lem.current-split,
+.split-title-you-live-and-lem-60-.current-split,
+.split-title-you-live-and-lem--60--.current-split,
+.split-title-m26.current-split,
+.split-title-m26-90-.current-split,
+.split-title-m26--90--.current-split,
+.split-title-the-steel-mine-of-kessel.current-split,
+.split-title-the-steel-mine-of-kessel-90-.current-split,
+.split-title-the-steel-mine-of-kessel--90--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/f21-m26.png"); }
+
+/* F22 */
+.split-title-f22.current-split,
+.split-title-f22-80-.current-split,
+.split-title-f22--80--.current-split,
+.split-title-a-beast-of-a-level.current-split,
+.split-title-a-beast-of-a-level-80-.current-split,
+.split-title-a-beast-of-a-level--80--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/f22.png"); }
+
+/* F23 / TX17 */
+.split-title-f23.current-split,
+.split-title-f23-25-.current-split,
+.split-title-f23--25--.current-split,
+.split-title-i-ve-lost-that-lemming-feeling.current-split,
+.split-title-i-ve-lost-that-lemming-feeling-25-.current-split,
+.split-title-i-ve-lost-that-lemming-feeling--25--.current-split,
+.split-title-tx17.current-split,
+.split-title-tx17-90-.current-split,
+.split-title-tx17--90--.current-split,
+.split-title-x-marks-the-spot.current-split,
+.split-title-x-marks-the-spot-90-.current-split,
+.split-title-x-marks-the-spot--90--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/f23-tx17.png"); }
+
+/* F24 / M3 */
+.split-title-f24.current-split,
+.split-title-f24-66-.current-split,
+.split-title-f24--66--.current-split,
+.split-title-konbanwa-lemming-san.current-split,
+.split-title-konbanwa-lemming-san-66-.current-split,
+.split-title-konbanwa-lemming-san--66--.current-split,
+.split-title-m3.current-split,
+.split-title-m3-100-.current-split,
+.split-title-m3--100--.current-split,
+.split-title-it-s-hero-time-.current-split,
+.split-title-it-s-hero-time--100-.current-split,
+.split-title-it-s-hero-time---100--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/f24-m3.png"); }
+
+/* F25 / M4 */
+.split-title-f25.current-split,
+.split-title-f25-50-.current-split,
+.split-title-f25--50--.current-split,
+.split-title-lemmings-lemmings-everywhere.current-split,
+.split-title-lemmings-lemmings-everywhere-50-.current-split,
+.split-title-lemmings-lemmings-everywhere--50--.current-split,
+.split-title-m4.current-split,
+.split-title-m4-100-.current-split,
+.split-title-m4--100--.current-split,
+.split-title-the-crossroads.current-split,
+.split-title-the-crossroads-100-.current-split,
+.split-title-the-crossroads--100--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/f25-m4.png"); }
+
+/* F26 / M13 */
+.split-title-f26.current-split,
+.split-title-f26-100-.current-split,
+.split-title-f26--100--.current-split,
+.split-title-nightmare-on-lem-street.current-split,
+.split-title-nightmare-on-lem-street-100-.current-split,
+.split-title-nightmare-on-lem-street--100--.current-split,
+.split-title-m13.current-split,
+.split-title-m13-100-.current-split,
+.split-title-m13--100--.current-split,
+.split-title-the-great-lemming-caper.current-split,
+.split-title-the-great-lemming-caper-100-.current-split,
+.split-title-the-great-lemming-caper--100--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/f26-m13.png"); }
+
+/* F27 / TX22 */
+.split-title-f27.current-split,
+.split-title-f27-50-.current-split,
+.split-title-f27--50--.current-split,
+.split-title-let-s-be-careful-out-there.current-split,
+.split-title-let-s-be-careful-out-there-50-.current-split,
+.split-title-let-s-be-careful-out-there--50--.current-split,
+.split-title-tx22.current-split,
+.split-title-tx22-100-.current-split,
+.split-title-tx22--100--.current-split,
+.split-title-come-on-over-to-my-place.current-split,
+.split-title-come-on-over-to-my-place-100-.current-split,
+.split-title-come-on-over-to-my-place--100--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/f27-tx22.png"); }
+
+/* F28 / M5 */
+.split-title-f28.current-split,
+.split-title-f28-60-.current-split,
+.split-title-f28--60--.current-split,
+.split-title-if-only-they-could-fly.current-split,
+.split-title-if-only-they-could-fly-60-.current-split,
+.split-title-if-only-they-could-fly--60--.current-split,
+.split-title-m5.current-split,
+.split-title-m5-75-.current-split,
+.split-title-m5--75--.current-split,
+.split-title-down--along--up--in-that-order.current-split,
+.split-title-down--along--up--in-that-order-75-.current-split,
+.split-title-down--along--up--in-that-order--75--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/f28-m5.png"); }
+
+/* F29 / M9 */
+.split-title-f29.current-split,
+.split-title-f29-60-.current-split,
+.split-title-f29--60--.current-split,
+.split-title-worra-lorra-lemmings.current-split,
+.split-title-worra-lorra-lemmings-60-.current-split,
+.split-title-worra-lorra-lemmings--60--.current-split,
+.split-title-m9.current-split,
+.split-title-m9-99-.current-split,
+.split-title-m9--99--.current-split,
+.split-title-curse-of-the-pharaohs.current-split,
+.split-title-curse-of-the-pharaohs-99-.current-split,
+.split-title-curse-of-the-pharaohs--99--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/f29-m9.png"); }
+
+/* F30 / M24 */
+.split-title-f30.current-split,
+.split-title-f30-66-.current-split,
+.split-title-f30--66--.current-split,
+.split-title-lock-up-your-lemmings.current-split,
+.split-title-lock-up-your-lemmings-66-.current-split,
+.split-title-lock-up-your-lemmings--66--.current-split,
+.split-title-m24.current-split,
+.split-title-m24-100-.current-split,
+.split-title-m24--100--.current-split,
+.split-title-all-or-nothing.current-split,
+.split-title-all-or-nothing-100-.current-split,
+.split-title-all-or-nothing--100--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/f30-m24.png"); }
+
+/* TR1 */
+.split-title-tr1.current-split,
+.split-title-tr1-50-.current-split,
+.split-title-tr1--50--.current-split,
+.split-title-this-should-be-a-doddle-.current-split,
+.split-title-this-should-be-a-doddle--50-.current-split,
+.split-title-this-should-be-a-doddle---50--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/tr1.png"); }
+
+/* TR3 / TX29 */
+.split-title-tr3.current-split,
+.split-title-tr3-50-.current-split,
+.split-title-tr3--50--.current-split,
+.split-title-a-ladder-would-be-handy.current-split,
+.split-title-a-ladder-would-be-handy-50-.current-split,
+.split-title-a-ladder-would-be-handy--50--.current-split,
+.split-title-tx29.current-split,
+.split-title-tx29-95-.current-split,
+.split-title-tx29--95--.current-split,
+.split-title-how-do-i-dig-up-the-way-.current-split,
+.split-title-how-do-i-dig-up-the-way--95-.current-split,
+.split-title-how-do-i-dig-up-the-way---95--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/tr3-tx29.png"); }
+
+/* TR4 / TX */
+.split-title-tr4.current-split,
+.split-title-tr4-20-.current-split,
+.split-title-tr4--20--.current-split,
+.split-title-here-s-one-i-prepared-earlier.current-split,
+.split-title-here-s-one-i-prepared-earlier-20-.current-split,
+.split-title-here-s-one-i-prepared-earlier--20--.current-split,
+.split-title-tx7.current-split,
+.split-title-tx7-98-.current-split,
+.split-title-tx7--98--.current-split,
+.split-title-every-lemming-for-himself---.current-split,
+.split-title-every-lemming-for-himself-----98-.current-split,
+.split-title-every-lemming-for-himself------98--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/tr4-tx7.png"); }
+
+/* TR5 / TX8 */
+.split-title-tr5.current-split,
+.split-title-tr5-20-.current-split,
+.split-title-tr5--20--.current-split,
+.split-title-careless-clicking-costs-lives.current-split,
+.split-title-careless-clicking-costs-lives-20-.current-split,
+.split-title-careless-clicking-costs-lives--20--.current-split,
+.split-title-tx8.current-split,
+.split-title-tx8-100-.current-split,
+.split-title-tx8--100--.current-split,
+.split-title-the-art-gallery.current-split,
+.split-title-the-art-gallery-100-.current-split,
+.split-title-the-art-gallery--100--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/tr5-tx8.png"); }
+
+/* TR6 / TX10 */
+.split-title-tr6.current-split,
+.split-title-tr6-80-.current-split,
+.split-title-tr6--80--.current-split,
+.split-title-lemmingology.current-split,
+.split-title-lemmingology-80-.current-split,
+.split-title-lemmingology--80--.current-split,
+.split-title-tx10.current-split,
+.split-title-tx10-100-.current-split,
+.split-title-tx10--100--.current-split,
+.split-title-izzie-wizzie-lemmings-get-busy.current-split,
+.split-title-izzie-wizzie-lemmings-get-busy-100-.current-split,
+.split-title-izzie-wizzie-lemmings-get-busy--100--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/tr6-tx10.png"); }
+
+/* TR7 / TX11 */
+.split-title-tr7.current-split,
+.split-title-tr7-73-.current-split,
+.split-title-tr7--73--.current-split,
+.split-title-been-there--seen-it--done-it.current-split,
+.split-title-been-there--seen-it--done-it-73-.current-split,
+.split-title-been-there--seen-it--done-it--73--.current-split,
+.split-title-tx11.current-split,
+.split-title-tx11-100-.current-split,
+.split-title-tx11--100--.current-split,
+.split-title-the-ascending-pillar-scenario.current-split,
+.split-title-the-ascending-pillar-scenario-100-.current-split,
+.split-title-the-ascending-pillar-scenario--100--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/tr7-tx11.png"); }
+
+/* TR8 / TX23 */
+.split-title-tr8.current-split,
+.split-title-tr8-60-.current-split,
+.split-title-tr8--60--.current-split,
+.split-title-lemming-sanctuary-in-sight.current-split,
+.split-title-lemming-sanctuary-in-sight-60-.current-split,
+.split-title-lemming-sanctuary-in-sight--60--.current-split,
+.split-title-tx23.current-split,
+.split-title-tx23-95-.current-split,
+.split-title-tx23--95--.current-split,
+.split-title-king-of-the-castle.current-split,
+.split-title-king-of-the-castle-95-.current-split,
+.split-title-king-of-the-castle--95--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/tr8-tx23.png"); }
+
+/* TR9 / M6 */
+.split-title-tr9.current-split,
+.split-title-tr9-93-.current-split,
+.split-title-tr9--93--.current-split,
+.split-title-they-just-keep-on-coming.current-split,
+.split-title-they-just-keep-on-coming-93-.current-split,
+.split-title-they-just-keep-on-coming--93--.current-split,
+.split-title-m6.current-split,
+.split-title-m6-100-.current-split,
+.split-title-m6--100--.current-split,
+.split-title-one-way-or-another.current-split,
+.split-title-one-way-or-another-100-.current-split,
+.split-title-one-way-or-another--100--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/tr9-m6.png"); }
+
+/* TR10 / M15 */
+.split-title-tr10.current-split,
+.split-title-tr10-94-.current-split,
+.split-title-tr10--94--.current-split,
+.split-title-there-s-a-lot-of-them-about.current-split,
+.split-title-there-s-a-lot-of-them-about-94-.current-split,
+.split-title-there-s-a-lot-of-them-about--94--.current-split,
+.split-title-m15.current-split,
+.split-title-m15-96-.current-split,
+.split-title-m15--96--.current-split,
+.split-title-the-fast-food-kitchen---.current-split,
+.split-title-the-fast-food-kitchen----96-.current-split,
+.split-title-the-fast-food-kitchen-----96--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/tr10-m15.png"); }
+
+/* TR11 / M19 */
+.split-title-tr11.current-split,
+.split-title-tr11-84-.current-split,
+.split-title-tr11--84--.current-split,
+.split-title-lemmings-in-the-attic.current-split,
+.split-title-lemmings-in-the-attic-84-.current-split,
+.split-title-lemmings-in-the-attic--84--.current-split,
+.split-title-m19.current-split,
+.split-title-m19-92-.current-split,
+.split-title-m19--92--.current-split,
+.split-title-time-to-get-up-.current-split,
+.split-title-time-to-get-up--92-.current-split,
+.split-title-time-to-get-up---92--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/tr11-m19.png"); }
+
+/* TR12 / M21 */
+.split-title-tr12.current-split,
+.split-title-tr12-80-.current-split,
+.split-title-tr12--80--.current-split,
+.split-title-bitter-lemming.current-split,
+.split-title-bitter-lemming-80-.current-split,
+.split-title-bitter-lemming--80--.current-split,
+.split-title-m21.current-split,
+.split-title-m21-100-.current-split,
+.split-title-m21--100--.current-split,
+.split-title-with-a-twist-of-lemming-please.current-split,
+.split-title-with-a-twist-of-lemming-please-100-.current-split,
+.split-title-with-a-twist-of-lemming-please--100--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/tr12-m21.png"); }
+
+/* TR13 / M25 */
+.split-title-tr13.current-split,
+.split-title-tr13-70-.current-split,
+.split-title-tr13--70--.current-split,
+.split-title-lemming-drops.current-split,
+.split-title-lemming-drops-70-.current-split,
+.split-title-lemming-drops--70--.current-split,
+.split-title-m25.current-split,
+.split-title-m25-90-.current-split,
+.split-title-m25--90--.current-split,
+.split-title-have-a-nice-day-.current-split,
+.split-title-have-a-nice-day--90-.current-split,
+.split-title-have-a-nice-day---90--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/tr13-m25.png"); }
+
+/* TR14 */
+.split-title-tr14.current-split,
+.split-title-tr14-87-.current-split,
+.split-title-tr14--87--.current-split,
+.split-title-menacing---.current-split,
+.split-title-menacing-----87-.current-split,
+.split-title-menacing------87--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/tr14.png"); }
+
+/* TR20 */
+.split-title-tr20.current-split,
+.split-title-tr20-95-.current-split,
+.split-title-tr20--95--.current-split,
+.split-title-one-way-digging-to-freedom.current-split,
+.split-title-one-way-digging-to-freedom-87-.current-split,
+.split-title-one-way-digging-to-freedom--87--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/tr20.png"); }
+
+/* TR21 */
+.split-title-tr21.current-split,
+.split-title-tr21-66-.current-split,
+.split-title-tr21--66--.current-split,
+.split-title-all-the-6-s---------.current-split,
+.split-title-all-the-6-s----------87-.current-split,
+.split-title-all-the-6-s-----------87--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/tr21.png"); }
+
+/* TR24 */
+.split-title-tr24.current-split,
+.split-title-tr24-93-.current-split,
+.split-title-tr24--93--.current-split,
+.split-title-tightrope-city.current-split,
+.split-title-tightrope-city-93-.current-split,
+.split-title-tightrope-city--93--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/tr24.png"); }
+
+/* TR25 */
+.split-title-tr25.current-split,
+.split-title-tr25-10-.current-split,
+.split-title-tr25--10--.current-split,
+.split-title-cascade.current-split,
+.split-title-cascade-10-.current-split,
+.split-title-cascade--10--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/tr25.png"); }
+
+/* TR27 */
+.split-title-tr27.current-split,
+.split-title-tr27-90-.current-split,
+.split-title-tr27--90--.current-split,
+.split-title-the-island-of-the-wicker-people.current-split,
+.split-title-the-island-of-the-wicker-people-90-.current-split,
+.split-title-the-island-of-the-wicker-people--90--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/tr27.png"); }
+
+/* TR28 */
+.split-title-tr28.current-split,
+.split-title-tr28-90-.current-split,
+.split-title-tr28--90--.current-split,
+.split-title-lost-something-.current-split,
+.split-title-lost-something--90-.current-split,
+.split-title-lost-something---90--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/tr28.png"); }
+
+/* TR29 */
+.split-title-tr29.current-split,
+.split-title-tr29-99-.current-split,
+.split-title-tr29--99--.current-split,
+.split-title-rainbow-island.current-split,
+.split-title-rainbow-island-99-.current-split,
+.split-title-rainbow-island--99--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/tr29.png"); }
+
+/* TX2 */
+.split-title-tx2.current-split,
+.split-title-tx2-80-.current-split,
+.split-title-tx2--80--.current-split,
+.split-title-watch-out--there-s-traps-about.current-split,
+.split-title-watch-out--there-s-traps-about-80-.current-split,
+.split-title-watch-out--there-s-traps-about--80--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/tx2.png"); }
+
+/* TX4 */
+.split-title-tx4.current-split,
+.split-title-tx4-75-.current-split,
+.split-title-tx4--75--.current-split,
+.split-title-lend-a-helping-hand----.current-split,
+.split-title-lend-a-helping-hand-----75-.current-split,
+.split-title-lend-a-helping-hand------75--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/tx4.png"); }
+
+/* TX5 */
+.split-title-tx5.current-split,
+.split-title-tx5-75-.current-split,
+.split-title-tx5--75--.current-split,
+.split-title-the-prison-.current-split,
+.split-title-the-prison--75-.current-split,
+.split-title-the-prison---75--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/tx5.png"); }
+
+/* TX12 */
+.split-title-tx12.current-split,
+.split-title-tx12-80-.current-split,
+.split-title-tx12--80--.current-split,
+.split-title-livin--on-the-edge.current-split,
+.split-title-livin--on-the-edge-80-.current-split,
+.split-title-livin--on-the-edge--80--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/tx12.png"); }
+
+/* TX13 */
+.split-title-tx13.current-split,
+.split-title-tx13-99-.current-split,
+.split-title-tx13--99--.current-split,
+.split-title-upsidedown-world.current-split,
+.split-title-upsidedown-world-99-.current-split,
+.split-title-upsidedown-world--99--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/tx13.png"); }
+
+/* TX14 */
+.split-title-tx14.current-split,
+.split-title-tx14-95-.current-split,
+.split-title-tx14--95--.current-split,
+.split-title-hunt-the-nessy----.current-split,
+.split-title-hunt-the-nessy-----95-.current-split,
+.split-title-hunt-the-nessy------95--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/tx14.png"); }
+
+/* TX15 */
+.split-title-tx15.current-split,
+.split-title-tx15-80-.current-split,
+.split-title-tx15--80--.current-split,
+.split-title-what-an-awesome-level.current-split,
+.split-title-what-an-awesome-level-80-.current-split,
+.split-title-what-an-awesome-level--80--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/tx15.png"); }
+
+/* TX16 */
+.split-title-tx16.current-split,
+.split-title-tx16-97-.current-split,
+.split-title-tx16--97--.current-split,
+.split-title-mary-poppins--land.current-split,
+.split-title-mary-poppins--land-97-.current-split,
+.split-title-mary-poppins--land--97--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/tx16.png"); }
+
+/* TX20 */
+.split-title-tx20.current-split,
+.split-title-tx20-88-.current-split,
+.split-title-tx20--88--.current-split,
+.split-title-walk-the-web-rope.current-split,
+.split-title-walk-the-web-rope-88-.current-split,
+.split-title-walk-the-web-rope--88--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/tx20.png"); }
+
+/* TX21 */
+.split-title-tx21.current-split,
+.split-title-tx21-100-.current-split,
+.split-title-tx21--100--.current-split,
+.split-title-feel-the-heat-.current-split,
+.split-title-feel-the-heat--100-.current-split,
+.split-title-feel-the-heat---100--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/tx21.png"); }
+
+/* TX24 */
+.split-title-tx24.current-split,
+.split-title-tx24-99-.current-split,
+.split-title-tx24--99--.current-split,
+.split-title-take-a-running-jump-----.current-split,
+.split-title-take-a-running-jump------99-.current-split,
+.split-title-take-a-running-jump-------99--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/tx24.png");}
+
+/* TX26 */
+.split-title-tx26.current-split,
+.split-title-tx26-99-.current-split,
+.split-title-tx26--99--.current-split,
+.split-title-triple-trouble.current-split,
+.split-title-triple-trouble-99-.current-split,
+.split-title-triple-trouble--99--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/tx26.png");}
+
+/* TX27 */
+.split-title-tx27.current-split,
+.split-title-tx27-60-.current-split,
+.split-title-tx27--60--.current-split,
+.split-title-call-in-the-bomb-squad.current-split,
+.split-title-call-in-the-bomb-squad-60-.current-split,
+.split-title-call-in-the-bomb-squad--60--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/tx27.png");}
+
+/* TX28 */
+.split-title-tx28.current-split,
+.split-title-tx28-70-.current-split,
+.split-title-tx28--70--.current-split,
+.split-title-poor-wee-creatures-.current-split,
+.split-title-poor-wee-creatures--70-.current-split,
+.split-title-poor-wee-creatures---70--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/tx28.png"); }
+
+/* M1 */
+.split-title-m1.current-split,
+.split-title-m1-90-.current-split,
+.split-title-m1--90--.current-split,
+.split-title-steel-works.current-split,
+.split-title-steel-works-90-.current-split,
+.split-title-steel-works--90--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/m1.png"); }
+
+/* M2 */
+.split-title-m2.current-split,
+.split-title-m2-90-.current-split,
+.split-title-m2--90--.current-split,
+.split-title-the-boiler-room.current-split,
+.split-title-the-boiler-room-90-.current-split,
+.split-title-the-boiler-room--90--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/m2.png"); }
+
+/* M8 */
+.split-title-m8.current-split,
+.split-title-m8-90-.current-split,
+.split-title-m8--90--.current-split,
+.split-title-last-one-out-is-a-rotten-egg-.current-split,
+.split-title-last-one-out-is-a-rotten-egg--90-.current-split,
+.split-title-last-one-out-is-a-rotten-egg---90--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/m8.png"); }
+
+/* M10 */
+.split-title-m10.current-split,
+.split-title-m10-66-.current-split,
+.split-title-m10--66--.current-split,
+.split-title-pillars-of-hercules.current-split,
+.split-title-pillars-of-hercules-66-.current-split,
+.split-title-pillars-of-hercules--66--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/m10.png"); }
+
+/* M12 */
+.split-title-m12.current-split,
+.split-title-m12-100-.current-split,
+.split-title-m12--100--.current-split,
+.split-title-the-far-side.current-split,
+.split-title-the-far-side-100-.current-split,
+.split-title-the-far-side--100--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/m12.png"); }
+
+/* M14 */
+.split-title-m14.current-split,
+.split-title-m14-93-.current-split,
+.split-title-m14--93--.current-split,
+.split-title-pea-soup.current-split,
+.split-title-pea-soup-93-.current-split,
+.split-title-pea-soup--93--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/m14.png"); }
+
+/* M16 */
+.split-title-m16.current-split,
+.split-title-m16-100-.current-split,
+.split-title-m16--100--.current-split,
+.split-title-just-a-minute---.current-split,
+.split-title-just-a-minute----100-.current-split,
+.split-title-just-a-minute-----100--.current-split,
+.split-title-m27.current-split,
+.split-title-m27-100-.current-split,
+.split-title-m27--100--.current-split,
+.split-title-just-a-minute--part-two-.current-split,
+.split-title-just-a-minute--part-two--100-.current-split,
+.split-title-just-a-minute--part-two---100--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/m16-m27.png"); }
+
+/* M17 */
+.split-title-m17.current-split,
+.split-title-m17-87-.current-split,
+.split-title-m17--87--.current-split,
+.split-title-stepping-stones.current-split,
+.split-title-stepping-stones-87-.current-split,
+.split-title-stepping-stones--87--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/m17.png"); }
+
+/* M18 */
+.split-title-m18.current-split,
+.split-title-m18-90-.current-split,
+.split-title-m18--90--.current-split,
+.split-title-and-than-there-were-four----.current-split,
+.split-title-and-than-there-were-four-----90-.current-split,
+.split-title-and-than-there-were-four------90--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/m18.png"); }
+
+/* M22 */
+.split-title-m22.current-split,
+.split-title-m22-85-.current-split,
+.split-title-m22--85--.current-split,
+.split-title-a-beastii-of-a-level.current-split,
+.split-title-a-beastii-of-a-level-85-.current-split,
+.split-title-a-beastii-of-a-level--85--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/m22.png"); }
+
+/* M23 */
+.split-title-m23.current-split,
+.split-title-m23-80-.current-split,
+.split-title-m23--80--.current-split,
+.split-title-going-up-------.current-split,
+.split-title-going-up--------80-.current-split,
+.split-title-going-up---------80--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/m23.png"); }
+
+/* M28 */
+.split-title-m28.current-split,
+.split-title-m28-100-.current-split,
+.split-title-m28--100--.current-split,
+.split-title-mind-the-step-----.current-split,
+.split-title-mind-the-step------100-.current-split,
+.split-title-mind-the-step-------100--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/m28.png"); }
+
+/* M29 */
+.split-title-m29.current-split,
+.split-title-m29-80-.current-split,
+.split-title-m29--80--.current-split,
+.split-title-save-me.current-split,
+.split-title-save-me-80-.current-split,
+.split-title-save-me--80--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/m29.png"); }
+
+/* M30 */
+.split-title-m30.current-split,
+.split-title-m30-75-.current-split,
+.split-title-m30--75--.current-split,
+.split-title-rendezvous-at-the-mountain.current-split,
+.split-title-rendezvous-at-the-mountain-75-.current-split,
+.split-title-rendezvous-at-the-mountain--75--.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/lemmings/m30.png"); }
+
+
+/***********************************************************   *************************
+ *  SUPER MARIO PARTY JAMBOREE - Party-Planer Trek (any%)  *   *  splits by TotorRuns  *
+ ***********************************************************   ************************/
+/* Gomba Lagoon */
+.split-title-goomba-lagoon.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/smpj/gl.png"); }
+
+/* Mega Wiggler's Tree Party */
+.split-title-mega-wiggler-s-tree-party.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/smpj/mwtp.png"); }
+
+/* Rainbow Galleria */
+.split-title-rainbow-galleria.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/smpj/rg.png"); }
+
+/* Roll 'em Raceway */
+.split-title-roll--em-raceway.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/smpj/rer.png"); }
+
+/* King Bowser's Keep */
+.split-title-king-bowser-s-keep.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/smpj/kbk.png"); }
+
+
+/**************************************************   *************************
+ *  PHOENIX WRIGHT ACE ATTORNEY - original cases  *   *  splits by TotorRuns  *
+ **************************************************   ************************/
+/* The First Turnabout */
+.split-title-the-first-turnabout.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/pwaa/tft.png"); }
+
+/* Turnabout Sisters */
+.split-title-turnabout-sisters.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/pwaa/tsi.png"); }
+
+/* Turnabout Samurai */
+.split-title-turnabout-samurai.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/pwaa/tsa.png"); }
+
+/* Turnabout Goodbyes */
+.split-title-turnabout-goodbyes.current-split { background-image: url("https://gitlab.com/AsahiNyan/real-ann/-/raw/main/pwaa/tg.png"); }
