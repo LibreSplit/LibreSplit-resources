@@ -79,14 +79,22 @@ function find_interface()
     return false;
 end
 
+local init = false;
+
 function startup()
-    refreshRate = 60;
+    refreshRate = 120;
     useGameTime = true;
-    find_interface();
+    if find_interface() then
+        init = true
+    end
 end
 
 function state()
-    update_sar()
+    if init then
+        update_sar()
+    else
+        find_interface()
+    end
 end
 
 function gameTime()
@@ -99,5 +107,9 @@ function start()
 end
 
 function reset()
-    return action_changed and SAR.action == 5;
+    return action_changed() and SAR.action == 5;
+end
+
+function split()
+    return action_changed() and (SAR.action == 3 or SAR.action == 4);
 end
