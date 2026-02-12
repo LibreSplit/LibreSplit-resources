@@ -1,0 +1,331 @@
+/***************************
+* "Asahi-Ann" by AsahiNyan *
+***************************/
+
+@define-color default-background #181818;
+@define-color alt-background #2c2c2c;
+@define-color last-split-bg #9e9e9e;
+@define-color default-text #ffffff;
+@define-color attempt-text #878787;
+@define-color time-text #e7e7e7;
+@define-color behind-bg #da4453;
+@define-color sob-bg #f6a400;
+@define-color sob-fg #ffecce;
+@define-color ahead-bg #60d12b;
+@define-color done-bg #1a6dea;
+@define-color wr-fg #d4ecff;
+@define-color losing-t #ff2b2b;
+@define-color losing-bg @losing-t;
+@define-color ahead-fg #91c949;
+@define-color behind-fg #ff5aa2;
+@define-color losing-fg #ff2e2e;
+@define-color sob-fg #ffa333;
+
+* {
+    font-weight: 900;
+}
+
+scrollbar* {
+    background-color: transparent;
+    border: none;
+    color: transparent;
+}
+
+.window,
+.header {
+    background-color: @default-background;
+    color: @default-text;
+}
+
+.title {
+    color: @default-text;
+    font-weight: 900;
+    font-size: 16pt;
+}
+
+.attempt-count {
+    color: @attempt-text;
+    font-size: 12pt;
+    font-weight: 700;
+    padding-top: 6px;
+}
+
+.time {
+    color: @time-text;
+}
+
+.time.behind,
+.time.best-segment,
+time.best-split,
+.time.losing {
+    color: @default-color;
+}
+
+.timer {
+    font-size: 24pt;
+    font-family: Noto Sans Mono CJK JP;
+    font-weight: 900;
+    color: @ahead-bg;
+    background-color: alpha(currentcolor, 0.3);
+    padding: 0px 10px 4px 30px;
+    margin-bottom: 10px;
+    margin-top: 9px;
+    border-radius: 100px;
+    transition: 0.7s background-color ease;
+}
+
+.timer .timer-millis {
+    font-size: 17pt;
+    background-color: transparent;
+    padding-bottom: 3px;
+    color: alpha(@ahead-bg, 0.7);
+}
+
+.timer.behind .timer-millis {
+    color: alpha(@behind-bg, 0.7);
+}
+
+.timer.losing .timer-millis {
+    color: alpha(@losing-bg, 0.7);
+}
+
+.timer.delay .timer-millis {
+    color: alpha(@done-bg, 0.7);
+}
+
+.timer.behind,
+.timer.behind:backdrop {
+    background-color: alpha(currentcolor, 0.3);
+    color: @behind-bg;
+    transition: 0.7s background-color ease;
+    margin-bottom: 10px;
+}
+
+.timer.losing,
+.timer.losing:backdrop {
+    background-color: alpha(currentcolor, 0.3);
+    color: @losing-bg;
+    transition: 0.7s background-color ease;
+    margin-bottom: 10px;
+}
+
+.timer.delay,
+.timer.delay:backdrop,
+.timer.done,
+.timer.done:backdrop {
+    background-color: alpha(currentcolor, 0.3);
+    color: @done-bg;
+    transition: 0.7s background-color ease;
+    margin-bottom: 10px;
+}
+
+.split {
+    padding: 0px 10px 0px 10px;
+    margin: 2px 0px 2px 0px;
+    border-radius: 50px;
+    min-height: 25px;
+    background-color: transparent;
+}
+
+.split-title {
+    font-weight: 700;
+}
+
+.split-icon {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    margin-right: 3px;
+    border-radius: 100%;
+}
+
+.split-time {
+    color: @time-text;
+    font-weight: 500;
+}
+
+.split-last {
+    font-weight: 900;
+    background-color: alpha(@last-split-bg, 0.08);
+    border-radius: 50px;
+    margin-bottom: 2px;
+    margin-top: 0px;
+}
+
+.current-split {
+    background-color: alpha(currentcolor, 0.3);
+    color: @done-bg;
+    font-weight: 700;
+    transition: 0.3s background-color ease;
+}
+
+.current-split .split-time {
+    color: alpha(@done-bg, 0.8);
+}
+
+.split-delta {
+    color: @ahead-bg;
+    background-color: transparent;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    border-radius: 50px;
+    transition: ease 0.3s background-color;
+    min-width: 60px;
+}
+
+.current-split .delta,
+.current-split .split-delta,
+.delta {
+    color: @ahead-bg;
+    background-color: alpha(currentcolor, 0.3);
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    border-radius: 50px;
+    transition: ease 0.3s background-color;
+    min-width: 60px;
+}
+
+.behind,
+.current-split .delta.behind {
+    color: @behind-bg;
+    background-color: alpha(currentcolor, 0.3);
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    border-radius: 50px;
+    transition: ease 0.3s background-color;
+    min-width: 60px;
+}
+
+.losing,
+.current-split .delta.losing {
+    color: @losing-bg;
+    background-color: alpha(currentcolor, 0.3);
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    border-radius: 50px;
+    transition: ease 0.3s background-color;
+    min-width: 60px;
+}
+
+.best-segment,
+.current-split .delta.best-segment {
+    color: @sob-bg;
+    background-color: alpha(currentcolor, 0.3);
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    border-radius: 50px;
+    transition: ease 0.3s background-color;
+    min-width: 60px;
+}
+
+box.footer {
+    border-radius: 20px;
+    background-color: @alt-background;
+    font-weight: 700;
+}
+
+box.footer > .prev-segment-label,
+box.footer > .prev-segment {
+    background-color: @alt-background;
+    padding: 10px 10px 5px 10px;
+    border-radius: 20px 20px 0px 0px;
+}
+
+box.footer > .sum-of-bests-label,
+box.footer > .sum-of-bests {
+    background-color: @alt-background;
+    padding: 5px 10px 5px 10px;
+    border-radius: 0px;
+}
+
+box.footer > .personal-best-label,
+box.footer > .personal-best {
+    background-color: @alt-background;
+    padding: 5px 10px 10px 10px;
+    border-radius: 0px 0px 20px 20px;
+}
+
+.window box.footer:nth-child(7) {
+    background-color: transparent;
+}
+
+.prev-segment {
+    color: @ahead-bg;
+    font-weight: 900;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    border-radius: 0px;
+    transition: ease 0.3s background-color;
+    min-width: 0px;
+}
+
+.prev-segment.behind {
+    color: @behind-fg;
+    font-weight: 900;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    border-radius: 0px;
+    transition: ease 0.3s background-color;
+    min-width: 0px;
+}
+
+.prev-segment.losing {
+    color: @losing-fg;
+    font-weight: 900;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    border-radius: 0px;
+    transition: ease 0.3s background-color;
+    min-width: 0px;
+}
+
+.prev-segment.best-segment {
+    color: @sob-fg;
+    font-weight: 900;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    border-radius: 0px;
+    transition: ease 0.3s background-color;
+    min-width: 0px;
+}
+
+.sum-of-bests {
+    color: @sob-fg;
+    font-weight: 900;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    border-radius: 0px;
+    transition: ease 0.3s background-color;
+    min-width: 0px;
+}
+
+.personal-best {
+    color: @ahead-fg;
+    font-weight: 900;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    border-radius: 0px;
+    transition: ease 0.3s background-color;
+    min-width: 0px;
+}

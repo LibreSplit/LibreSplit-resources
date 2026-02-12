@@ -1,0 +1,93 @@
+{
+  "title": "Quake FullGame Easy",
+  "attempt_count": 0,
+  "finished_count": 0,
+  "splits": [
+    {
+      "title": "Start"
+    },
+    {
+      "title": "E4M1"
+    },
+    {
+      "title": "E4M2"
+    },
+    {
+      "title": "E4M3"
+    },
+    {
+      "title": "E4M4"
+    },
+    {
+      "title": "E4M5"
+    },
+    {
+      "title": "E4M6"
+    },
+    {
+      "title": "E4M7"
+    },
+    {
+      "title": "E3M1"
+    },
+    {
+      "title": "E3M2"
+    },
+    {
+      "title": "E3M3"
+    },
+    {
+      "title": "E3M4"
+    },
+    {
+      "title": "E3M5"
+    },
+    {
+      "title": "E3M6"
+    },
+    {
+      "title": "E2M1"
+    },
+    {
+      "title": "E2M2"
+    },
+    {
+      "title": "E2M3"
+    },
+    {
+      "title": "E2M4"
+    },
+    {
+      "title": "E2M5"
+    },
+    {
+      "title": "E2M6"
+    },
+    {
+      "title": "E1M1"
+    },
+    {
+      "title": "E1M2"
+    },
+    {
+      "title": "E1M3"
+    },
+    {
+      "title": "E1M4"
+    },
+    {
+      "title": "E1M5"
+    },
+    {
+      "title": "E1M6"
+    },
+    {
+      "title": "E1M7"
+    },
+    {
+      "title": "END"
+    }
+  ],
+  "width": 500,
+  "height": 465
+}
