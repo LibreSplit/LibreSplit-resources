@@ -38,7 +38,7 @@ function update()
         current.isLoading = true
     end
 
-    if b_and(old.raceState, 0x400) == 0 and b_and(current.raceState, 0x400) ~= 0 then
+    if bit.band(old.raceState, 0x400) == 0 and bit.band(current.raceState, 0x400) ~= 0 then
         current.isLoading = true
     end
 
@@ -60,7 +60,7 @@ end
 
 function start()
 
-    if current.playground == 0 or current.playerInfosBufferSize == 0 or current.currentPlayerInfo == 0 or b_and(current.raceState, 0x200) == 0 then
+    if current.playground == 0 or current.playerInfosBufferSize == 0 or current.currentPlayerInfo == 0 or bit.band(current.raceState, 0x200) == 0 then
         return false
     elseif (old.raceTime < 0 and current.raceTime >= 0) then
         currentRunTime = current.raceTime
@@ -77,27 +77,27 @@ function split()
     end
 
     --Race state isn't 0
-    if b_and(old.raceState, 0x400) == 0 and b_and(current.raceState, 0x400) ~= 0 then
+    if bit.band(old.raceState, 0x400) == 0 and bit.band(current.raceState, 0x400) ~= 0 then
         totalRunTime = totalRunTime + currentRunTime
         print("Split: ", totalRunTime)
         return true
     end
-    
+
     return false
 end
 
 function gameTime()
 
-    if current.playground == 0 or current.playerInfosBufferSize == 0 or current.currentPlayerInfo == 0 or b_and(current.raceState, 0x200) == 0 then
+    if current.playground == 0 or current.playerInfosBufferSize == 0 or current.currentPlayerInfo == 0 or bit.band(current.raceState, 0x200) == 0 then
         return sumGameTime
     end
-    
+
     if current.raceTime >= 0 then
         local oldRaceTime = math.max(old.raceTime, 0)
         local newRaceTime = math.max(current.raceTime, 0)
         currentRunTime = currentRunTime + (newRaceTime - oldRaceTime)
         sumGameTime = currentRunTime + totalRunTime
     end
-    
+
     return sumGameTime
 end
