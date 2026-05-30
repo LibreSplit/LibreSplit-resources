@@ -1,0 +1,22 @@
+{
+  "title": "Hard Rain",
+  "splits": [
+    {
+      "title": "Milltown A"
+    },
+    {
+      "title": "Sugarmill A"
+    },
+    {
+      "title": "Sugarmill B"
+    },
+    {
+      "title": "Milltown B"
+    },
+    {
+      "title": "Milltown Escape"
+    }
+  ],
+  "width": 300,
+  "height": 400
+}

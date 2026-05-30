@@ -1,0 +1,22 @@
+{
+  "title": "Dark Carnival",
+  "splits": [
+    {
+      "title": "Highway"
+    },
+    {
+      "title": "Fairgrounds"
+    },
+    {
+      "title": "Coaster"
+    },
+    {
+      "title": "Barns"
+    },
+    {
+      "title": "Concert"
+    }
+  ],
+  "width": 300,
+  "height": 400
+}

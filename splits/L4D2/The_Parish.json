@@ -1,0 +1,22 @@
+{
+  "title": "The Parish",
+  "splits": [
+    {
+      "title": "Waterfront"
+    },
+    {
+      "title": "Park"
+    },
+    {
+      "title": "Cemetary"
+    },
+    {
+      "title": "Quarter"
+    },
+    {
+      "title": "Bridge"
+    }
+  ],
+  "width": 300,
+  "height": 400
+}

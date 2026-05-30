@@ -1,0 +1,21 @@
+{
+  "title": "Dead Center",
+  "attempt_count": 229,
+  "finished_count": 16,
+  "splits": [
+    {
+      "title": "Hotel"
+    },
+    {
+      "title": "Streets"
+    },
+    {
+      "title": "Mall"
+    },
+    {
+      "title": "Atrium"
+    }
+  ],
+  "width": 300,
+  "height": 400
+}
