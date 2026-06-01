@@ -142,7 +142,6 @@ function split()
         if current.whatsLoading == lastSplit then
             return false
         end
-        print("finale split")
         lastSplit = current.whatsLoading
         return true
     elseif current.cutscenePlaying and not old.cutscenePlaying and campaignsLastMaps[current.whatsLoading] then
