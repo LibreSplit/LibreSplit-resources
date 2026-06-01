@@ -1,4 +1,4 @@
--- Left 4 Dead 2 autosplitter for V200 version
+-- Left 4 Dead 2 autosplitter for V2000 version
 -- Ported from the L4D2 LiveSplit ASL (WIP)
 process("left4dead2.exe")
 
