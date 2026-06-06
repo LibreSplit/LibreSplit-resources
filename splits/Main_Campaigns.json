@@ -1,0 +1,76 @@
+{
+  "title": "Main Campaigns",
+  "splits": [
+    {
+      "title": "Dark Carnival - Highway"
+    },
+    {
+      "title": "Dark Carnival - Fairgrounds"
+    },
+    {
+      "title": "Dark Carnival - Coaster"
+    },
+    {
+      "title": "Dark Carnival - Barns"
+    },
+    {
+      "title": "Dark Carnival - Concert"
+    },
+    {
+      "title": "The Parish - Waterfront"
+    },
+    {
+      "title": "The Parish - Park"
+    },
+    {
+      "title": "The Parish - Cemetary"
+    },
+    {
+      "title": "The Parish - Quarter"
+    },
+    {
+      "title": "The Parish - Bridge"
+    },
+    {
+      "title": "Dead Center - Hotel"
+    },
+    {
+      "title": "Dead Center - Streets"
+    },
+    {
+      "title": "Dead Center - Mall"
+    },
+    {
+      "title": "Dead Center - Atrium"
+    },
+    {
+      "title": "Hard Rain - Milltown A"
+    },
+    {
+      "title": "Hard Rain - Sugarmill A"
+    },
+    {
+      "title": "Hard Rain - Sugarmill B"
+    },
+    {
+      "title": "Hard Rain - Milltown B"
+    },
+    {
+      "title": "Hard Rain - Milltown Escape"
+    },
+    {
+      "title": "Swamp Fever - Plank Country"
+    },
+    {
+      "title": "Swamp Fever - Swamp"
+    },
+    {
+      "title": "Swamp Fever - Shanty Town"
+    },
+    {
+      "title": "Swamp Fever - Plantation"
+    }
+  ],
+  "width": 300,
+  "height": 400
+}
