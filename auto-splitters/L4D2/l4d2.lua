@@ -9,6 +9,7 @@ local settings = {
 }
 
 local engineAndClientSizesAndOffsets = {
+    -- V2000 offsets
     ["335872_4837376"] = {
         whatsLoading = 0x3C9988,
         gameLoading = 0x5CC89C,
@@ -18,6 +19,7 @@ local engineAndClientSizesAndOffsets = {
         svCheats = 0x6DB040,
         cutscenePlaying = 0x66CEEC
     },
+    -- V2045 offsets
     ["348160_4771840"] = {
         gameLoading = 0x5DE494,
         whatsLoading = 0x3D2A00,
