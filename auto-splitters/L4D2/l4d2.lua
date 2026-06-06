@@ -8,6 +8,27 @@ local settings = {
     scoreboardVSgameLoading = true
 }
 
+local engineAndClientSizesAndOffsets = {
+    ["335872_4837376"] = {
+        whatsLoading = 0x3C9988,
+        gameLoading = 0x5CC89C,
+        hasControl = 0x68FBD4,
+        scoreboardLoad = 0x6DB58D,
+        finaleTrigger = 0x6ED414,
+        svCheats = 0x6DB040,
+        cutscenePlaying = 0x66CEEC
+    },
+    ["348160_4771840"] = {
+        gameLoading = 0x5DE494,
+        whatsLoading = 0x3D2A00,
+        hasControl = 0x6A9C64,
+        scoreboardLoad = 0x6F57BD,
+        finaleTrigger = 0x707824,
+        svCheats = 0x6F5270,
+        cutscenePlaying = 0x686F7C
+    },
+}
+
 local current = {
     whatsLoading = "",
     isLoading = false,
@@ -26,31 +47,37 @@ local old = {
     cutscenePlaying = false
 }
 
-local loadCount = 0
+local function getOffsets()
+    local engineSize = getModuleSize("engine.dll")
+    local clientSize = getModuleSize("Client.dll")
 
--- VERSION 2000 OFFSETS
-local offsets = {
-    whatsLoading = 0x3C9988,
-    gameLoading = 0x5CC89C,
-    hasControl = 0x68FBD4,
-    scoreboardLoad = 0x6DB58D,
-    finaleTrigger = 0x6ED414,
-    svCheats = 0x6DB040,
-    cutscenePlaying = 0x66CEEC
-}
+    -- UNCOMMENT WHEN DEBUGGING
+    -- print("Engine Size: " .. tostring(getModuleSize("engine.dll")))
+    -- print("Client Size: " .. tostring(getModuleSize("Client.dll")))
+
+    local key = string.format("%s_%s", engineSize, clientSize)
+
+    if engineSize ~= nil or clientSize ~= nil then
+        return engineAndClientSizesAndOffsets[key]
+    else
+        return nil
+    end
+end
+
+local offsets = getOffsets()
 
 -- More maps should be added here when more versions are supported
 -- in the near future
 local campaignsLastMaps = {
     c5m5_bridge = true
 }
-local campaignsFirstMaps = {
-    c1m1_hotel        = true,
-    c2m1_highway      = true,
-    c3m1_plankcountry = true,
-    c4m1_milltown_a   = true,
-    c5m1_waterfront   = true
-}
+-- local campaignsFirstMaps = {
+--     c1m1_hotel        = true,
+--     c2m1_highway      = true,
+--     c3m1_plankcountry = true,
+--     c4m1_milltown_a   = true,
+--     c5m1_waterfront   = true
+-- }
 
 local cutsceneStart = nil
 local lastSplit = ""
@@ -85,6 +112,11 @@ function startup()
 end
 
 function state()
+    if offsets == nil then
+        offsets = getOffsets()
+        return
+    end
+
     tickCount = tickCount + 1
     old = shallow_copy_tbl(current)
     current.whatsLoading = readAddress("string30", "engine.dll", offsets.whatsLoading)
@@ -105,12 +137,6 @@ function state()
     -- print("cutscenePlaying: " .. tostring(current.cutscenePlaying))
     -- print("lastSplit: " .. lastSplit)
     -- print()
-end
-
-function update()
-    if not current.isLoading and old.isLoading then
-        loadCount = loadCount + 1
-    end
 end
 
 function start()
