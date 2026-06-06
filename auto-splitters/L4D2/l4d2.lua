@@ -1,6 +1,6 @@
 -- Left 4 Dead 2 autosplitter for V2000 version
 -- Ported from the L4D2 LiveSplit ASL (WIP)
-process("left4dead2.exe")
+cmdline("left4dead2.exe")
 
 local settings = {
     -- DEFAULT : TRUE
