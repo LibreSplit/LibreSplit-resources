@@ -152,6 +152,11 @@ function state()
 end
 
 function start()
+    if current.svCheats then
+        cutsceneStart = nil
+        return false
+    end
+
     if current.hasControl and not current.isLoading then
         if cutsceneStart ~= nil and cutsceneElapsed() >= cutsceneMinTicks then
             cutsceneStart = nil
