@@ -54,8 +54,8 @@ local function getOffsets()
     local clientSize = getModuleSize("Client.dll")
 
     -- UNCOMMENT WHEN DEBUGGING
-    -- print("Engine Size: " .. tostring(getModuleSize("engine.dll")))
-    -- print("Client Size: " .. tostring(getModuleSize("Client.dll")))
+    print("Engine Size: " .. tostring(getModuleSize("engine.dll")))
+    print("Client Size: " .. tostring(getModuleSize("Client.dll")))
 
     local key = string.format("%s_%s", engineSize, clientSize)
 
@@ -130,15 +130,15 @@ function state()
     current.cutscenePlaying = readAddress("bool", "Client.dll", offsets.cutscenePlaying)
 
     -- -- UNCOMMENT WHEN DEBUGGING
-    -- print("map: " .. current.whatsLoading)
-    -- print("hasControl: " .. tostring(current.hasControl))
-    -- print("game loading: " .. tostring(current.isLoading))
-    -- print("scoreboardLoad: " .. tostring(current.scoreboardLoading))
-    -- print("sv_cheats: " .. tostring(current.svCheats))
-    -- print("finaleTrigger: " .. tostring(current.finaleTrigger))
-    -- print("cutscenePlaying: " .. tostring(current.cutscenePlaying))
-    -- print("lastSplit: " .. lastSplit)
-    -- print()
+--     print("map: " .. current.whatsLoading)
+--     print("hasControl: " .. tostring(current.hasControl))
+--     print("game loading: " .. tostring(current.isLoading))
+--     print("scoreboardLoad: " .. tostring(current.scoreboardLoading))
+--     print("sv_cheats: " .. tostring(current.svCheats))
+--     print("finaleTrigger: " .. tostring(current.finaleTrigger))
+--     print("cutscenePlaying: " .. tostring(current.cutscenePlaying))
+--     print("lastSplit: " .. lastSplit)
+--     print()
 end
 
 function start()
