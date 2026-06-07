@@ -19,6 +19,16 @@ local engineAndClientSizesAndOffsets = {
         svCheats = 0x6DB040,
         cutscenePlaying = 0x66CEEC
     },
+    -- V2012 offsets
+    ["339968_4825088"] = {
+        whatsLoading = 0x3CD988,
+        gameLoading = 0x5D091C,
+        hasControl = 0x699164,
+        scoreboardLoad = 0x6E4C85,
+        finaleTrigger = 0x6F6B14,
+        svCheats = 0x6E4738,
+        cutscenePlaying = 0x67647C
+    },
     -- V2045 offsets
     ["348160_4771840"] = {
         gameLoading = 0x5DE494,
