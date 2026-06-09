@@ -1,0 +1,22 @@
+{
+  "title": "Death Toll",
+  "splits": [
+    {
+      "title": "Turnpike"
+    },
+    {
+      "title": "Drains"
+    },
+    {
+      "title": "Church"
+    },
+    {
+      "title": "Town"
+    },
+    {
+      "title": "Boathouse"
+    }
+  ],
+  "width": 300,
+  "height": 400
+}

@@ -1,0 +1,23 @@
+{
+  "title": "Dead Air",
+  "splits": [
+    {
+      "title": "Greenhouse"
+    },
+    {
+      "title": "Crane"
+    },
+    {
+      "title": "Construction Site"
+    },
+    {
+      "title": "Terminal"
+    },
+    {
+      "title": "Runway"
+    }
+  ],
+  "width": 300,
+  "height": 400
+}
+

@@ -1,0 +1,13 @@
+{
+  "title": "Crash Course",
+  "splits": [
+    {
+      "title": "Alleys"
+    },
+    {
+      "title": "Truck Depot"
+    }
+  ],
+  "width": 300,
+  "height": 400
+}

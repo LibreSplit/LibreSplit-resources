@@ -1,0 +1,23 @@
+{
+  "title": "Blood Harvest",
+  "splits": [
+    {
+      "title": "Woods"
+    },
+    {
+      "title": "Tunnel"
+    },
+    {
+      "title": "Bridge"
+    },
+    {
+      "title": "Train Station"
+    },
+    {
+      "title": "Farmhouse"
+    }
+  ],
+  "width": 300,
+  "height": 400
+}
+
