@@ -152,7 +152,10 @@ local offsets = getOffsets()
 -- More maps should be added here when more versions are supported
 -- in the near future
 local campaignsLastMaps = {
-    c5m5_bridge = true
+    c5m5_bridge          = true,
+    c6m3_port            = true,
+    c7m3_port            = true,
+    c13m4_cutthroatcreek = true
 }
 -- local campaignsFirstMaps = {
 --     c1m1_hotel        = true,
