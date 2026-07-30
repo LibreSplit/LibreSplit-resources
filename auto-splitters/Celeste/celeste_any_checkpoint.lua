@@ -58,7 +58,7 @@ local route = {
 local templeA = { "b-00", "c-00", "d-00", "e-00", "Clear" }
 local templeB = { "b-00", "Enter", "b-00", "c-00", "d-00", "Clear" }
 local reflectionA = { "00", "04", "b-00", "boss-00", "after-00", "Clear" }
-local reflectionB = { "00", "Enter", "b-00", "c-00", "d-00", "Clear" }
+local reflectionB = { "00", "04", "Enter", "b-00", "c-00", "d-00", "Clear" }
 
 function lookupClass(classCache, name)
     local celesteClassCacheTable = readAddress("uint", classCache + 0x20)
