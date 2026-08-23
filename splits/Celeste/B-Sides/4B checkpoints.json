@@ -1,0 +1,69 @@
+{
+  "title": "Celeste 4B (checkpoints)",
+  "attempt_count": 0,
+  "splits": [
+    {
+      "title": "Start",
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
+    },
+    {
+      "title": "Stepping Stones",
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
+    },
+    {
+      "title": "Gusty Canyon",
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
+    },
+    {
+      "title": "Eye of the Storm",
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
+    }
+  ],
+  "comparison_method": 1,
+  "width": 400,
+  "height": 600
+}
