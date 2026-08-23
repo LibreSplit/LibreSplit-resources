@@ -4,53 +4,126 @@
   "splits": [
     {
       "title": "Prologue",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "City",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "Site",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "Resort",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "Ridge",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "Temple",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "Reflection",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "Summit",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     }
   ],
+  "comparison_method": 1,
   "width": 400,
   "height": 600
 }

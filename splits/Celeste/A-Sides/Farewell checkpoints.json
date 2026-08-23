@@ -4,59 +4,141 @@
   "splits": [
     {
       "title": "Start",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "Singular",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "Power Source",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "Remembered",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "Event Horizon",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "Determination",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "Stubbornness",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "Reconciliation",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "Farewell",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     }
   ],
+  "comparison_method": 1,
   "width": 400,
   "height": 600
 }

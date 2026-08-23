@@ -4,215 +4,531 @@
   "splits": [
     {
       "title": "Prologue",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "-Start",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "-Crossing",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "{Forsaken City} Chasm",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "-Start",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "-Intervention",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "{Old Site} Awake",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "-Start",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "-Huge Mess",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "-Elevator Shaft",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "{Celestial Resort} Presidential Suite",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "-Start",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "-Shrine",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "-Old Trail",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "{Golden Ridge} Cliff Face",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "-Start",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "-Cassette",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "-5B Start",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "-Central Chamber",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "-Through the Mirror",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "{Mirror Temple} Mix Master",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "-Start",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "-Lake",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "-Cassette",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "-6b Start",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "-Reflection",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "-Rock Bottom",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "{Reflection} Resolution",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "-0m",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "-500m",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "-1000m",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "-1500m",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "-2000m",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "-2500m",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "{The Summit} 3000m",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     }
   ],
+  "comparison_method": 1,
   "width": 400,
   "height": 600
 }

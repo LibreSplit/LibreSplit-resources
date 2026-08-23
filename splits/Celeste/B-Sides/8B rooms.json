@@ -4,143 +4,351 @@
   "splits": [
     {
       "title": "-00",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "{Start} 01",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "-a-00",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "-a-01",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "-a-02",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "-a-03",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "-a-04",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "{Into the Core} a-05",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "-b-00",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "-b-01",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "-b-02",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "-b-03",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "-b-04",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "{Burning or Freezing} b-05",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "-c-01",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "-c-02",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "-c-03",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "{Heartbeat ↑} c-04",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "-c-05",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "-c-06",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "-c-08",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "-c-07",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "{Heartbeat →} space",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     }
   ],
+  "comparison_method": 1,
   "width": 400,
   "height": 600
 }

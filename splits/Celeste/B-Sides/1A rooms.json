@@ -4,125 +4,306 @@
   "splits": [
     {
       "title": "-1",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "-2",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "-3",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "-4",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "-5",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "{Start} 6",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "-7",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "-8",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "-9",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "-10",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "-11",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "-12",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "-13",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "{Crossing} 14",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "-15",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "-16",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "-17",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "-18",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "-19",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     },
     {
       "title": "{Chasm} 20",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
+      "time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_time": {
+        "real_time": "-",
+        "game_time": "-"
+      },
+      "best_segment": {
+        "real_time": "-",
+        "game_time": "-"
+      }
     }
   ],
+  "comparison_method": 1,
   "width": 400,
   "height": 600
 }
