@@ -8,24 +8,27 @@
     font-family: "Roboto", "Droid Sans", "Tahoma", "Arial", sans-serif;
     background: #263238;
 }
-.title, .attempt-count {
+.title,
+.attempt-count {
     padding-top: 4px;
     padding-bottom: 4px;
 }
 .attempt-count {
-    color: #FFC107;
+    color: #ffc107;
     padding-right: 4px;
 }
-.splits, .split-last {
+.splits,
+.split-last {
     font-size: 10pt;
-    text-shadow: 0px 1px 1px rgba(0,0,0,0.1);
+    text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
 }
-.split, .split-last {
+.split,
+.split-last {
     color: #fff;
     font-family: "Roboto", "Arial", sans-serif;
     font-weight: 100;
     background: transparent;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 .split-last {
     border: 0;
@@ -37,7 +40,7 @@
     color: #fff;
     background: #37474f;
     border: 0;
-    transition: .1s;
+    transition: 0.1s;
 }
 .split .split-time .done {
     color: #fff;
@@ -46,7 +49,12 @@
     color: #fff;
     background: transparent;
 }
-.split, .current-split, .split-title, .split-time, .split-delta, .split-last {
+.split,
+.current-split,
+.split-title,
+.split-time,
+.split-delta,
+.split-last {
     padding-top: 4px;
     padding-bottom: 4px;
     padding-left: 4px;
@@ -62,30 +70,31 @@
     font-family: "Roboto";
     background: transparent;
 }
-.best-split, .footer .previous-segment .best-split {
+.best-split,
+.footer .previous-segment .best-split {
     animation: blink-split 4s;
     animation-iteration-count: infinite;
     background-color: transparent;
 }
 @keyframes blink-split {
     0% {
-        color: #FFC107;
+        color: #ffc107;
     }
     50% {
-        color: #FFC107;
+        color: #ffc107;
     }
     75% {
-        color: #FFECB3;
+        color: #ffecb3;
     }
     100% {
-        color: #FFC107;
+        color: #ffc107;
     }
 }
 
 .timer {
-    text-shadow: 0px 2px 3px rgba(0,0,0,0.65);
-    color: #4CAF50;
-    transition: .5s;
+    text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.65);
+    color: #4caf50;
+    transition: 0.5s;
     font-weight: 100;
 }
 .timer-millis {
@@ -98,12 +107,12 @@
 }
 
 .losing {
-    color: #4CAF50;
-    transition: .5s;
+    color: #4caf50;
+    transition: 0.5s;
 }
 .behind {
-    color: #F44336;
-    transition: .5s;
+    color: #f44336;
+    transition: 0.5s;
 }
 .footer {
     color: #555;
@@ -112,12 +121,20 @@
 .split-last {
     color: #99a;
     border-top: 1px solid #888;
-    box-shadow: 0px -8px 16px rgba(33,33,33,1);
+    box-shadow: 0px -8px 16px rgba(33, 33, 33, 1);
 }
 .split-last .split-time {
     color: #99a;
 }
-.footer, .previous-segment-label, .previous-segment, .sum-of-bests-label, .sum-of-bests, .personal-best-label, .personal-best, .world-record-label, .world-record {
+.footer,
+.previous-segment-label,
+.previous-segment,
+.sum-of-bests-label,
+.sum-of-bests,
+.personal-best-label,
+.personal-best,
+.world-record-label,
+.world-record {
     padding-left: 4px;
     padding-right: 4px;
 }

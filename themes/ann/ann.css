@@ -224,22 +224,22 @@ box.footer {
     font-weight: 700;
 }
 
-box.footer>.prev-segment-label,
-box.footer>.prev-segment {
+box.footer > .prev-segment-label,
+box.footer > .prev-segment {
     background-color: @alt-background;
     padding: 10px 10px 5px 10px;
     border-radius: 20px 20px 0px 0px;
 }
 
-box.footer>.sum-of-bests-label,
-box.footer>.sum-of-bests {
+box.footer > .sum-of-bests-label,
+box.footer > .sum-of-bests {
     background-color: @alt-background;
     padding: 5px 10px 5px 10px;
     border-radius: 0px;
 }
 
-box.footer>.personal-best-label,
-box.footer>.personal-best {
+box.footer > .personal-best-label,
+box.footer > .personal-best {
     background-color: @alt-background;
     padding: 5px 10px 10px 10px;
     border-radius: 0px 0px 20px 20px;

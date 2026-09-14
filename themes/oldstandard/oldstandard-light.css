@@ -1,58 +1,76 @@
 .window {
-	font-family: "Roboto", "Droid Sans", "Tahoma", "Arial", sans-serif;
-	color: #000;
+    font-family: "Roboto", "Droid Sans", "Tahoma", "Arial", sans-serif;
+    color: #000;
     background: #fff;
 }
+
 .header {
     color: #fff;
-	font-family: "Roboto", "Droid Sans", "Tahoma", "Arial", sans-serif;
-	font-weight: bold;
+    font-family: "Roboto", "Droid Sans", "Tahoma", "Arial", sans-serif;
+    font-weight: bold;
     background: linear-gradient(#222, #111);
 }
-.title, .attempt-count {
+
+.title,
+.attempt-count {
     padding-top: 4px;
     padding-bottom: 4px;
 }
+
 .attempt-count {
-	color: #f70;
+    color: #f70;
     padding-right: 4px;
 }
-.splits, .split-last {
-	font-size: 10pt;
-    text-shadow: 0px 1px 1px rgba(0,0,0,0.1);
+
+.splits,
+.split-last {
+    font-size: 10pt;
+    text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
 }
-.split, .split-last {
-	color: #555;
-	font-family: "Roboto Condensed", "Arial Narrow", sans-serif;
+
+.split,
+.split-last {
+    color: #555;
+    font-family: "Roboto Condensed", "Arial Narrow", sans-serif;
     background: transparent;
 }
+
 .split {
     color: #000;
-    border-bottom: 1px solid rgba(0,0,0,0.15);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
 }
+
 .current-split {
     color: #fff;
     background: linear-gradient(#06b, #038);
-    box-shadow: 0px 0px 8px rgba(0,0,0,0.65);
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.65);
     border: 0;
-    transition: .1s;
+    transition: 0.1s;
 }
+
 .split .split-time .done {
     color: #000;
 }
+
 .current-split .split-time {
-	color: #fff;
+    color: #fff;
     background: transparent;
 }
-.split, .current-split, .split-title, .split-time, .split-delta, .split-last {
-	padding-top: 2px;
-	padding-bottom: 2px;
-	padding-left: 4px;
-	padding-right: 4px;
+
+.split,
+.current-split,
+.split-title,
+.split-time,
+.split-delta,
+.split-last {
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 4px;
+    padding-right: 4px;
 }
 
 .time {
-	font-family: "Roboto Black", "Droid Sans", "Tahoma", "Arial", sans-serif;
+    font-family: "Roboto Black", "Droid Sans", "Tahoma", "Arial", sans-serif;
     font-weight: bold;
     color: #000;
 }
@@ -61,49 +79,59 @@
     font-family: "Roboto Black";
     background: transparent;
 }
-.best-split, .footer .previous-segment .best-split {
+
+.best-split,
+.footer .previous-segment .best-split {
     animation: blink-split 4s;
     animation-iteration-count: infinite;
     background-color: transparent;
 }
+
 @keyframes blink-split {
     0% {
-        color: #2196F3;
+        color: #2196f3;
     }
+
     50% {
-        color: #2196F3;
+        color: #2196f3;
     }
+
     75% {
-        color: #90CAF9;
+        color: #90caf9;
     }
+
     100% {
-        color: #2196F3;
+        color: #2196f3;
     }
 }
 
 .timer {
-    text-shadow: 0px 2px 3px rgba(0,0,0,0.65);
-    color: #4CAF50;
+    text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.65);
+    color: #4caf50;
     background: linear-gradient(#222, #111);
-    transition: .5s;
+    transition: 0.5s;
 }
+
 .timer-millis {
     font-size: 12pt;
     padding-bottom: 5px;
     padding-right: 4px;
 }
+
 .timer-seconds {
     font-size: 24pt;
 }
 
 .losing {
-    color: #4CAF50;
-    transition: .5s;
+    color: #4caf50;
+    transition: 0.5s;
 }
+
 .behind {
-    color: #F44336;
-    transition: .5s;
+    color: #f44336;
+    transition: 0.5s;
 }
+
 .footer {
     color: #555;
 }
@@ -111,12 +139,22 @@
 .split-last {
     color: #777;
     border-top: 1px solid #000;
-    box-shadow: 0px -8px 8px rgba(255,255,255,0.8);
+    box-shadow: 0px -8px 8px rgba(255, 255, 255, 0.8);
 }
+
 .split-last .split-time {
     color: #777;
 }
-.footer, .previous-segment-label, .previous-segment, .sum-of-bests-label, .sum-of-bests, .personal-best-label, .personal-best, .world-record-label, .world-record {
+
+.footer,
+.previous-segment-label,
+.previous-segment,
+.sum-of-bests-label,
+.sum-of-bests,
+.personal-best-label,
+.personal-best,
+.world-record-label,
+.world-record {
     padding-left: 4px;
     padding-right: 4px;
 }
