@@ -22,20 +22,9 @@
 @define-color box-losing #f73505;
 @define-color box-sob #c8b104;
 
-* {
-    font-family:
-        Cherry Bomb One,
-        Noto Sans;
-}
-
-scrollbar* {
-    background-color: transparent;
-    border: none;
-    color: transparent;
-}
-
 .window,
 .header {
+    font-family: "Cherry Bomb One", "Noto Sans";
     background-color: @default-background;
     color: @default-text;
     padding-bottom: 2px;
