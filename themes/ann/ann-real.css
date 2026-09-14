@@ -22,90 +22,31 @@
 @define-color losing-fg #ff6c6c;
 @define-color sob-fg #ffdc74;
 
-.window,
-.header {
-    font-weight: 900;
-    font-family: "Noto Sans";
-    background-color: @default-background;
-    color: @default-text;
-    padding-bottom: 2px;
-    border-bottom: 1px solid alpha(@default-text, 0.2);
-    margin-bottom: 7px;
-}
-
-.title {
-    color: @default-text;
-    font-weight: 900;
-    font-size: 16pt;
-}
-
 .attempt-count {
-    color: @attempt-text;
-    font-size: 12pt;
-    font-weight: 700;
-    padding-top: 6px;
     padding-bottom: 2px;
     margin-right: 2px;
 }
 
-.time {
-    color: @time-text;
-}
-
-.time.behind,
-.time.best-segment,
-time.best-split,
-.time.losing {
-    color: @default-color;
-}
-
 .timer {
-    font-size: 24pt;
-    font-family: Noto Sans Mono;
+    font-family: "Noto Sans Mono";
     font-weight: 900;
-    color: @ahead-bg;
     background-color: alpha(currentcolor, 0.115);
-    padding: 0px 10px 4px 30px;
-    margin-bottom: 10px;
-    margin-top: 9px;
     border-radius: 15px;
-    transition: 0.7s background-color ease;
     border: 1px solid alpha(currentcolor, 0.135);
 }
 
 .timer .timer-millis {
-    font-size: 17pt;
-    background-color: transparent;
     padding-bottom: 3px;
-    color: alpha(@ahead-bg, 0.7);
-}
-
-.timer.behind .timer-millis {
-    color: alpha(@behind-bg, 0.7);
-}
-
-.timer.losing .timer-millis {
-    color: alpha(@losing-bg, 0.7);
-}
-
-.timer.delay .timer-millis {
-    color: alpha(@done-bg, 0.7);
 }
 
 .timer.behind,
 .timer.behind:backdrop {
     background-color: alpha(currentcolor, 0.1);
-    color: @behind-bg;
-    transition: 0.7s background-color ease;
-    margin-bottom: 10px;
 }
 
 .timer.losing,
 .timer.losing:backdrop {
     background-color: alpha(currentcolor, 0.1);
-    color: @losing-bg;
-    transition: 0.7s background-color ease;
-    margin-bottom: 10px;
     border-radius: 15px;
 }
 
@@ -114,17 +55,12 @@ time.best-split,
 .timer.done,
 .timer.done:backdrop {
     background-color: alpha(currentcolor, 0.1);
-    color: @done-bg;
-    transition: 0.7s background-color ease;
     margin-bottom: 10px;
 }
 
 .split {
-    padding: 0px 10px 0px 10px;
-    margin: 2px 0px 2px 0px;
     border-radius: 10px;
     min-height: 25px;
-    background-color: transparent;
     transition: 0.5s all ease;
 }
 
@@ -132,25 +68,11 @@ time.best-split,
     font-weight: 600;
 }
 
-.split-icon {
-    margin-top: 4px;
-    margin-bottom: 4px;
-    margin-right: 3px;
-    border-radius: 100%;
-}
-
-.split-time {
-    color: @time-text;
-    font-weight: 500;
-}
-
 .split-last {
-    font-weight: 900;
     background-color: alpha(@last-split-bg, 0.075);
     color: alpha(@last-split-bg, 1);
     border: 1px solid alpha(@last-split-bg, 0.1);
     border-radius: 10px;
-    margin-bottom: 2px;
     margin-top: 2px;
 }
 
@@ -256,10 +178,8 @@ time.best-split,
     min-width: 60px;
 }
 
-/* PS */
-.window box.footer:nth-child(4) {
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
+.prev-segment-container {
+    border-radius: 15px 15px 0 0;
     border: 1px solid alpha(@default-text, 0.2);
     border-bottom: none;
     padding: 10px 10px 5px 10px;
@@ -267,8 +187,7 @@ time.best-split,
     border-bottom: 1px solid alpha(@default-text, 0.05);
 }
 
-/* SOB */
-.window box.footer:nth-child(5) {
+.sum-of-bests-container {
     border-radius: 0px;
     border-left: 1px solid alpha(@default-text, 0.2);
     border-right: 1px solid alpha(@default-text, 0.2);
@@ -277,95 +196,15 @@ time.best-split,
     border-bottom: 1px solid alpha(@default-text, 0.05);
 }
 
-/* PB */
-.window box.footer:nth-child(6) {
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
+.personal-best-container {
+    border-radius: 0 0 15px 15px;
     border: 1px solid alpha(@default-text, 0.2);
     border-top: none;
     padding: 5px 10px 10px 10px;
     background-color: @alt-background;
 }
 
-.window box.footer:nth-child(7) {
-    background-color: transparent;
-}
-
-.prev-segment {
-    color: @ahead-bg;
-    font-weight: 900;
-    padding-left: 0px;
-    padding-right: 0px;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    border-radius: 0px;
-    transition: ease 0.3s background-color;
-    min-width: 0px;
-    background-color: transparent;
-}
-
-.prev-segment.behind {
-    color: @behind-fg;
-    font-weight: 900;
-    padding-left: 0px;
-    padding-right: 0px;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    border-radius: 0px;
-    transition: ease 0.3s background-color;
-    min-width: 0px;
-    background-color: transparent;
-}
-
-.prev-segment.losing {
-    color: @losing-fg;
-    font-weight: 900;
-    padding-left: 0px;
-    padding-right: 0px;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    border-radius: 0px;
-    transition: ease 0.3s background-color;
-    min-width: 0px;
-    background-color: transparent;
-}
-
-.prev-segment.best-segment {
-    color: @sob-fg;
-    font-weight: 900;
-    padding-left: 0px;
-    padding-right: 0px;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    border-radius: 0px;
-    transition: ease 0.3s background-color;
-    min-width: 0px;
-    background-color: transparent;
-}
-
-.sum-of-bests {
-    color: @sob-fg;
-    font-weight: 900;
-    padding-left: 0px;
-    padding-right: 0px;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    border-radius: 0px;
-    transition: ease 0.3s background-color;
-    min-width: 0px;
-    background-color: transparent;
-}
-
-.personal-best {
-    color: @ahead-fg;
-    font-weight: 900;
-    padding-left: 0px;
-    padding-right: 0px;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    border-radius: 0px;
-    transition: ease 0.3s background-color;
-    min-width: 0px;
+.prev-segment * {
     background-color: transparent;
 }
 

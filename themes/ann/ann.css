@@ -22,10 +22,16 @@
 @define-color sob-fg #ffa333;
 
 .window,
-.header {
-    font-weight: 900;
+.window.main-window {
+    font-family: "Noto Sans";
     background-color: @default-background;
     color: @default-text;
+}
+
+.header {
+    font-weight: 900;
+    padding-bottom: 2px;
+    border-bottom: 1px solid alpha(@default-text, 0.2);
 }
 
 .title {
@@ -47,14 +53,18 @@
 
 .time.behind,
 .time.best-segment,
-time.best-split,
+.time.best-split,
 .time.losing {
     color: @default-color;
 }
 
+.detailed-timer {
+    font-weight: 900;
+}
+
 .timer {
     font-size: 24pt;
-    font-family: Noto Sans Mono CJK JP;
+    font-family: "Noto Sans Mono CJK JP";
     font-weight: 900;
     color: @ahead-bg;
     background-color: alpha(currentcolor, 0.3);
@@ -155,6 +165,7 @@ time.best-split,
 
 .split-delta {
     color: @ahead-bg;
+    font-weight: 900;
     background-color: transparent;
     padding-left: 10px;
     padding-right: 10px;
@@ -218,39 +229,14 @@ time.best-split,
     min-width: 60px;
 }
 
-box.footer {
-    border-radius: 20px;
-    background-color: @alt-background;
+/* Selects Prev Segment, SOB, PB */
+.footer {
     font-weight: 700;
-}
-
-box.footer > .prev-segment-label,
-box.footer > .prev-segment {
-    background-color: @alt-background;
-    padding: 10px 10px 5px 10px;
-    border-radius: 20px 20px 0px 0px;
-}
-
-box.footer > .sum-of-bests-label,
-box.footer > .sum-of-bests {
-    background-color: @alt-background;
-    padding: 5px 10px 5px 10px;
-    border-radius: 0px;
-}
-
-box.footer > .personal-best-label,
-box.footer > .personal-best {
-    background-color: @alt-background;
-    padding: 5px 10px 10px 10px;
-    border-radius: 0px 0px 20px 20px;
-}
-
-.window box.footer:nth-child(7) {
-    background-color: transparent;
 }
 
 .prev-segment {
     color: @ahead-bg;
+    background-color: transparent;
     font-weight: 900;
     padding-left: 0px;
     padding-right: 0px;
@@ -295,6 +281,24 @@ box.footer > .personal-best {
     border-radius: 0px;
     transition: ease 0.3s background-color;
     min-width: 0px;
+}
+
+.prev-segment-container {
+    background-color: @alt-background;
+    padding: 10px 10px 5px 10px;
+    border-radius: 20px 20px 0px 0px;
+}
+
+.sum-of-bests-container {
+    background-color: @alt-background;
+    padding: 5px 10px 5px 10px;
+    border-radius: 0px;
+}
+
+.personal-best-container {
+    background-color: @alt-background;
+    padding: 5px 10px 10px 10px;
+    border-radius: 0px 0px 20px 20px;
 }
 
 .sum-of-bests {
