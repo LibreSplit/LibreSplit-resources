@@ -20,24 +20,29 @@
     background: var(--window-bg);
     font-weight: 700;
 }
+
 .header {
     color: var(--header-fg);
     background: var(--header-bg);
 }
+
 .title,
 .attempt-count {
     padding-top: 4px;
     padding-bottom: 4px;
 }
+
 .attempt-count {
     color: var(--attempt-color);
     padding-right: 4px;
 }
+
 .splits,
 .split-last {
     font-size: 10pt;
     text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
 }
+
 .split,
 .split-last {
     color: var(--fg);
@@ -45,25 +50,31 @@
     background: transparent;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
+
 .split-last {
     border: 0;
 }
+
 .split {
     color: var(--split-fg);
 }
+
 .current-split {
     color: var(--current-split-fg);
     background-color: var(--current-split-bg);
     border: 0;
     transition: 0.1s;
 }
+
 .split .split-time .done {
     color: #fff;
 }
+
 .current-split .split-time {
     color: #fff;
     background: transparent;
 }
+
 .split,
 .current-split,
 .split-title,
@@ -84,22 +95,27 @@
     font-family: "Roboto";
     background: transparent;
 }
+
 .best-split,
 .footer .previous-segment .best-split {
     animation: blink-split 4s;
     animation-iteration-count: infinite;
     background-color: transparent;
 }
+
 @keyframes blink-split {
     0% {
         color: var(--blink-split-color);
     }
+
     50% {
         color: var(--blink-split-color);
     }
+
     75% {
         color: var(--blink-split-light-color);
     }
+
     100% {
         color: var(--blink-split-color);
     }
@@ -111,11 +127,13 @@
     transition: 0.5s;
     font-weight: 100;
 }
+
 .timer-millis {
     font-size: 12pt;
     padding-bottom: 5px;
     padding-right: 4px;
 }
+
 .timer-seconds {
     font-size: 24pt;
 }
@@ -124,10 +142,12 @@
     color: var(--timer-color);
     transition: 0.5s;
 }
+
 .behind {
     color: #f44336;
     transition: 0.5s;
 }
+
 .footer {
     color: #555;
 }
@@ -135,11 +155,13 @@
 .split-last {
     color: #99a;
     border-top: 1px solid #888;
-    box-shadow: 0px -8px 16px rgba(33,33,33,1);
+    box-shadow: 0px -8px 16px rgba(33, 33, 33, 1);
 }
+
 .split-last .split-time {
     color: #99a;
 }
+
 .footer,
 .previous-segment-label,
 .previous-segment,

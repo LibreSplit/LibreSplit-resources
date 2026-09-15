@@ -13,15 +13,18 @@
     --current-split-bg: var(--split-bg);
 }
 
-.split, .split-last {
+.split,
+.split-last {
     color: #000;
     font-weight: 300;
     background: transparent;
-    border-bottom: 1px solid rgba(0,0,0,0.15);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
 }
+
 .split-last {
     border: 0;
 }
+
 .split {
     color: #000;
 }
@@ -36,11 +39,13 @@
 .split-last {
     color: #99a;
     border-top: 1px solid #888;
-    box-shadow: 0px -8px 16px rgba(255,255,255,1);
+    box-shadow: 0px -8px 16px rgba(255, 255, 255, 1);
 }
+
 .split-last .split-time {
     color: #777;
 }
+
 .current-split .split-time {
     color: #fff;
     background: transparent;
