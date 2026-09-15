@@ -1,12 +1,28 @@
-.window {
+:root {
+    --fg: #ffffff;
+    --window-bg: #212121;
+    --header-fg: #ffffff;
+    --header-bg: #263238;
+    --attempt-color: #ffc107;
+    --blink-split-color: #ffc107;
+    --blink-split-light-color: #ffecb3;
+    --timer-color: #4caf50;
+    --split-fg: #9999aa;
+    --split-bg: #37474f;
+    --current-split-fg: #ffffff;
+    --current-split-bg: #37474f;
+}
+
+.window,
+.window.main-window {
     font-family: "Roboto", "Droid Sans", "Tahoma", "Arial", sans-serif;
-    color: #fff;
-    background: #212121;
+    color: var(--fg);
+    background: var(--window-bg);
+    font-weight: 700;
 }
 .header {
-    color: #fff;
-    font-family: "Roboto", "Droid Sans", "Tahoma", "Arial", sans-serif;
-    background: #263238;
+    color: var(--header-fg);
+    background: var(--header-bg);
 }
 .title,
 .attempt-count {
@@ -14,7 +30,7 @@
     padding-bottom: 4px;
 }
 .attempt-count {
-    color: #ffc107;
+    color: var(--attempt-color);
     padding-right: 4px;
 }
 .splits,
@@ -24,8 +40,7 @@
 }
 .split,
 .split-last {
-    color: #fff;
-    font-family: "Roboto", "Arial", sans-serif;
+    color: var(--fg);
     font-weight: 100;
     background: transparent;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -34,11 +49,11 @@
     border: 0;
 }
 .split {
-    color: #99a;
+    color: var(--split-fg);
 }
 .current-split {
-    color: #fff;
-    background: #37474f;
+    color: var(--current-split-fg);
+    background-color: var(--current-split-bg);
     border: 0;
     transition: 0.1s;
 }
@@ -62,8 +77,7 @@
 }
 
 .time {
-    font-family: "Roboto", "Droid Sans", "Tahoma", "Arial", sans-serif;
-    color: #fff;
+    color: var(--fg);
 }
 
 .delta {
@@ -78,22 +92,22 @@
 }
 @keyframes blink-split {
     0% {
-        color: #ffc107;
+        color: var(--blink-split-color);
     }
     50% {
-        color: #ffc107;
+        color: var(--blink-split-color);
     }
     75% {
-        color: #ffecb3;
+        color: var(--blink-split-light-color);
     }
     100% {
-        color: #ffc107;
+        color: var(--blink-split-color);
     }
 }
 
 .timer {
     text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.65);
-    color: #4caf50;
+    color: var(--timer-color);
     transition: 0.5s;
     font-weight: 100;
 }
@@ -107,7 +121,7 @@
 }
 
 .losing {
-    color: #4caf50;
+    color: var(--timer-color);
     transition: 0.5s;
 }
 .behind {
@@ -121,7 +135,7 @@
 .split-last {
     color: #99a;
     border-top: 1px solid #888;
-    box-shadow: 0px -8px 16px rgba(33, 33, 33, 1);
+    box-shadow: 0px -8px 16px rgba(33,33,33,1);
 }
 .split-last .split-time {
     color: #99a;
