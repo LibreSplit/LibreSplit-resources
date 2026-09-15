@@ -1,25 +1,20 @@
-.window {
-    font-family: "Roboto", "Droid Sans", "Tahoma", "Arial", sans-serif;
-    color: #000;
-    background: #fff;
-}
-
-.header {
-    color: #fff;
-    font-family: "Roboto", "Droid Sans", "Tahoma", "Arial", sans-serif;
-    font-weight: bold;
-    background: linear-gradient(#222, #111);
-}
-
-.title,
-.attempt-count {
-    padding-top: 4px;
-    padding-bottom: 4px;
-}
-
-.attempt-count {
-    color: #f70;
-    padding-right: 4px;
+:root {
+    --fg: #000000;
+    --window-bg: #ffffff;
+    --header-fg: #ffffff;
+    --header-bg: linear-gradient(#222, #111);
+    --attempt-color: #FF7700;
+    --blink-split-color: #2196f3;
+    --blink-split-light-color: #90caf9;
+    --timer-color: #4caf50;
+    --split-fg: #000000;
+    --split-bg: #1565c0;
+    --split-last-color: #555555;
+    --split-last-time-color: #777777;
+    --split-last-border-color: #000000;
+    --split-last-shadow-color: rgba(255, 255, 255, 0.8);
+    --current-split-fg: #ffffff;
+    --current-split-bg: linear-gradient(#06b, #038);
 }
 
 .splits,
@@ -31,8 +26,6 @@
 .split,
 .split-last {
     color: #555;
-    font-family: "Roboto Condensed", "Arial Narrow", sans-serif;
-    background: transparent;
 }
 
 .split {
@@ -40,121 +33,8 @@
     border-bottom: 1px solid rgba(0, 0, 0, 0.15);
 }
 
-.current-split {
-    color: #fff;
-    background: linear-gradient(#06b, #038);
-    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.65);
-    border: 0;
-    transition: 0.1s;
-}
-
-.split .split-time .done {
-    color: #000;
-}
-
-.current-split .split-time {
-    color: #fff;
-    background: transparent;
-}
-
-.split,
-.current-split,
-.split-title,
-.split-time,
-.split-delta,
 .split-last {
-    padding-top: 2px;
-    padding-bottom: 2px;
-    padding-left: 4px;
-    padding-right: 4px;
-}
-
-.time {
-    font-family: "Roboto Black", "Droid Sans", "Tahoma", "Arial", sans-serif;
-    font-weight: bold;
-    color: #000;
-}
-
-.delta {
-    font-family: "Roboto Black";
-    background: transparent;
-}
-
-.best-split,
-.footer .previous-segment .best-split {
-    animation: blink-split 4s;
-    animation-iteration-count: infinite;
-    background-color: transparent;
-}
-
-@keyframes blink-split {
-    0% {
-        color: #2196f3;
-    }
-
-    50% {
-        color: #2196f3;
-    }
-
-    75% {
-        color: #90caf9;
-    }
-
-    100% {
-        color: #2196f3;
-    }
-}
-
-.timer {
-    text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.65);
-    color: #4caf50;
-    background: linear-gradient(#222, #111);
-    transition: 0.5s;
-}
-
-.timer-millis {
-    font-size: 12pt;
-    padding-bottom: 5px;
-    padding-right: 4px;
-}
-
-.timer-seconds {
-    font-size: 24pt;
-}
-
-.losing {
-    color: #4caf50;
-    transition: 0.5s;
-}
-
-.behind {
-    color: #f44336;
-    transition: 0.5s;
-}
-
-.footer {
-    color: #555;
-}
-
-.split-last {
-    color: #777;
-    border-top: 1px solid #000;
-    box-shadow: 0px -8px 8px rgba(255, 255, 255, 0.8);
-}
-
-.split-last .split-time {
-    color: #777;
-}
-
-.footer,
-.previous-segment-label,
-.previous-segment,
-.sum-of-bests-label,
-.sum-of-bests,
-.personal-best-label,
-.personal-best,
-.world-record-label,
-.world-record {
-    padding-left: 4px;
-    padding-right: 4px;
+    color: var(--split-last-color);
+    border-top: 1px solid var(--split-last-border-color);
+    box-shadow: 0px -8px 8px var(--split-last-shadow-color);
 }
