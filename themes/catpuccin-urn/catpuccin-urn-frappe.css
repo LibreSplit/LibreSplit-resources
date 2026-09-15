@@ -2,22 +2,24 @@
  *  "Cattpuccin Frappé Urn" by AsahiNyan  *
  *****************************************/
 
-@define-color default-background #292c3c;
-@define-color alt-background #303446;
-@define-color last-split-bg #c6d0f5;
-@define-color default-text #c6d0f5;
-@define-color separator #4f5573;
-@define-color attempt-text #595f7e;
-@define-color cs-border #c6d0f5;
-@define-color time-text #b2bcdc;
-@define-color behind-bg #ea999c;
-@define-color sob-bg #e5c890;
-@define-color sob-fg #e5c890;
-@define-color ahead-bg #a6d189;
-@define-color done-bg #8caaee;
-@define-color wr-fg #babbf1;
-@define-color losing-t #e78284;
-@define-color losing-bg @losing-t;
-@define-color ahead-fg #a6d189;
-@define-color behind-fg #ea999c;
-@define-color losing-fg #e78284;
+:root {
+    --default-background: #292c3c;
+    --alt-background: #303446;
+    --last-split-bg: #c6d0f5;
+    --default-text: #c6d0f5;
+    --separator: #4f5573;
+    --attempt-text: #595f7e;
+    --cs-border: #c6d0f5;
+    --time-text: #b2bcdc;
+    --behind-bg: #ea999c;
+    --sob-bg: #e5c890;
+    --sob-fg: #e5c890;
+    --ahead-bg: #a6d189;
+    --done-bg: #8caaee;
+    --wr-fg: #babbf1;
+    --losing-t: #e78284;
+    --losing-bg: #e78284;
+    --ahead-fg: #a6d189;
+    --behind-fg: #ea999c;
+    --losing-fg: #e78284;
+}

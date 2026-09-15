@@ -2,25 +2,27 @@
  *  "Real Ann" by AsahiNyan  *
  ****************************/
 
-@define-color default-background #0d0d0d;
-@define-color alt-background #191919;
-@define-color last-split-bg #ffffff;
-@define-color default-text #ffffff;
-@define-color attempt-text #5d5d5d;
-@define-color cs-border #efefef;
-@define-color time-text #dadada;
-@define-color behind-bg #ff6811;
-@define-color sob-bg #f6d949;
-@define-color sob-fg #ffecce;
-@define-color ahead-bg #39e82d;
-@define-color done-bg #2b7afa;
-@define-color wr-fg #d4ecff;
-@define-color losing-t #ff3737;
-@define-color losing-bg @losing-t;
-@define-color ahead-fg #95e85e;
-@define-color behind-fg #ff9469;
-@define-color losing-fg #ff6c6c;
-@define-color sob-fg #ffdc74;
+:root {
+    --default-background: #0d0d0d;
+    --alt-background: #191919;
+    --last-split-bg: #ffffff;
+    --default-text: #ffffff;
+    --attempt-text: #5d5d5d;
+    --cs-border: #efefef;
+    --time-text: #dadada;
+    --behind-bg: #ff6811;
+    --sob-bg: #f6d949;
+    --sob-fg: #ffecce;
+    --ahead-bg: #39e82d;
+    --done-bg: #2b7afa;
+    --wr-fg: #d4ecff;
+    --losing-t: #ff3737;
+    --losing-bg: #ff3737;
+    --ahead-fg: #95e85e;
+    --behind-fg: #ff9469;
+    --losing-fg: #ff6c6c;
+    --sob-fg: #ffdc74;
+}
 
 .attempt-count {
     padding-bottom: 2px;
@@ -69,22 +71,22 @@
 }
 
 .split-last {
-    background-color: alpha(@last-split-bg, 0.075);
-    color: alpha(@last-split-bg, 1);
-    border: 1px solid alpha(@last-split-bg, 0.1);
+    background-color: alpha(var(--last-split-bg), 0.075);
+    color: alpha(var(--last-split-bg), 1);
+    border: 1px solid alpha(var(--last-split-bg), 0.1);
     border-radius: 10px;
     margin-top: 2px;
 }
 
 .split-last .split-time {
-    color: alpha(@last-split-bg, 0.8);
+    color: alpha(var(--last-split-bg), 0.8);
 }
 
 .current-split {
     margin-left: 20px;
     margin-right: 06px;
     background-color: alpha(currentcolor, 0.2);
-    color: @default-text;
+    color: var(--default-text);
     font-weight: 900;
     transition:
         all 75ms cubic-bezier(0, 0, 0.2, 1),
@@ -100,11 +102,11 @@
         -1px 1px 0 #000;
     box-shadow: none;
     border-radius: 10px;
-    box-shadow: 0 0 0 2px alpha(@cs-border, 0.3);
+    box-shadow: 0 0 0 2px alpha(var(--cs-border), 0.3);
 }
 
 .current-split .split-time {
-    color: alpha(@default-text, 0.8);
+    color: alpha(var(--default-text), 0.8);
     text-shadow:
         1px 1px 0 #000,
         -1px -1px 0 #000,
@@ -114,7 +116,7 @@
 }
 
 .split-delta {
-    color: @ahead-bg;
+    color: var(--ahead-bg);
     background-color: transparent;
     padding-left: 10px;
     padding-right: 10px;
@@ -128,8 +130,8 @@
 .current-split .delta,
 .current-split .split-delta,
 .delta {
-    color: @ahead-bg;
-    background-color: alpha(@default-background, 0.4);
+    color: var(--ahead-bg);
+    background-color: alpha(var(--default-background), 0.4);
     padding-left: 10px;
     padding-right: 10px;
     margin-top: 3px;
@@ -141,8 +143,8 @@
 
 .behind,
 .current-split .delta.behind {
-    color: @behind-bg;
-    background-color: alpha(@default-background, 0.4);
+    color: var(--behind-bg);
+    background-color: alpha(var(--default-background), 0.4);
     padding-left: 10px;
     padding-right: 10px;
     margin-top: 3px;
@@ -154,8 +156,8 @@
 
 .losing,
 .current-split .delta.losing {
-    color: @losing-bg;
-    background-color: alpha(@default-background, 0.4);
+    color: var(--losing-bg);
+    background-color: alpha(var(--default-background), 0.4);
     padding-left: 10px;
     padding-right: 10px;
     margin-top: 3px;
@@ -167,8 +169,8 @@
 
 .best-segment,
 .current-split .delta.best-segment {
-    color: @sob-bg;
-    background-color: alpha(@default-background, 0.4);
+    color: var(--sob-bg);
+    background-color: alpha(var(--default-background), 0.4);
     padding-left: 10px;
     padding-right: 10px;
     margin-top: 3px;
@@ -180,28 +182,28 @@
 
 .prev-segment-container {
     border-radius: 15px 15px 0 0;
-    border: 1px solid alpha(@default-text, 0.2);
+    border: 1px solid alpha(var(--default-text), 0.2);
     border-bottom: none;
     padding: 10px 10px 5px 10px;
-    background-color: @alt-background;
-    border-bottom: 1px solid alpha(@default-text, 0.05);
+    background-color: var(--alt-background);
+    border-bottom: 1px solid alpha(var(--default-text), 0.05);
 }
 
 .sum-of-bests-container {
     border-radius: 0px;
-    border-left: 1px solid alpha(@default-text, 0.2);
-    border-right: 1px solid alpha(@default-text, 0.2);
+    border-left: 1px solid alpha(var(--default-text), 0.2);
+    border-right: 1px solid alpha(var(--default-text), 0.2);
     padding: 5px 10px 5px 10px;
-    background-color: @alt-background;
-    border-bottom: 1px solid alpha(@default-text, 0.05);
+    background-color: var(--alt-background);
+    border-bottom: 1px solid alpha(var(--default-text), 0.05);
 }
 
 .personal-best-container {
     border-radius: 0 0 15px 15px;
-    border: 1px solid alpha(@default-text, 0.2);
+    border: 1px solid alpha(var(--default-text), 0.2);
     border-top: none;
     padding: 5px 10px 10px 10px;
-    background-color: @alt-background;
+    background-color: var(--alt-background);
 }
 
 .prev-segment * {

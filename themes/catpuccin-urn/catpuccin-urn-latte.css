@@ -2,21 +2,23 @@
  *  "Cattpuccin Latte Urn" by AsahiNyan  *
  ********************************************/
 
-@define-color default-background #e6e9ef;
-@define-color alt-background #eff1f5;
-@define-color last-split-bg #4c4f69;
-@define-color default-text #4c4f69;
-@define-color separator #9399ca;
-@define-color attempt-text #7c82ab;
-@define-color time-text #4c4f69;
-@define-color behind-bg #e64553;
-@define-color sob-bg #df8e1d;
-@define-color sob-fg #df8e1d;
-@define-color ahead-bg #40a02b;
-@define-color done-bg #1e66f5;
-@define-color wr-fg #7287fd;
-@define-color losing-t #d20f39;
-@define-color losing-bg @losing-t;
-@define-color ahead-fg #40a02b;
-@define-color behind-fg #e64553;
-@define-color losing-fg #d20f39;
+:root {
+    --default-background: #e6e9ef;
+    --alt-background: #eff1f5;
+    --last-split-bg: #4c4f69;
+    --default-text: #4c4f69;
+    --separator: #9399ca;
+    --attempt-text: #7c82ab;
+    --time-text: #4c4f69;
+    --behind-bg: #e64553;
+    --sob-bg: #df8e1d;
+    --sob-fg: #df8e1d;
+    --ahead-bg: #40a02b;
+    --done-bg: #1e66f5;
+    --wr-fg: #7287fd;
+    --losing-t: #d20f39;
+    --losing-bg: #d20f39;
+    --ahead-fg: #40a02b;
+    --behind-fg: #e64553;
+    --losing-fg: #d20f39;
+}
