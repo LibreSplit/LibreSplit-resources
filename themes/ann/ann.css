@@ -21,6 +21,7 @@
     --behind-fg: #ff5aa2;
     --losing-fg: #ff2e2e;
     --sob-fg: #ffa333;
+    --delta-bg: alpha(currentcolor, 0.3);
 }
 
 .window,
@@ -69,7 +70,7 @@
     font-family: "Noto Sans Mono CJK JP";
     font-weight: 900;
     color: var(--ahead-bg);
-    background-color: alpha(currentcolor, 0.3);
+    background-color: var(--delta-bg);
     padding: 0px 10px 4px 30px;
     margin-bottom: 10px;
     margin-top: 9px;
@@ -98,7 +99,7 @@
 
 .timer.behind,
 .timer.behind:backdrop {
-    background-color: alpha(currentcolor, 0.3);
+    background-color: var(--delta-bg);
     color: var(--behind-bg);
     transition: 0.7s background-color ease;
     margin-bottom: 10px;
@@ -106,7 +107,7 @@
 
 .timer.losing,
 .timer.losing:backdrop {
-    background-color: alpha(currentcolor, 0.3);
+    background-color: var(--delta-bg);
     color: var(--losing-bg);
     transition: 0.7s background-color ease;
     margin-bottom: 10px;
@@ -116,7 +117,7 @@
 .timer.delay:backdrop,
 .timer.done,
 .timer.done:backdrop {
-    background-color: alpha(currentcolor, 0.3);
+    background-color: var(--delta-bg);
     color: var(--done-bg);
     transition: 0.7s background-color ease;
     margin-bottom: 10px;
@@ -155,7 +156,7 @@
 }
 
 .current-split {
-    background-color: alpha(currentcolor, 0.3);
+    background-color: var(--delta-bg);
     color: var(--done-bg);
     font-weight: 700;
     transition: 0.3s background-color ease;
@@ -182,7 +183,7 @@
 .current-split .split-delta,
 .delta {
     color: var(--ahead-bg);
-    background-color: alpha(currentcolor, 0.3);
+    background-color: var(--delta-bg);
     padding-left: 10px;
     padding-right: 10px;
     margin-top: 3px;
@@ -195,7 +196,7 @@
 .behind,
 .current-split .delta.behind {
     color: var(--behind-bg);
-    background-color: alpha(currentcolor, 0.3);
+    background-color: var(--delta-bg);
     padding-left: 10px;
     padding-right: 10px;
     margin-top: 3px;
@@ -208,7 +209,7 @@
 .losing,
 .current-split .delta.losing {
     color: var(--losing-bg);
-    background-color: alpha(currentcolor, 0.3);
+    background-color: var(--delta-bg);
     padding-left: 10px;
     padding-right: 10px;
     margin-top: 3px;
@@ -221,7 +222,7 @@
 .best-segment,
 .current-split .delta.best-segment {
     color: var(--sob-bg);
-    background-color: alpha(currentcolor, 0.3);
+    background-color: var(--delta-bg);
     padding-left: 10px;
     padding-right: 10px;
     margin-top: 3px;
