@@ -63,6 +63,7 @@
 .current-split {
     color: var(--current-split-fg);
     background: var(--current-split-bg);
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.65);
     border: 0;
     transition: 0.1s;
 }
