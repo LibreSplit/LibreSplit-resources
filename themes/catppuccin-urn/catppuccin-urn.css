@@ -171,6 +171,7 @@
 .split-delta {
     color: var(--default-background);
     background-color: transparent;
+    font-weight: 900;
     padding-left: 10px;
     padding-right: 10px;
     margin-top: 3px;
