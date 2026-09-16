@@ -22,6 +22,7 @@
     --behind-fg: #ff9469;
     --losing-fg: #ff6c6c;
     --sob-fg: #ffdc74;
+    --delta-bg: alpha(var(--default-background), 0.4);
 }
 
 .attempt-count {
