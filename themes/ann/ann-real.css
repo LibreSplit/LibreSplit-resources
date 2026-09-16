@@ -115,71 +115,6 @@
     font-weight: 800;
 }
 
-.split-delta {
-    color: var(--ahead-bg);
-    background-color: transparent;
-    padding-left: 10px;
-    padding-right: 10px;
-    margin-top: 3px;
-    margin-bottom: 3px;
-    border-radius: 50px;
-    transition: ease 0.3s background-color;
-    min-width: 60px;
-}
-
-.current-split .delta,
-.current-split .split-delta,
-.delta {
-    color: var(--ahead-bg);
-    background-color: alpha(var(--default-background), 0.4);
-    padding-left: 10px;
-    padding-right: 10px;
-    margin-top: 3px;
-    margin-bottom: 3px;
-    border-radius: 50px;
-    transition: ease 0.3s background-color;
-    min-width: 60px;
-}
-
-.behind,
-.current-split .delta.behind {
-    color: var(--behind-bg);
-    background-color: alpha(var(--default-background), 0.4);
-    padding-left: 10px;
-    padding-right: 10px;
-    margin-top: 3px;
-    margin-bottom: 3px;
-    border-radius: 50px;
-    transition: ease 0.3s background-color;
-    min-width: 60px;
-}
-
-.losing,
-.current-split .delta.losing {
-    color: var(--losing-bg);
-    background-color: alpha(var(--default-background), 0.4);
-    padding-left: 10px;
-    padding-right: 10px;
-    margin-top: 3px;
-    margin-bottom: 3px;
-    border-radius: 50px;
-    transition: ease 0.3s background-color;
-    min-width: 60px;
-}
-
-.best-segment,
-.current-split .delta.best-segment {
-    color: var(--sob-bg);
-    background-color: alpha(var(--default-background), 0.4);
-    padding-left: 10px;
-    padding-right: 10px;
-    margin-top: 3px;
-    margin-bottom: 3px;
-    border-radius: 50px;
-    transition: ease 0.3s background-color;
-    min-width: 60px;
-}
-
 .prev-segment-container {
     border-radius: 15px 15px 0 0;
     border: 1px solid alpha(var(--default-text), 0.2);
@@ -204,10 +139,6 @@
     border-top: none;
     padding: 5px 10px 10px 10px;
     background-color: var(--alt-background);
-}
-
-.prev-segment * {
-    background-color: transparent;
 }
 
 /* ██████  ██    ██ ███████ ████████  ██████  ███    ███     ███████ ██████  ██      ██ ████████  */
