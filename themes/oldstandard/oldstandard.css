@@ -73,8 +73,7 @@
 }
 
 .current-split .split-title,
-.current-split .split-time,
-.current-split .delta {
+.current-split .split-time {
     color: var(--current-split-fg);
     background: transparent;
 }
