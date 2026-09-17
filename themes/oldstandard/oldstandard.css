@@ -1,122 +1,181 @@
-.window {
-	font-family: "Roboto", "Droid Sans", "Tahoma", "Arial", sans-serif;
-	color: #fff;
-    background: #000;
+:root {
+    --fg: #ffffff;
+    --window-bg: #000000;
+    --header-fg: #ffffff;
+    --header-bg: linear-gradient(#222, #111);
+    --attempt-color: #ff7700;
+    --blink-split-color: #ffc107;
+    --blink-split-light-color: #ffecb3;
+    --timer-color: #4caf50;
+    --split-fg: #ffffff;
+    --split-alt-fg: #9999aa;
+    --split-bg: #1565c0;
+    --split-last-color: #9999aa;
+    --split-last-time-color: #9999aa;
+    --split-last-border-color: #ffffff;
+    --split-last-shadow-color: rgba(0, 0, 0, 0.8);
+    --current-split-fg: #000000;
+    --current-split-bg: linear-gradient(#fff, #ccc);
 }
+
+.window,
+.window.main-window {
+    font-family: "Roboto", "Droid Sans", "Tahoma", "Arial", sans-serif;
+    color: var(--fg);
+    background: var(--window-bg);
+}
+
 .header {
-    color: #fff;
-	font-family: "Roboto", "Droid Sans", "Tahoma", "Arial", sans-serif;
-	font-weight: bold;
-    background: linear-gradient(#222, #111);
+    color: var(--header-fg);
+    font-weight: bold;
+    background: var(--header-bg);
 }
-.title, .attempt-count {
+
+.title,
+.attempt-count {
     padding-top: 4px;
     padding-bottom: 4px;
 }
+
 .attempt-count {
-	color: #f70;
+    color: var(--attempt-color);
     padding-right: 4px;
 }
-.splits, .split-last {
-	font-size: 10pt;
-    text-shadow: 0px 1px 1px rgba(0,0,0,0.1);
+
+.splits,
+.split-last {
+    font-size: 10pt;
+    text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
 }
-.split, .split-last {
-	color: #99a;
-	font-family: "Roboto Condensed", "Arial Narrow", sans-serif;
+
+.split,
+.split-last {
+    color: var(--split-alt-fg);
+    font-family: "Roboto Condensed", "Arial Narrow", sans-serif;
     background: transparent;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
+
 .split {
     color: #99a;
 }
+
 .current-split {
-    color: #000;
-    background: linear-gradient(#fff, #ccc);
-    box-shadow: 0px 0px 8px rgba(0,0,0,0.65);
+    color: var(--current-split-fg);
+    background: var(--current-split-bg);
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.65);
     border: 0;
-    transition: .1s;
+    transition: 0.1s;
 }
+
 .split .split-time .done {
-    color: #fff;
+    color: var(--split-fg);
 }
+
+.current-split .split-title,
 .current-split .split-time {
-	color: #000;
+    color: var(--current-split-fg);
     background: transparent;
 }
-.split, .current-split, .split-title, .split-time, .split-delta, .split-last {
-	padding-top: 2px;
-	padding-bottom: 2px;
-	padding-left: 4px;
-	padding-right: 4px;
+
+.split,
+.current-split,
+.split-title,
+.split-time,
+.split-delta,
+.split-last {
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 4px;
+    padding-right: 4px;
 }
 
 .time {
-	font-family: "Roboto Black", "Droid Sans", "Tahoma", "Arial", sans-serif;
+    font-family: "Roboto Black", "Droid Sans", "Tahoma", "Arial", sans-serif;
     font-weight: bold;
-    color: #fff;
+    color: var(--fg);
 }
 
 .delta {
     font-family: "Roboto Black";
     background: transparent;
 }
-.best-split, .footer .previous-segment .best-split {
+
+.best-split,
+.footer .previous-segment .best-split {
     animation: blink-split 4s;
     animation-iteration-count: infinite;
     background-color: transparent;
 }
+
 @keyframes blink-split {
     0% {
-        color: #FFC107;
+        color: var(--blink-split-color);
     }
+
     50% {
-        color: #FFC107;
+        color: var(--blink-split-color);
     }
+
     75% {
-        color: #FFECB3;
+        color: var(--blink-split-light-color);
     }
+
     100% {
-        color: #FFC107;
+        color: var(--blink-split-color);
     }
 }
 
 .timer {
-    text-shadow: 0px 2px 3px rgba(0,0,0,0.65);
-    color: #4CAF50;
+    text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.65);
+    color: #4caf50;
     background: linear-gradient(#222, #111);
-    transition: .5s;
+    transition: 0.5s;
 }
+
 .timer-millis {
     font-size: 12pt;
     padding-bottom: 5px;
     padding-right: 4px;
 }
+
 .timer-seconds {
     font-size: 24pt;
 }
 
 .losing {
-    color: #4CAF50;
-    transition: .5s;
+    color: #4caf50;
+    transition: 0.5s;
 }
+
 .behind {
-    color: #F44336;
-    transition: .5s;
+    color: #f44336;
+    transition: 0.5s;
 }
+
 .footer {
     color: #555;
 }
 
 .split-last {
-    color: #99a;
-    border-top: 1px solid #fff;
-    box-shadow: 0px -4px 8px rgba(0,0,0,0.8);
+    color: var(--split-last-color);
+    border-top: 1px solid var(--split-last-border-color);
+    box-shadow: 0px -4px 8px var(--split-last-shadow-color);
 }
+
 .split-last .split-time {
-    color: #99a;
+    color: var(--split-last-time-color);
 }
-.footer, .previous-segment-label, .previous-segment, .sum-of-bests-label, .sum-of-bests, .personal-best-label, .personal-best, .world-record-label, .world-record {
+
+.footer,
+.previous-segment-label,
+.previous-segment,
+.sum-of-bests-label,
+.sum-of-bests,
+.personal-best-label,
+.personal-best,
+.world-record-label,
+.world-record {
     padding-left: 4px;
     padding-right: 4px;
 }

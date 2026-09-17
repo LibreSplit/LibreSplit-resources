@@ -1,128 +1,65 @@
-.window {
-    font-family: "Roboto", "Droid Sans", "Tahoma", "Arial", sans-serif;
+:root {
+    --fg: #000000;
+    --window-bg: #ffffff;
+    --header-fg: var(--window-bg);
+    --header-bg: #0d47a1;
+    --attempt-color: var(--window-bg);
+    --blink-split-color: #2196f3;
+    --blink-split-light-color: #90caf9;
+    --timer-color: #4caf50;
+    --split-fg: var(--fg);
+    --split-bg: #1565c0;
+    --current-split-fg: #ffffff;
+    --current-split-bg: var(--split-bg);
+}
+
+.split,
+.split-last {
     color: #000;
-    background: #FFF;
-}
-.header {
-    color: #fff;
-    font-family: "Roboto", "Droid Sans", "Tahoma", "Arial", sans-serif;
-    background: #0D47A1;
-}
-.title, .attempt-count {
-    padding-top: 4px;
-    padding-bottom: 4px;
-}
-.attempt-count {
-    color: #FFF;
-    padding-right: 4px;
-}
-.splits, .split-last {
-    font-size: 10pt;
-    text-shadow: 0px 1px 1px rgba(0,0,0,0.1);
-}
-.split, .split-last {
-    color: #000;
-    font-family: "Roboto", "Arial", sans-serif;
     font-weight: 300;
     background: transparent;
-    border-bottom: 1px solid rgba(0,0,0,0.15);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
 }
+
 .split-last {
     border: 0;
 }
+
 .split {
     color: #000;
 }
+
 .current-split {
-    color: #fff;
-    background: #1565C0;
+    color: var(--current-split-fg);
+    background: var(--current-split-bg);
     border: 0;
-    transition: .1s;
-}
-.split .split-time .done {
-    color: #fff;
-}
-.current-split .split-time {
-    color: #fff;
-    background: transparent;
-}
-.split, .current-split, .split-title, .split-time, .split-delta, .split-last {
-    padding-top: 4px;
-    padding-bottom: 4px;
-    padding-left: 4px;
-    padding-right: 4px;
-}
-
-.time {
-    font-family: "Roboto", "Droid Sans", "Tahoma", "Arial", sans-serif;
-    color: #000;
-}
-
-.delta {
-    font-family: "Roboto";
-    background: transparent;
-}
-.best-split, .footer .previous-segment .best-split {
-    animation: blink-split 4s;
-    animation-iteration-count: infinite;
-    background-color: transparent;
-}
-@keyframes blink-split {
-    0% {
-        color: #2196F3;
-    }
-    50% {
-        color: #2196F3;
-    }
-    75% {
-        color: #90CAF9;
-    }
-    100% {
-        color: #2196F3;
-    }
-}
-
-.timer {
-    text-shadow: 0px 2px 3px rgba(0,0,0,0.65);
-    color: #4CAF50;
-    background: #000;
-    transition: .5s;
-    font-weight: 100;
-}
-.timer-millis {
-    font-size: 12pt;
-    padding-bottom: 5px;
-    padding-right: 4px;
-}
-.timer-seconds {
-    font-size: 24pt;
-}
-
-.losing {
-    color: #4CAF50;
-    transition: .5s;
-}
-.behind {
-    color: #F44336;
-    transition: .5s;
-}
-.footer {
-    color: #fff;
-    background-color: #000;
-}
-.footer .time {
-    color: #fff;
+    transition: 0.1s;
 }
 
 .split-last {
     color: #99a;
     border-top: 1px solid #888;
-    box-shadow: 0px -8px 16px rgba(255,255,255,1);
+    box-shadow: 0px -8px 16px rgba(255, 255, 255, 1);
 }
+
 .split-last .split-time {
     color: #777;
 }
-.footer, .previous-segment-label, .previous-segment, .sum-of-bests-label, .sum-of-bests, .personal-best-label, .personal-best, .world-record-label, .world-record {
-    padding-left: 4px;
-    padding-right: 4px;
+
+.current-split .split-time {
+    color: #fff;
+    background: transparent;
+}
+
+.timer {
+    background: #000;
+}
+
+.footer {
+    color: #fff;
+    background-color: #000;
+}
+
+.footer .time {
+    color: #fff;
 }

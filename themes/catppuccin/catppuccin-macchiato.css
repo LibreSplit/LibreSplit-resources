@@ -1,0 +1,25 @@
+/*********************************************
+ *  "Catppuccin Macchiato Urn" by AsahiNyan  *
+ ********************************************/
+
+:root {
+    --default-background: #1e2030;
+    --alt-background: #24273a;
+    --last-split-bg: #c6d0f5;
+    --default-text: #c6d0f5;
+    --separator: #3c4059;
+    --attempt-text: #4f5570;
+    --cs-border: #c6d0f5;
+    --time-text: #b2bcdc;
+    --behind-bg: #ee99a0;
+    --sob-bg: #eed49f;
+    --sob-fg: #eed49f;
+    --ahead-bg: #a6da95;
+    --done-bg: #8aadf4;
+    --wr-fg: #b7bdf8;
+    --losing-t: #ed8796;
+    --losing-bg: #ed8796;
+    --ahead-fg: #a6da95;
+    --behind-fg: #ee99a0;
+    --losing-fg: #ed8796;
+}

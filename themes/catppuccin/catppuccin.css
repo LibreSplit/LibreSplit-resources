@@ -1,27 +1,27 @@
-/***************************
-* "Asahi-Ann" by AsahiNyan *
-***************************/
+/*****************************************
+ *  "Catppuccin Mocha Urn" by AsahiNyan  *
+ ****************************************/
 
 :root {
-    --default-background: #181818;
-    --alt-background: #2c2c2c;
-    --last-split-bg: #9e9e9e;
-    --default-text: #ffffff;
-    --attempt-text: #878787;
-    --time-text: #e7e7e7;
-    --behind-bg: #da4453;
-    --sob-bg: #f6a400;
-    --sob-fg: #ffecce;
-    --ahead-bg: #60d12b;
-    --done-bg: #1a6dea;
-    --wr-fg: #d4ecff;
-    --losing-t: #ff2b2b;
-    --losing-bg: #ff2b2b;
-    --ahead-fg: #91c949;
-    --behind-fg: #ff5aa2;
-    --losing-fg: #ff2e2e;
-    --sob-fg: #ffa333;
-    --delta-bg: alpha(currentcolor, 0.3);
+    --default-background: #181825;
+    --alt-background: #1e1e2e;
+    --last-split-bg: #ced9ff;
+    --default-text: #cdd6f4;
+    --separator: #31314b;
+    --attempt-text: #595f7e;
+    --cs-border: #cdd6f4;
+    --time-text: #bac3de;
+    --behind-bg: #eba0ac;
+    --sob-bg: #f9e2af;
+    --sob-fg: #f9e2af;
+    --ahead-bg: #a6e3a1;
+    --done-bg: #89b4fa;
+    --wr-fg: #b4befe;
+    --losing-t: #f38ba8;
+    --losing-bg: #f38ba8;
+    --ahead-fg: #a6e3a1;
+    --behind-fg: #eba0ac;
+    --losing-fg: #f38ba8;
 }
 
 .window,
@@ -32,22 +32,14 @@
 }
 
 .header {
-    font-weight: 900;
     padding-bottom: 2px;
-    border-bottom: 1px solid alpha(var(--default-text), 0.2);
+    border-bottom: 1px solid var(--separator);
+    margin-bottom: 7px;
 }
 
 .title {
-    color: var(--default-text);
     font-weight: 900;
     font-size: 16pt;
-}
-
-.attempt-count {
-    color: var(--attempt-text);
-    font-size: 12pt;
-    font-weight: 700;
-    padding-top: 6px;
 }
 
 .time {
@@ -61,78 +53,73 @@
     color: var(--default-color);
 }
 
-.detailed-timer {
-    font-weight: 900;
+.attempt-count {
+    color: var(--attempt-text);
+    font-size: 12pt;
+    font-weight: 700;
+    padding-top: 6px;
+    padding-bottom: 2px;
+    margin-right: 2px;
 }
 
 .timer {
     font-size: 24pt;
-    font-family: "Noto Sans Mono CJK JP";
+    font-family: "Noto Sans Mono";
     font-weight: 900;
-    color: var(--ahead-bg);
-    background-color: var(--delta-bg);
+    color: var(--default-background);
+    background-color: var(--ahead-bg);
     padding: 0px 10px 4px 30px;
     margin-bottom: 10px;
     margin-top: 9px;
-    border-radius: 100px;
+    border-radius: 15px;
     transition: 0.7s background-color ease;
+    border: 1px solid alpha(currentcolor, 0.135);
 }
 
 .timer .timer-millis {
     font-size: 17pt;
     background-color: transparent;
     padding-bottom: 3px;
-    color: alpha(var(--ahead-bg), 0.7);
-}
-
-.timer.behind .timer-millis {
-    color: alpha(var(--behind-bg), 0.7);
-}
-
-.timer.losing .timer-millis {
-    color: alpha(var(--losing-bg), 0.7);
-}
-
-.timer.delay .timer-millis {
-    color: alpha(var(--done-bg), 0.7);
+    color: alpha(var(--default-background), 0.7);
 }
 
 .timer.behind,
 .timer.behind:backdrop {
-    background-color: var(--delta-bg);
-    color: var(--behind-bg);
+    background-color: var(--behind-bg);
+    color: var(--default-background);
     transition: 0.7s background-color ease;
     margin-bottom: 10px;
 }
 
 .timer.losing,
 .timer.losing:backdrop {
-    background-color: var(--delta-bg);
-    color: var(--losing-bg);
+    background-color: var(--losing-bg);
+    color: var(--default-background);
     transition: 0.7s background-color ease;
     margin-bottom: 10px;
+    border-radius: 15px;
 }
 
 .timer.delay,
 .timer.delay:backdrop,
 .timer.done,
 .timer.done:backdrop {
-    background-color: var(--delta-bg);
-    color: var(--done-bg);
+    background-color: var(--done-bg);
+    color: var(--default-background);
     transition: 0.7s background-color ease;
     margin-bottom: 10px;
 }
 
 .split {
     padding: 0px 10px 0px 10px;
-    margin: 2px 0px 2px 0px;
-    border-radius: 50px;
+    border-radius: 10px;
     min-height: 25px;
     background-color: transparent;
+    transition: 0.5s all ease;
 }
 
 .split-title {
-    font-weight: 700;
+    font-weight: 600;
 }
 
 .split-icon {
@@ -149,27 +136,42 @@
 
 .split-last {
     font-weight: 900;
-    background-color: alpha(var(--last-split-bg), 0.08);
-    border-radius: 50px;
+    background-color: alpha(var(--last-split-bg), 0.075);
+    color: alpha(var(--last-split-bg), 1);
+    border: 1px solid alpha(var(--last-split-bg), 0.1);
+    border-radius: 10px;
     margin-bottom: 2px;
-    margin-top: 0px;
+    margin-top: 2px;
+}
+
+.split-last .split-time {
+    color: alpha(var(--last-split-bg), 0.8);
 }
 
 .current-split {
-    background-color: var(--delta-bg);
-    color: var(--done-bg);
-    font-weight: 700;
-    transition: 0.3s background-color ease;
+    margin-left: 25px;
+    background-color: var(--done-bg);
+    color: var(--default-background);
+    font-weight: 900;
+    transition:
+        all 75ms cubic-bezier(0, 0, 0.2, 1),
+        background-size 0ms,
+        background-image 0ms,
+        border 0ms;
+    box-shadow: 0 0 0 3px alpha(currentcolor, 0.3);
+    background-size: 100%;
+    border-radius: 10px;
 }
 
 .current-split .split-time {
-    color: alpha(var(--done-bg), 0.8);
+    color: alpha(var(--default-background), 0.8);
+    font-weight: 800;
 }
 
 .split-delta {
-    color: var(--ahead-bg);
-    font-weight: 900;
+    color: var(--default-background);
     background-color: transparent;
+    font-weight: 900;
     padding-left: 10px;
     padding-right: 10px;
     margin-top: 3px;
@@ -182,8 +184,8 @@
 .current-split .delta,
 .current-split .split-delta,
 .delta {
-    color: var(--ahead-bg);
-    background-color: var(--delta-bg);
+    color: var(--default-background);
+    background-color: var(--ahead-bg);
     padding-left: 10px;
     padding-right: 10px;
     margin-top: 3px;
@@ -195,8 +197,8 @@
 
 .behind,
 .current-split .delta.behind {
-    color: var(--behind-bg);
-    background-color: var(--delta-bg);
+    color: var(--default-background);
+    background-color: var(--behind-bg);
     padding-left: 10px;
     padding-right: 10px;
     margin-top: 3px;
@@ -208,8 +210,8 @@
 
 .losing,
 .current-split .delta.losing {
-    color: var(--losing-bg);
-    background-color: var(--delta-bg);
+    color: var(--default-background);
+    background-color: var(--losing-bg);
     padding-left: 10px;
     padding-right: 10px;
     margin-top: 3px;
@@ -221,8 +223,8 @@
 
 .best-segment,
 .current-split .delta.best-segment {
-    color: var(--sob-bg);
-    background-color: var(--delta-bg);
+    color: var(--default-background);
+    background-color: var(--sob-bg);
     padding-left: 10px;
     padding-right: 10px;
     margin-top: 3px;
@@ -232,9 +234,38 @@
     min-width: 60px;
 }
 
-/* Selects Prev Segment, SOB, PB */
-.footer {
-    font-weight: 700;
+.detailed-timer {
+    font-weight: 900;
+}
+
+.prev-segment-container {
+    font-weight: 900;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    padding: 10px 10px 5px 10px;
+    background-color: var(--alt-background);
+}
+
+.sum-of-bests-container {
+    font-weight: 900;
+    border-radius: 0px;
+    padding: 5px 10px 5px 10px;
+    background-color: var(--alt-background);
+}
+
+.personal-best-container {
+    font-weight: 900;
+    border-radius: 0;
+    padding: 5px 10px 10px 10px;
+    background-color: var(--alt-background);
+}
+
+.world-record-container {
+    font-weight: 900;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    padding: 0px 10px 10px 10px;
+    background-color: var(--alt-background);
 }
 
 .prev-segment {
@@ -260,6 +291,7 @@
     border-radius: 0px;
     transition: ease 0.3s background-color;
     min-width: 0px;
+    background-color: transparent;
 }
 
 .prev-segment.losing {
@@ -272,6 +304,7 @@
     border-radius: 0px;
     transition: ease 0.3s background-color;
     min-width: 0px;
+    background-color: transparent;
 }
 
 .prev-segment.best-segment {
@@ -284,24 +317,7 @@
     border-radius: 0px;
     transition: ease 0.3s background-color;
     min-width: 0px;
-}
-
-.prev-segment-container {
-    background-color: var(--alt-background);
-    padding: 10px 10px 5px 10px;
-    border-radius: 20px 20px 0px 0px;
-}
-
-.sum-of-bests-container {
-    background-color: var(--alt-background);
-    padding: 5px 10px 5px 10px;
-    border-radius: 0px;
-}
-
-.personal-best-container {
-    background-color: var(--alt-background);
-    padding: 5px 10px 10px 10px;
-    border-radius: 0px 0px 20px 20px;
+    background-color: transparent;
 }
 
 .sum-of-bests {
@@ -314,6 +330,7 @@
     border-radius: 0px;
     transition: ease 0.3s background-color;
     min-width: 0px;
+    background-color: transparent;
 }
 
 .personal-best {
@@ -326,4 +343,5 @@
     border-radius: 0px;
     transition: ease 0.3s background-color;
     min-width: 0px;
+    background-color: transparent;
 }

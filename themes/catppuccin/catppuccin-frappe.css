@@ -1,0 +1,25 @@
+/******************************************
+ *  "Catppuccin Frappé Urn" by AsahiNyan  *
+ *****************************************/
+
+:root {
+    --default-background: #292c3c;
+    --alt-background: #303446;
+    --last-split-bg: #c6d0f5;
+    --default-text: #c6d0f5;
+    --separator: #4f5573;
+    --attempt-text: #595f7e;
+    --cs-border: #c6d0f5;
+    --time-text: #b2bcdc;
+    --behind-bg: #ea999c;
+    --sob-bg: #e5c890;
+    --sob-fg: #e5c890;
+    --ahead-bg: #a6d189;
+    --done-bg: #8caaee;
+    --wr-fg: #babbf1;
+    --losing-t: #e78284;
+    --losing-bg: #e78284;
+    --ahead-fg: #a6d189;
+    --behind-fg: #ea999c;
+    --losing-fg: #e78284;
+}

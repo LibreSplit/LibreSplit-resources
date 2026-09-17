@@ -1,61 +1,80 @@
 .window {
-	font-family: "Roboto", "Droid Sans", "Tahoma", "Arial", sans-serif;
-	color: #2e3440;
+    font-family: "Roboto", "Droid Sans", "Tahoma", "Arial", sans-serif;
+    color: #2e3440;
     background: #2e3440;
 }
+
 .header {
     color: #fff;
-	font-family: "Roboto", "Droid Sans", "Tahoma", "Arial", sans-serif;
-	font-weight: bold;
+    font-family: "Roboto", "Droid Sans", "Tahoma", "Arial", sans-serif;
+    font-weight: bold;
     background: linear-gradient(#4c566a, #3b4252);
 }
-.title, .attempt-count {
+
+.title,
+.attempt-count {
     padding-top: 4px;
     padding-bottom: 4px;
 }
+
 .attempt-count {
-	color: #d8dee9;
+    color: #d8dee9;
     padding-right: 4px;
 }
+
 .title {
-	color: #eceff4
+    color: #eceff4;
 }
-.splits, .split-last {
-	font-size: 10pt;
-    text-shadow: 0px 1px 1px rgba(0,0,0,0.1);
+
+.splits,
+.split-last {
+    font-size: 10pt;
+    text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
 }
-.split, .split-last {
-	color: #99a;
-	font-family: "Roboto Condensed", "Arial Narrow", sans-serif;
+
+.split,
+.split-last {
+    color: #99a;
+    font-family: "Roboto Condensed", "Arial Narrow", sans-serif;
     background: transparent;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
+
 .split {
     color: #99a;
 }
+
 .current-split {
     color: #000;
     background: linear-gradient(#d8dee9, #e5e9f0);
-    box-shadow: 0px 0px 8px rgba(0,0,0,0.65);
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.65);
     border: 0;
-    transition: .1s;
+    transition: 0.1s;
 }
+
 .split .split-time .done {
     color: #eceff4;
 }
+
 .current-split .split-time {
-	color: #2e3440;
+    color: #2e3440;
     background: transparent;
 }
-.split, .current-split, .split-title, .split-time, .split-delta, .split-last {
-	padding-top: 2px;
-	padding-bottom: 2px;
-	padding-left: 4px;
-	padding-right: 4px;
+
+.split,
+.current-split,
+.split-title,
+.split-time,
+.split-delta,
+.split-last {
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 4px;
+    padding-right: 4px;
 }
 
 .time {
-	font-family: "Roboto Black", "Droid Sans", "Tahoma", "Arial", sans-serif;
+    font-family: "Roboto Black", "Droid Sans", "Tahoma", "Arial", sans-serif;
     font-weight: bold;
     color: #88c0d0;
 }
@@ -64,49 +83,59 @@
     font-family: "Roboto Black";
     background: transparent;
 }
-.best-split, .footer .previous-segment .best-split {
+
+.best-split,
+.footer .previous-segment .best-split {
     animation: blink-split 4s;
     animation-iteration-count: infinite;
     background-color: transparent;
 }
+
 @keyframes blink-split {
     0% {
         color: #ebcb8b;
     }
+
     50% {
         color: #ebcb8b;
     }
+
     75% {
         color: #d08770;
     }
+
     100% {
         color: #ebcb8b;
     }
 }
 
 .timer {
-    text-shadow: 0px 2px 3px rgba(0,0,0,0.65);
-    color: #4CAF50;
+    text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.65);
+    color: #4caf50;
     background: linear-gradient(#2e3440, #4c566a);
-    transition: .5s;
+    transition: 0.5s;
 }
+
 .timer-millis {
     font-size: 12pt;
     padding-bottom: 5px;
     padding-right: 4px;
 }
+
 .timer-seconds {
     font-size: 24pt;
 }
 
 .losing {
     color: #a3be8c;
-    transition: .5s;
+    transition: 0.5s;
 }
+
 .behind {
     color: #bf616a;
-    transition: .5s;
+    transition: 0.5s;
 }
+
 .footer {
     color: #555;
 }
@@ -114,12 +143,22 @@
 .split-last {
     color: #81a1c1;
     border-top: 1px solid #fff;
-    box-shadow: 0px -4px 8px rgba(0,0,0,0.8);
+    box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.8);
 }
+
 .split-last .split-time {
     color: #99a;
 }
-.footer, .previous-segment-label, .previous-segment, .sum-of-bests-label, .sum-of-bests, .personal-best-label, .personal-best, .world-record-label, .world-record {
+
+.footer,
+.previous-segment-label,
+.previous-segment,
+.sum-of-bests-label,
+.sum-of-bests,
+.personal-best-label,
+.personal-best,
+.world-record-label,
+.world-record {
     padding-left: 4px;
     padding-right: 4px;
 }

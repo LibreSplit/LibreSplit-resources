@@ -1,52 +1,84 @@
-.window {
-    font-family: "Roboto", "Droid Sans", "Tahoma", "Arial", sans-serif;
-    color: #fff;
-    background: #212121;
+:root {
+    --fg: #ffffff;
+    --window-bg: #212121;
+    --header-fg: #ffffff;
+    --header-bg: #263238;
+    --attempt-color: #ffc107;
+    --blink-split-color: #ffc107;
+    --blink-split-light-color: #ffecb3;
+    --timer-color: #4caf50;
+    --split-fg: #9999aa;
+    --split-bg: #37474f;
+    --current-split-fg: #ffffff;
+    --current-split-bg: #37474f;
 }
+
+.window,
+.window.main-window {
+    font-family: "Roboto", "Droid Sans", "Tahoma", "Arial", sans-serif;
+    color: var(--fg);
+    background: var(--window-bg);
+}
+
 .header {
-    color: #fff;
-    font-family: "Roboto", "Droid Sans", "Tahoma", "Arial", sans-serif;
-    background: #263238;
+    color: var(--header-fg);
+    background: var(--header-bg);
 }
-.title, .attempt-count {
+
+.title,
+.attempt-count {
     padding-top: 4px;
     padding-bottom: 4px;
 }
+
 .attempt-count {
-    color: #FFC107;
+    color: var(--attempt-color);
     padding-right: 4px;
 }
-.splits, .split-last {
+
+.splits,
+.split-last {
     font-size: 10pt;
-    text-shadow: 0px 1px 1px rgba(0,0,0,0.1);
+    text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
 }
-.split, .split-last {
-    color: #fff;
-    font-family: "Roboto", "Arial", sans-serif;
-    font-weight: 100;
+
+.split,
+.split-last {
+    color: var(--fg);
     background: transparent;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
+
 .split-last {
     border: 0;
 }
+
 .split {
-    color: #99a;
+    color: var(--split-fg);
 }
+
 .current-split {
-    color: #fff;
-    background: #37474f;
+    color: var(--current-split-fg);
+    background-color: var(--current-split-bg);
     border: 0;
-    transition: .1s;
+    transition: 0.1s;
 }
+
 .split .split-time .done {
     color: #fff;
 }
+
 .current-split .split-time {
     color: #fff;
     background: transparent;
 }
-.split, .current-split, .split-title, .split-time, .split-delta, .split-last {
+
+.split,
+.current-split,
+.split-title,
+.split-time,
+.split-delta,
+.split-last {
     padding-top: 4px;
     padding-bottom: 4px;
     padding-left: 4px;
@@ -54,57 +86,65 @@
 }
 
 .time {
-    font-family: "Roboto", "Droid Sans", "Tahoma", "Arial", sans-serif;
-    color: #fff;
+    color: var(--fg);
 }
 
 .delta {
     font-family: "Roboto";
     background: transparent;
 }
-.best-split, .footer .previous-segment .best-split {
+
+.best-split,
+.footer .previous-segment .best-split {
     animation: blink-split 4s;
     animation-iteration-count: infinite;
     background-color: transparent;
 }
+
 @keyframes blink-split {
     0% {
-        color: #FFC107;
+        color: var(--blink-split-color);
     }
+
     50% {
-        color: #FFC107;
+        color: var(--blink-split-color);
     }
+
     75% {
-        color: #FFECB3;
+        color: var(--blink-split-light-color);
     }
+
     100% {
-        color: #FFC107;
+        color: var(--blink-split-color);
     }
 }
 
 .timer {
-    text-shadow: 0px 2px 3px rgba(0,0,0,0.65);
-    color: #4CAF50;
-    transition: .5s;
-    font-weight: 100;
+    text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.65);
+    color: var(--timer-color);
+    transition: 0.5s;
 }
+
 .timer-millis {
     font-size: 12pt;
     padding-bottom: 5px;
     padding-right: 4px;
 }
+
 .timer-seconds {
     font-size: 24pt;
 }
 
 .losing {
-    color: #4CAF50;
-    transition: .5s;
+    color: var(--timer-color);
+    transition: 0.5s;
 }
+
 .behind {
-    color: #F44336;
-    transition: .5s;
+    color: #f44336;
+    transition: 0.5s;
 }
+
 .footer {
     color: #555;
 }
@@ -112,12 +152,22 @@
 .split-last {
     color: #99a;
     border-top: 1px solid #888;
-    box-shadow: 0px -8px 16px rgba(33,33,33,1);
+    box-shadow: 0px -8px 16px rgba(33, 33, 33, 1);
 }
+
 .split-last .split-time {
     color: #99a;
 }
-.footer, .previous-segment-label, .previous-segment, .sum-of-bests-label, .sum-of-bests, .personal-best-label, .personal-best, .world-record-label, .world-record {
+
+.footer,
+.previous-segment-label,
+.previous-segment,
+.sum-of-bests-label,
+.sum-of-bests,
+.personal-best-label,
+.personal-best,
+.world-record-label,
+.world-record {
     padding-left: 4px;
     padding-right: 4px;
 }
