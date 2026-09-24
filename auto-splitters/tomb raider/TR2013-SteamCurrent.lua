@@ -5,17 +5,17 @@ local old = {FMV = false, cutscene = 0, isloading = false, level = "", newGameSe
 -- Settings: id -> { tooltip = "...", cond = "level_transition_string" (optional), cond = "lua expr" (optional), enabled = bool }
 -- Edit this table to enable/disable splits. Put the level-transition string in `cond` for simple transitions,
 -- or a Lua boolean expression in `cond` for more complex checks. Expressions may reference `current`, `old`, and `leveltransition`.
-local settings = {
+local splitConfig = {
     --#region scavenger den splits
     ["Give me the JUMP!"] = { tooltip = "Splits after first qte with guy trying to grab you", cond = "survival_den97_survival_den_rambotunnel", enabled = false },
     ["Neck high water"] = { tooltip = "Splits after leaving the neck high water", cond = "survival_den_rambotunnel_survival_den_puzzleroom", enabled = false },
     ["Puzzle Room"] = { tooltip = "Splits right before falling down the slide with cave collapsing", cond = "survival_den_puzzleroom_survival_den03", enabled = false },
     ["Let go of me you Bastard"] = { tooltip = "Splits right before the jump of qte's", cond = "survival_den03_survival_den04", enabled = false },
-    ["Scavenger's Den"] = { tooltip = "Complete the climbing QTE at the end of the intro.", cond = "survival_den04_oceanvista", enabled = true },
+    ["Scavenger's Den"] = { tooltip = "Complete the climbing QTE at the end of the intro.", cond = "survival_den04_oceanvista", enabled = false },
     --#endregion
     --#region costal forest splits
     ["Coastal Bluffs"] = { tooltip = "Lara reaches the area where the bow is.", cond = "oceanvista_ac_forest", enabled = false },
-    ["Bow"] = { tooltip = "Lara gets the bow.", cond = "skip", enabled = true },
+    ["Bow"] = { tooltip = "Lara gets the bow.", cond = "skip", enabled = false },
     ["First Skill"] = { tooltip = "Splits during the cutscene after you acquire your first skill", cond = "skip", enabled = false },
     ["Costal Forest(south)"] = { tooltip = "Splits when Lara climbs the ladder of the bunker.", cond = "ac_bunker_ac_main", enabled = false },
     ["Costal Forest(north) earlier"] = { tooltip = "Splits after gate cutscene", cond = "ac_main_connector_acmain_to_mountainclimb_a", enabled = false },
@@ -159,18 +159,30 @@ local settings = {
     --#endregion
     -- [""] = { tooltip = "", cond = "", enabled = false },
 }
+
+function define_settings()
+    for key, value in pairs(splitConfig) do
+        settings.define(key, {
+            name = key,
+            type = SETTING_BOOLEAN,
+            default = value.enabled,
+            desc = value.tooltip
+        })
+    end
+end
+
 local EnabledSettings = {}
 function TableInsert(table, val)
     local i = #table + 1
     table[i] = val
 end
 function PopulateEnabledSettings()
-    for key, value in pairs(settings) do
-        if value.enabled == true and value.cond ~= "skip" then
+    for key, value in pairs(splitConfig) do
+        if value.cond ~= "skip" and settings.get(key) == true then
             TableInsert(EnabledSettings, value.cond)
         end
     end
-end 
+end
 local CompletedSpecialSplits = {}
 function TableContains(tbl, value)
     for _, v in pairs(tbl) do
@@ -180,9 +192,12 @@ function TableContains(tbl, value)
     end
     return false
 end
+local CompletedSplits = {}
 function startup()
-    refreshrate = 60
+    refreshRate = 60
+    
 end
+
 function state()
     old.FMV = current.FMV
     old.cutscene = current.cutscene
@@ -207,20 +222,15 @@ function state()
     current.GLA = readAddress("int", 0x20D0014)
     current.Ammo = readAddress("int", 0x20D0000)
     current.bowAmmo = readAddress("int", 0x20CFD80)
-    --[[ print("current fmv: " .. tostring(current.FMV))
-    print("current loading: " .. tostring(current.isloading))
-    print("current cutscene: " .. current.cutscene)
-    print("current bowAmmo: " .. current.bowAmmo)--]]   
     
 end
 
 function start()
     -- starts after the fmv
-    if current.FMV and current.isloading and current.cutscene ~= 8 and current.level == "cine_chaos_beach" and old.level ~= "cine_chaos_beach" and current.saveSlot >= 1 then
+    if current.level == "cine_chaos_beach" and current.saveSlot >= 1 then
         CompletedSpecialSplits = {}
         EnabledSettings = {}
         PopulateEnabledSettings()
-        print("started on new save")
         return true
     end
     -- starts after the load or when reloading checkpoint
@@ -228,99 +238,98 @@ function start()
         CompletedSpecialSplits = {}
         EnabledSettings = {}
         PopulateEnabledSettings()
-        print("started on premade save")
         return true
     end
 end
 
 function split()
     --#region special splits
-    if settings["Bow"].enabled == true and TableContains(CompletedSpecialSplits, "Bow") == false and current.level == "ac_forest" and current.bowAmmo > old.bowAmmo and old.bowAmmo > -1 then
+    if settings.get("Bow") == true and TableContains(CompletedSpecialSplits, "Bow") == false and current.level == "ac_forest" and current.bowAmmo > old.bowAmmo and old.bowAmmo > -1 then
         TableInsert(CompletedSpecialSplits, "Bow")
         return true
     end
-    if settings["First Skill"].enabled == true and TableContains(CompletedSpecialSplits, "First Skill") == false and current.level == "ac_forest" and current.cutscene == 520 and current.Camp == 0 and old.Camp == 1 then
+    if settings.get("First Skill") == true and TableContains(CompletedSpecialSplits, "First Skill") == false and current.level == "ac_forest" and current.cutscene == 520 and current.Camp == 0 and old.Camp == 1 then
         TableInsert(CompletedSpecialSplits, "First Skill")
         return true
-    elseif settings["First Skill"].enabled == true and TableContains(CompletedSpecialSplits, "First Skill") == false and current.level == "ac_forest" and  current.cutscene == 8 and old.cutscene == 520 and current.bowAmmo > 0 then
+    elseif settings.get("First Skill") == true and TableContains(CompletedSpecialSplits, "First Skill") == false and current.level == "ac_forest" and  current.cutscene == 8 and old.cutscene == 520 and current.bowAmmo > 0 then
         TableInsert(CompletedSpecialSplits, "First Skill")
         return true
     end
-    if settings["VLADIMIR!"].enabled == true and TableContains(CompletedSpecialSplits, "VLADIMIR!") == false and current.level == "mountain_climb" and current.cutscene == 520 and (current.Ammo == 0 or (current.bowAmmo >= 0 and current.Ammo >= 0)) then
+    if settings.get("VLADIMIR!") == true and TableContains(CompletedSpecialSplits, "VLADIMIR!") == false and current.level == "mountain_climb" and current.cutscene == 520 and (current.Ammo == 0 or (current.bowAmmo >= 0 and current.Ammo >= 0)) then
         TableInsert(CompletedSpecialSplits, "VLADIMIR!")
         return true
     end
-    if settings["Chimney Alt"].enabled == true and TableContains(CompletedSpecialSplits, "Chimney Alt") == false and current.level == "vh_main" and current.cutscene == 520 and current.percentage >= 8.0 then
+    if settings.get("Chimney Alt") == true and TableContains(CompletedSpecialSplits, "Chimney Alt") == false and current.level == "vh_main" and current.cutscene == 520 and current.percentage >= 8.0 then
         TableInsert(CompletedSpecialSplits, "Chimney Alt")
         return true
     end
-    if settings["Wolves"].enabled == true and TableContains(CompletedSpecialSplits, "Wolves") == false and current.level == "vh_main" and current.cutscene == 521 and old.cutscene ~= 521 then
+    if settings.get("Wolves") == true and TableContains(CompletedSpecialSplits, "Wolves") == false and current.level == "vh_main" and current.cutscene == 521 and old.cutscene ~= 521 then
         TableInsert(CompletedSpecialSplits, "Wolves")
         return true
     end
-    if settings["CampFire"].enabled == true and TableContains(CompletedSpecialSplits, "CampFire") == false and current.level == "ww2_sos_01" and current.cutscene == 520 and old.cutscene == 8 then
+    if settings.get("CampFire") == true and TableContains(CompletedSpecialSplits, "CampFire") == false and current.level == "ww2_sos_01" and current.cutscene == 520 and old.cutscene == 8 then
         TableInsert(CompletedSpecialSplits, "CampFire")
         return true
     end
-    if settings["CampFireAlt"].enabled == true and TableContains(CompletedSpecialSplits, "CampFireAlt") == false and current.level == "ww2_sos_01" and current.FMV == true then
+    if settings.get("CampFireAlt") == true and TableContains(CompletedSpecialSplits, "CampFireAlt") == false and current.level == "ww2_sos_01" and current.FMV == true then
         TableInsert(CompletedSpecialSplits, "CampFireAlt")
         return true
     end
-    if settings["Ambush Room"].enabled == true and TableContains(CompletedSpecialSplits, "Ambush Room") == false and current.level == "ww2sos_map_room" and current.cutscene == 520 then
+    if settings.get("Ambush Room") == true and TableContains(CompletedSpecialSplits, "Ambush Room") == false and current.level == "ww2sos_map_room" and current.cutscene == 520 then
         TableInsert(CompletedSpecialSplits, "Ambush Room")
         return true
     end
-    if settings["Loss"].enabled == true and TableContains(CompletedSpecialSplits, "Loss") == false and current.level == "vh_main" and current.cutscene == 520 and current.percentage >= 19.72 then
+    if settings.get("Loss") == true and TableContains(CompletedSpecialSplits, "Loss") == false and current.level == "vh_main" and current.cutscene == 520 and current.percentage >= 19.72 then
         TableInsert(CompletedSpecialSplits, "Loss")
         return true
     end
-    if settings["Bell Cutscene"].enabled == true and TableContains(CompletedSpecialSplits, "Bell Cutscene") == false and current.level == "ma_puzzle" and current.cutscene == 520 then
+    if settings.get("Bell Cutscene") == true and TableContains(CompletedSpecialSplits, "Bell Cutscene") == false and current.level == "ma_puzzle" and current.cutscene == 520 then
         TableInsert(CompletedSpecialSplits, "Bell Cutscene")
         return true
     end
-    if settings["Grenade launcher"].enabled == true and TableContains(CompletedSpecialSplits, "Grenade launcher") == false and current.level == "ge_04" and current.GLA == 0 and old.GLA ~= current.GLA and current.cutscene >= 520 then
+    if settings.get("Grenade launcher") == true and TableContains(CompletedSpecialSplits, "Grenade launcher") == false and current.level == "ge_04" and current.GLA == 0 and old.GLA ~= current.GLA and current.cutscene >= 520 then
         TableInsert(CompletedSpecialSplits, "Grenade launcher")
         return true
     end
-    if settings["Where's Alex"].enabled == true and TableContains(CompletedSpecialSplits, "Where's Alex") == false and current.level == "bh_beach_hub" and current.cutscene == 520 and current.percentage >= 40.14 then
+    if settings.get("Where's Alex") == true and TableContains(CompletedSpecialSplits, "Where's Alex") == false and current.level == "bh_beach_hub" and current.cutscene == 520 and current.percentage >= 40.14 then
         TableInsert(CompletedSpecialSplits, "Where's Alex")
         return true
     end
-    if settings["Compound bow"].enabled == true and TableContains(CompletedSpecialSplits, "Compound bow") == false and current.level == "bh_beach_hub" and current.cutscene == 520 and current.percentage >= 42.14 then
+    if settings.get("Compound bow") == true and TableContains(CompletedSpecialSplits, "Compound bow") == false and current.level == "bh_beach_hub" and current.cutscene == 520 and current.percentage >= 42.14 then
         TableInsert(CompletedSpecialSplits, "Compound bow")
         return true
     end
-    if settings["Goaliath"].enabled == true and TableContains(CompletedSpecialSplits, "Goaliath") == false and current.level == 'sb_15' and current.cutscene == 520 then
+    if settings.get("Goaliath") == true and TableContains(CompletedSpecialSplits, "Goaliath") == false and current.level == 'sb_15' and current.cutscene == 520 then
         TableInsert(CompletedSpecialSplits, "Goaliath")
         return true
     end
-    if settings["Mirror"].enabled == true and TableContains(CompletedSpecialSplits, "Mirror") == false and current.level == 'sb_16' and current.cutscene == 520 then
+    if settings.get("Mirror") == true and TableContains(CompletedSpecialSplits, "Mirror") == false and current.level == 'sb_16' and current.cutscene == 520 then
         TableInsert(CompletedSpecialSplits, "Mirror")
         return true
     end
-    if settings["Alex who?"].enabled == true and TableContains(CompletedSpecialSplits, "Alex who?") == false and current.level == 'sb_20' and current.cutscene == 520 then
+    if settings.get("Alex who?") == true and TableContains(CompletedSpecialSplits, "Alex who?") == false and current.level == 'sb_20' and current.cutscene == 520 then
         TableInsert(CompletedSpecialSplits, "Alex who?")
         return true
     end
-    if settings["Book"].enabled == true and TableContains(CompletedSpecialSplits, "Book") == false and current.level == 'sb_05' and current.cutscene == 520 then
+    if settings.get("Book") == true and TableContains(CompletedSpecialSplits, "Book") == false and current.level == 'sb_05' and current.cutscene == 520 then
         TableInsert(CompletedSpecialSplits, "Book")
         return true
     end
-    if settings["Tools"].enabled == true and TableContains(CompletedSpecialSplits, "Tools") == false and current.level == "bh_beach_hub" and current.cutscene == 520 and current.percentage >= 46.83 then
+    if settings.get("Tools") == true and TableContains(CompletedSpecialSplits, "Tools") == false and current.level == "bh_beach_hub" and current.cutscene == 520 and current.percentage >= 46.83 then
         TableInsert(CompletedSpecialSplits, "Tools")
         return true
     end
-    if settings["Samurai"].enabled == true and TableContains(CompletedSpecialSplits, "Samurai") == false and current.level == "si_25_tomb" and current.cutscene == 520 then
+    if settings.get("Samurai") == true and TableContains(CompletedSpecialSplits, "Samurai") == false and current.level == "si_25_tomb" and current.cutscene == 520 then
         TableInsert(CompletedSpecialSplits, "Samurai")
         return true
     end
-    if settings["Dr James Whitman"].enabled == true and TableContains(CompletedSpecialSplits, "Dr James Whitman") == false and current.level == "chasm_entrance" and current.cutscene == 520 and old.cutscene == 8 and current.GLA > -1 then
+    if settings.get("Dr James Whitman") == true and TableContains(CompletedSpecialSplits, "Dr James Whitman") == false and current.level == "chasm_entrance" and current.cutscene == 520 and old.cutscene == 8 and current.GLA > -1 then
         TableInsert(CompletedSpecialSplits, "Dr James Whitman")
         return true
     end
     --#endregion
     --[[ extra if conditions
-    if settings[""].enabled == true and table.contains(CompletedSpecialSplits, "") == false and then
+    if settings.get("").enabled == true and table.contains(CompletedSpecialSplits, "") == false and then
         TableInsert(CompletedSpecialSplits, "")
         return true
     end
@@ -328,13 +337,14 @@ function split()
     --#region Main Split logic
     if old.level ~= current.level then
         local LevelTransition = old.level .. "_" .. current.level
-        if TableContains(EnabledSettings, LevelTransition) == true and TableContains(CompletedSpecialSplits, LevelTransition) == false then
-            TableInsert(CompletedSpecialSplits, LevelTransition)
+        if TableContains(EnabledSettings, LevelTransition) == true and TableContains(CompletedSplits, LevelTransition) == false then
+            TableInsert(CompletedSplits, LevelTransition)
             return true
         end
     end
     -- ending split everyone wants this split so hard code it.
     if current.level == "qt_the_ritual" and current.cutscene == 712 and old.cutscene ~= 712 then
+        TableInsert(CompletedSplits, "Mathias")
         return true
     end
 end
@@ -348,14 +358,10 @@ function isLoading()
         return true
     end
     --]]
---[[    if current.level == "qt_the_ritual" and current.cutscene == 712 and old.cutscene ~= 712 then
+    if current.level == "qt_the_ritual" and current.cutscene == 712 and old.cutscene ~= 712 and TableContains(CompletedSplits, "qt_the_ritual") == false then
         return false
-    else-
-    if current.FMV or current.isloading or current.bowAmmo == -1 or current.cutscene ~=8 then
-        print("2nd if statement")
+    elseif (current.FMV or current.isloading or current.bowAmmo == -1 or current.cutscene ~=8) and current.level ~= "main_menu" then
         return true
-    end-]]
-    --return current.FMV or current.isloading or current.bowAmmo == -1 or current.cutscene ~=8
-    return (current.isloading or current.FMV or current.cutscene > 8 or current.cutscene < 8 or current.bowAmmo == -1) and current.level ~= "main_menu"
-
+    end
+    
 end
