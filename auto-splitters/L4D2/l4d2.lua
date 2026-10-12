@@ -94,14 +94,7 @@ local current = {
     cutscenePlaying = false
 }
 
-local old = {
-    whatsLoading = "",
-    isLoading = false,
-    hasControl = false,
-    scoreboardLoading = false,
-    svCheats = false,
-    cutscenePlaying = false
-}
+local old = shallow_copy_tbl(current)
 
 function string:endsWith(suffix)
     return self:sub(-#suffix) == suffix
