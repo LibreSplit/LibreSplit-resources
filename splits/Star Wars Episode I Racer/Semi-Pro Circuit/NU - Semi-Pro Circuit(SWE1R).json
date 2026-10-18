@@ -48,12 +48,12 @@
   ],
   "auto_splitter": "",
   "auto_splitter_settings": {
-    "preset": 1,
-    "loadlessRT": false,
-    "require1st": false,
-    "startRaceTrig": false,
+    "category": 1,
     "autoReset": 2,
-    "removeTabbedTime": false
+    "useInRaceGT": false,
+    "removeTabbedTime": false,
+    "require1st": false,
+    "startRaceTrig": false
   },
   "comparison_method": 1,
   "width": 300,
