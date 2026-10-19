@@ -1,27 +1,27 @@
-# STAR WARS RACER SPLITS (For LibreSplit)
+# Star Wars Racer Splits (For LibreSplit)
 
 **Star Wars Episode I Racer split files for use with [LibreSplit](https://github.com/LibreSplit/LibreSplit).**
   
-### INCLUDES
+### Includes
 * Uniquely named and categorized split files each with 3 variants
   * Upgrades    - Real Time no loads (LRT) 
   * No Upgrades - Real Time no loads (LRT) 
   * Upgrades    - In Race Game Time (IGT)  
-* All split files include settings for this [auto splitter script](https://github.com/Wuzzmi/SWE1R_LibreSplit-resources/tree/main/auto-splitter)
+* All split files include settings for this [auto splitter script](https://github.com/Wuzzmi/swe1r_auto-splitter-libresplit)
 
-### RESOURCES
-* Download [split files](https://github.com/Wuzzmi/swe1r-splits-libresplit/archive/refs/heads/main.zip)
+### Resources
+* Download [split files](https://github.com/Wuzzmi/swe1r_splits-libresplit/archive/refs/heads/main.zip)
 * [LibreSplit](https://github.com/LibreSplit/LibreSplit/tree/main) (required)
-* [Auto splitter script](https://github.com/Wuzzmi/SWE1R_LibreSplit-resources/tree/main/auto-splitter) for Star Wars Racer (recommened)  
+* [Auto splitter script](https://github.com/Wuzzmi/swe1r_auto-splitter-libresplit) for Star Wars Racer (recommened)  
    
-### ABOUT THIS REPO  
+### Split File Details  
 LibreSplit currently does not support subsplits. Once subsplits are supported they will added to this repo.
   
 The variants of each split file have unique titles that match their format so they can be differentiated from one another. These variants are important if you will be running multiple versions of the same category (ex. Upgrades & No Upgrades). This way they will not overwrite each other. 
   
 IGT variants are intended for runs that test the "total in race game time" of specific upgrade routes. Since these runs exclude menu time, they need their own split files. 
   
-### USAGE
+### Usage
 * Open LibreSplit
 * right click, and open a split file
   
@@ -30,5 +30,5 @@ IGT variants are intended for runs that test the "total in race game time" of sp
 
 The splits should now be loaded and functional
   
-## LICENSE
+## License
 This repo is unlicensed.
