@@ -29,6 +29,7 @@ IGT variants are intended for runs that test the "total in race game time" of sp
 
 
 The splits should now be loaded and functional
-  
-## License
+
+___
+### License
 This repo is unlicensed.
