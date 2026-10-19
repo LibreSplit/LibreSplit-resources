@@ -1,0 +1,61 @@
+{
+  "name": "Star Wars Episode I Racer:",
+  "category": "\nSemi-Pro Circuit - No Upgrades",
+  "attempt_count": 0,
+  "finished_count": 0,
+  "splits": [
+    {
+      "title": "Sunken City",
+      "time": "0.000000",
+      "best_time": "0.000000",
+      "best_segment": "0.000000"
+    },
+    {
+      "title": "Howler Gorge",
+      "time": "0.000000",
+      "best_time": "0.000000",
+      "best_segment": "0.000000"
+    },
+    {
+      "title": "Dug Derby",
+      "time": "0.000000",
+      "best_time": "0.000000",
+      "best_segment": "0.000000"
+    },
+    {
+      "title": "Scrapper's Run",
+      "time": "0.000000",
+      "best_time": "0.000000",
+      "best_segment": "0.000000"
+    },
+    {
+      "title": "Zugga Challenge",
+      "time": "0.000000",
+      "best_time": "0.000000",
+      "best_segment": "0.000000"
+    },
+    {
+      "title": "Baroo Coast",
+      "time": "0.000000",
+      "best_time": "0.000000",
+      "best_segment": "0.000000"
+    },
+    {
+      "title": "Bumpy's Breakers",
+      "time": "0.000000",
+      "best_time": "0.000000",
+      "best_segment": "0.000000"
+    }
+  ],
+  "auto_splitter": "",
+  "auto_splitter_settings": {
+    "autoReset": 2,
+    "removeTabbedTime": false,
+    "require1st": false,
+    "startRaceTrig": false,
+    "useInRaceGT": false
+  },
+  "comparison_method": 1,
+  "width": 300,
+  "height": 375
+}
