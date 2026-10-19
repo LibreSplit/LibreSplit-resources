@@ -1,25 +1,27 @@
-# Star Wars Racer Splits (For LibreSplit)
+# Star Wars Racer - Splits Files (For LibreSplit)
 
-**Star Wars Episode I Racer split files for use with [LibreSplit](https://github.com/LibreSplit/LibreSplit).**
+**Split files used with LibreSplit, for Star Wars Episode I Racer speedruns.**
   
 ### Includes
 * Uniquely named and categorized split files each with 3 variants
-  * Upgrades    - Real Time no loads (LRT) 
-  * No Upgrades - Real Time no loads (LRT) 
-  * Upgrades    - In Race Game Time (IGT)  
-* All split files include settings for this [auto splitter script](https://github.com/Wuzzmi/swe1r_auto-splitter-libresplit)
+  * Upgrades    -  load removed time
+  * No Upgrades -  load removed time
+  * Upgrades    - in race game time
+* All split files include settings for this [auto splitter](https://github.com/Wuzzmi/swe1r_auto-splitter-libresplit)
 
-### Resources
-* Download [split files](https://github.com/Wuzzmi/swe1r_splits-libresplit/archive/refs/heads/main.zip)
-* [LibreSplit](https://github.com/LibreSplit/LibreSplit/tree/main) (required)
-* [Auto splitter script](https://github.com/Wuzzmi/swe1r_auto-splitter-libresplit) for Star Wars Racer (recommened)  
+### Required
+* [Download](https://github.com/Wuzzmi/swe1r_splits-libresplit/archive/refs/heads/main.zip) split files
+* [LibreSplit](https://github.com/LibreSplit/LibreSplit/tree/main)
+### Recommended
+* [Auto splitter](https://github.com/Wuzzmi/swe1r_auto-splitter-libresplit) for Star Wars Racer
    
 ### Split File Details  
-LibreSplit currently does not support subsplits. Once subsplits are supported they will added to this repo.
+> [!note]
+> LibreSplit currently does not support subsplits. Once subsplits are supported they will be added to this repo.
   
-The variants of each split file have unique titles that match their format so they can be differentiated from one another. These variants are important if you will be running multiple versions of the same category (ex. Upgrades & No Upgrades). This way they will not overwrite each other. 
+All split file variants have unique names that match their format so they can be differentiated from one another. These variants are important if you will be running multiple versions of the same category (ex. Upgrades & No Upgrades). This way they will not overwrite each other. 
   
-IGT variants are intended for runs that test the "total in race game time" of specific upgrade routes. Since these runs exclude menu time, they need their own split files. 
+IGT variants are intended for testing the "total in race game time" under differing run conditions (ex. varied upgrade routes, pods, etc.). Since these runs exclude menu time, they need their own split files. 
   
 ### Usage
 * Open LibreSplit
@@ -27,8 +29,7 @@ IGT variants are intended for runs that test the "total in race game time" of sp
   
 ![Rightclick in LibreSplit](https://github.com/Wuzzmi/repo-media/blob/main/Wuzzmi-LibreSplit-resources/img/rightclick-split-libresplit.png?raw=true)
 
-
-The splits should now be loaded and functional
+**The splits should now be loaded and functional**
 
 ___
 ### License

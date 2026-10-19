@@ -10,7 +10,7 @@
    - Auto reset, with choice of reset location
    - Optional run category presets
    - Choice of LRT, or IGT timing methods
-   - Option to remove unfocused/tabbed-out time
+   - Option to remove tabbed-our/unfocused time
   
    USING THIS SCRIPT
    - Adjust the script settings in your split file under "auto_splitter_settings"
@@ -66,14 +66,14 @@ function define_settings()
         name = "Auto Reset",
         type = SETTING_INTEGER,
         default = 2,
-        desc = "Choose to use auto reset and where it triggers. 0 = None, 1 = File Select(risky), 2 = Main Menu, 3 = Settings(safe)"
+        desc = "Choose to use auto reset and where it triggers. 0 = Disabled, 1 = File Select(risky), 2 = Main Menu, 3 = Settings(safe)"
     })
 
     settings.define("removeTabbedTime", {
         name = "Remove Tabbed Time",
         type = SETTING_BOOLEAN,
         default = false,
-        desc = "Stops the timer while game is tabbed out/loses focus."
+        desc = "Stops the timer while game is tabbed-out/unfocused."
     })
 
     settings.define("require1st", {
@@ -99,12 +99,11 @@ function define_settings()
 end
 
 function startup()
+    refreshRate = 24 -- Starting point, will be calculated dynamically
     sets.autoReset = settings.get("autoReset")
     sets.removeTabbedTime = settings.get("removeTabbedTime")
     sets.require1st = settings.get("require1st")
     sets.startRaceTrig = settings.get("startRaceTrig")
-
-    refreshRate = 24 -- Starting point, will be calculated dynamically
     useGameTime = settings.get("useInRaceGT")
 end
 
