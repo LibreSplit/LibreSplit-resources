@@ -104,5 +104,5 @@ Enable to use IGT(in game race time), otherwise LRT(load removed time) will be u
 |**useInRaceGT**| True | false |
 
 ___
-### LICENSE
+### License
 This repo is unlicensed.
