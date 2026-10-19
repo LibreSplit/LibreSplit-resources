@@ -99,10 +99,10 @@ function define_settings()
 end
 
 function startup()
-   sets.autoReset = settings.get("autoReset")
-   sets.removeTabbedTime = settings.get("removeTabbedTime")
-   sets.require1st = settings.get("require1st")
-   sets.startRaceTrig = settings.get("startRaceTrig")
+    sets.autoReset = settings.get("autoReset")
+    sets.removeTabbedTime = settings.get("removeTabbedTime")
+    sets.require1st = settings.get("require1st")
+    sets.startRaceTrig = settings.get("startRaceTrig")
 
     refreshRate = 24 -- Starting point, will be calculated dynamically
     useGameTime = settings.get("useInRaceGT")
