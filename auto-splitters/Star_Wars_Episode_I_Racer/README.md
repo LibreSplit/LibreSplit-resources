@@ -1,1 +1,0 @@
-/home/wuzzmi/Repos/swe1r_auto-splitter-libresplit/README.md
