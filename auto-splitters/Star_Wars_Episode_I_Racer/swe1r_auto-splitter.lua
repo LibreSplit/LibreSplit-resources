@@ -10,7 +10,7 @@
    - Auto reset, with choice of reset location
    - Optional run category presets
    - Choice of LRT, or IGT timing methods
-   - Option to remove tabbed-our/unfocused time
+   - Option to remove tabbed-out/unfocused time
   
    USING THIS SCRIPT
    - Adjust the script settings in your split file under "auto_splitter_settings"
@@ -170,8 +170,8 @@ function split()
 end
 
 function isLoading()
-    -- Actual ingame isLoading bool unknown. Detects loading based on frame 
-    -- counter with small dynamic buffer to account for framerate discrepancies
+    -- Actual in game isLoading bool unknown. Detects loading based on frame 
+    -- counter with small dynamic buffer to account for frame rate discrepancies
     if not useGameTime then
         vars.loadBufferSize = math.floor(old.frmLen / current.frmLen) + 2
         if current.frmCnt == old.frmCnt then

@@ -7,7 +7,7 @@
   * Upgrades    -  load removed time
   * No Upgrades -  load removed time
   * Upgrades    - in race game time
-* All split files include settings for this [auto splitter](https://github.com/Wuzzmi/swe1r_auto-splitter-libresplit)
+* Each split file comes preset with appropriate settings for this [auto splitter](https://github.com/Wuzzmi/swe1r_auto-splitter-libresplit)
 
 ### Required
 * [Download](https://github.com/Wuzzmi/swe1r_splits-libresplit/archive/refs/heads/main.zip) split files

@@ -4,7 +4,7 @@ Based on [Galeforce's LiveSplit Autosplitter](https://github.com/everalert/swe1r
 The same auto splitter logic converted to Lua, with some compatibility changes, and additions.
 
 > [!note]
-> This script has the necessary functionalities for all run categories, but some features still have bugs/caveats, so is still somewhat a work in progress.
+> This script has the requirements for all run categories, but some features still have bugs/caveats, so is still somewhat a work in progress.
 >   
 > *\*\*Starred Features\*\** indicate that, that feature currently has a bug/caveat associated with it.
   
@@ -111,7 +111,7 @@ ___
 ```json
 "useInRaceGT": false
 ```
-Enable to use IGT (in race game time), otherwise LRT(load removed time) will be used. IGT is not useful for recording official runs, but is here for other uses if you have one.
+Enable to use IGT (in race game time), otherwise LRT(load removed time) will be used. IGT is not useful for recording official runs, but can be useful for testing the "total in race game time" under differing run conditions (ex. varied upgrade routes, pods, etc.), or other uses if you have one.
 
 |  | In Race Game Time(IGT) | Load Removed Time(LRT) |
 |:---:|:---:|:---:|
