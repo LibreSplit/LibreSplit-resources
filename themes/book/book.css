@@ -77,7 +77,7 @@
 }
 
 .best-split,
-.footer .previous-segment .best-split {
+.statistics .previous-segment .best-split {
     animation: blink-split 4s;
     animation-iteration-count: infinite;
     background-color: transparent;
@@ -127,7 +127,7 @@
     transition: 0.5s;
 }
 
-.footer {
+.statistics {
     color: #555;
 }
 
@@ -141,7 +141,7 @@
     color: #a86;
 }
 
-.footer,
+.statistics,
 .previous-segment-label,
 .previous-segment,
 .sum-of-bests-label,
