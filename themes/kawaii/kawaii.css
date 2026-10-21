@@ -231,7 +231,7 @@
     min-width: 60px;
 }
 /* PS */
-.window box.footer:nth-child(4) {
+.window box.statistics.prev-segment-container {
     margin-top: 5px;
     padding: 25px 10px 1px 10px;
     background-image: url("assets/boxTop.png");
@@ -239,14 +239,14 @@
     font-size: 11pt;
 }
 /* SOB */
-.window box.footer:nth-child(5) {
+.window box.statistics.sum-of-bests-container {
     border-radius: 0px;
     padding: 1px 10px 1px 10px;
     background-color: var(--box-background);
     font-size: 11pt;
 }
 /* PB */
-.window box.footer:nth-child(6) {
+.window box.statistics.personal-best-container {
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
     padding: 1px 10px 10px 10px;
@@ -254,7 +254,7 @@
     font-size: 11pt;
 }
 
-.window box.footer:nth-child(7) {
+.window box.statistics.world-record-container {
     background-color: transparent;
 }
 
