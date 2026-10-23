@@ -1,29 +1,89 @@
 {
-  "name": "Star Wars Episode I Racer:",
-  "category": "All tracks NG+",
+  "name": "Star Wars Episode I: Racer",
+  "category": "New Game+",
   "attempt_count": 0,
   "finished_count": 0,
   "splits": [
     {
-      "title": "Ando Prime Centrum",
+      "title": "The Boonta Training Course",
       "time": "0.000000",
       "best_time": "0.000000",
       "best_segment": "0.000000"
     },
     {
-      "title": "Abyss",
+      "title": "Mon Gazza Speedway",
       "time": "0.000000",
       "best_time": "0.000000",
       "best_segment": "0.000000"
     },
     {
-      "title": "The Gauntlet",
+      "title": "Beedo's Wild Ride",
       "time": "0.000000",
       "best_time": "0.000000",
       "best_segment": "0.000000"
     },
     {
-      "title": "Inferno",
+      "title": "Aquilaris Classic",
+      "time": "0.000000",
+      "best_time": "0.000000",
+      "best_segment": "0.000000"
+    },
+    {
+      "title": "Malastare 100",
+      "time": "0.000000",
+      "best_time": "0.000000",
+      "best_segment": "0.000000"
+    },
+    {
+      "title": "Vengeance",
+      "time": "0.000000",
+      "best_time": "0.000000",
+      "best_segment": "0.000000"
+    },
+    {
+      "title": "Spice Mine Run",
+      "time": "0.000000",
+      "best_time": "0.000000",
+      "best_segment": "0.000000"
+    },
+    {
+      "title": "Sunken City",
+      "time": "0.000000",
+      "best_time": "0.000000",
+      "best_segment": "0.000000"
+    },
+    {
+      "title": "Howler's Gorge",
+      "time": "0.000000",
+      "best_time": "0.000000",
+      "best_segment": "0.000000"
+    },
+    {
+      "title": "Dug Derby",
+      "time": "0.000000",
+      "best_time": "0.000000",
+      "best_segment": "0.000000"
+    },
+    {
+      "title": "Scrapper's Run",
+      "time": "0.000000",
+      "best_time": "0.000000",
+      "best_segment": "0.000000"
+    },
+    {
+      "title": "Zugga Challenge",
+      "time": "0.000000",
+      "best_time": "0.000000",
+      "best_segment": "0.000000"
+    },
+    {
+      "title": "Baroo Coast",
+      "time": "0.000000",
+      "best_time": "0.000000",
+      "best_segment": "0.000000"
+    },
+    {
+      "title": "Bumpy's Breakers",
       "time": "0.000000",
       "best_time": "0.000000",
       "best_segment": "0.000000"
@@ -71,85 +131,25 @@
       "best_segment": "0.000000"
     },
     {
-      "title": "Bumpy's Breakers",
+      "title": "Ando Prime Centrum",
       "time": "0.000000",
       "best_time": "0.000000",
       "best_segment": "0.000000"
     },
     {
-      "title": "Baroo Coast",
+      "title": "Abyss",
       "time": "0.000000",
       "best_time": "0.000000",
       "best_segment": "0.000000"
     },
     {
-      "title": "Zugga Challenge",
+      "title": "The Gauntlet",
       "time": "0.000000",
       "best_time": "0.000000",
       "best_segment": "0.000000"
     },
     {
-      "title": "Scrapper's Run",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
-    },
-    {
-      "title": "Dug Derby",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
-    },
-    {
-      "title": "Howler's Gorge",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
-    },
-    {
-      "title": "Sunken City",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
-    },
-    {
-      "title": "The Boonta Training Course",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
-    },
-    {
-      "title": "Mon Gazza Speedway",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
-    },
-    {
-      "title": "Beedo's Wild Ride",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
-    },
-    {
-      "title": "Aquilaris Classic",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
-    },
-    {
-      "title": "Malastare 100",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
-    },
-    {
-      "title": "Vengeance",
-      "time": "0.000000",
-      "best_time": "0.000000",
-      "best_segment": "0.000000"
-    },
-    {
-      "title": "Spice Mine Run",
+      "title": "Inferno",
       "time": "0.000000",
       "best_time": "0.000000",
       "best_segment": "0.000000"

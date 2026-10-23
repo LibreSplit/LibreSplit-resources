@@ -1,27 +1,26 @@
-# Star Wars Racer - Splits Files (For LibreSplit)
+# Star Wars Episode I: Racer - Splits Files
 
-**Split files used with LibreSplit, for Star Wars Episode I Racer speedruns.**
+**Split files used with LibreSplit, for Star Wars Episode I: Racer speedruns.**
   
-### Includes
-* Uniquely named and categorized split files each with 3 variants
-  * Upgrades    -  load removed time
-  * No Upgrades -  load removed time
-  * Upgrades    - in race game time
-* Each split file comes preset with category relevant settings for this [auto splitter](https://github.com/Wuzzmi/swe1r_auto-splitter-libresplit)
+### Features
+* Basic split files compariable to the .lss splits found in the speedrun.com [resources](https://www.speedrun.com/swe1r/resources).
+* Split files are preset with settings for this [auto splitter](https://github.com/Wuzzmi/swe1r_auto-splitter-libresplit)
 
 ### Required
 * [Download](https://github.com/Wuzzmi/swe1r_splits-libresplit/archive/refs/heads/main.zip) split files
 * [LibreSplit](https://github.com/LibreSplit/LibreSplit/tree/main)
 ### Recommended
-* [Auto splitter](https://github.com/Wuzzmi/swe1r_auto-splitter-libresplit) for Star Wars Racer
+* [Auto splitter](https://github.com/Wuzzmi/swe1r_auto-splitter-libresplit)
    
 ### Split File Details  
-> [!note]
-> LibreSplit currently does not support subsplits. Once subsplits are supported they will be added to this repo.
-  
-All split file variants have unique names that match their format so they can be differentiated from one another. These variants are important if you will be running multiple versions of the same category (ex. Upgrades & No Upgrades). This way they will not overwrite each other. 
-  
-IGT variants are intended for testing the "total in race game time" under differing run conditions (ex. varied upgrade routes, pods, etc.). Since these runs exclude menu time, they need their own split files. 
+Since these splits represent the most popular split orders and not all possible category combinations, these splits work best as templates. Currently LibreSplit has no GUI to edit splits. As long as split files cannot be edited in LibreSplit, you will need to manually duplicate and edit your split files. Any category details you would like to show for your run, can be adjusted by editing the `"category":` section of your split file.
+```json
+"name": "Star Wars Episode I: Racer",
+  "category": "Any%",
+  "attempt_count": 0,
+```
+
+LibreSplit currently does not support subsplits. Once supported they will be added to this repo.
   
 ### Usage
 * Open LibreSplit

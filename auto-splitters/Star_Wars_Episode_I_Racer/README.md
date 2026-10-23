@@ -1,5 +1,5 @@
-# Star Wars Racer - Auto Splitter (for LibreSplit)
-**A script that automates LibreSplit's timer, for Star Wars Episode I Racer speedruns.**  
+# Star Wars Episode I: Racer - Auto Splitter
+**A script that automates LibreSplit's timer, for Star Wars Episode I: Racer speedruns.**  
 Based on [Galeforce's LiveSplit Autosplitter](https://github.com/everalert/swe1r-autosplitter) v0.5.1  
 The same auto splitter logic converted to Lua, with some compatibility changes, and additions.
 
@@ -19,7 +19,7 @@ The same auto splitter logic converted to Lua, with some compatibility changes, 
 * [Download](https://github.com/Wuzzmi/swe1r_auto-splitter-libresplit/archive/refs/heads/main.zip) auto splitter
 * [LibreSplit](https://github.com/LibreSplit/LibreSplit/tree/main)
 * [JSON splits](https://github.com/Wuzzmi/swe1r_splits-libresplit/tree/master), or [converted](https://libresplit.org/converter) LSS splits
-* Installation of the re-released PC version of Star Wars Episode I Racer (Steam, GOG, etc.)  
+* Installation of the re-released PC version of Star Wars Episode I: Racer (Steam, GOG, etc.)  
     - does not work with the original CD version
 
 ### Auto Splitter Settings
@@ -51,7 +51,7 @@ All settings are described in greater detail below.
 > * If you edit your settings after the script has already been loaded, you will need to Reload the auto splitter for the changes to take effect.
 > * When using a new split file, the auto splitter must be loaded after the split file.
   
-**Now everything is all set. The auto splitter will function when you run Star Wars Racer!**
+**Now everything is all set. The auto splitter will function when you run the game!**
 
 ___
 ### Settings Breakdown

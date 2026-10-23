@@ -87,7 +87,7 @@ function define_settings()
         name = "Auto start at Start Race",
         type = SETTING_BOOLEAN,
         default = false,
-        desc = "Timer will start when selecting Start Race instead of file select. "
+        desc = "Timer will start when selecting Start Race instead of file select. **BUG** Currently for the \"START RACE\" trigger to work, you must enter the track selection scene, then move directly to select \"Start Race\". If you deviate, just return to the track selection scene before heading to \"Start Race\"."
     })
 
     settings.define("useInRaceGT", {

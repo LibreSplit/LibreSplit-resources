@@ -1,6 +1,6 @@
 {
-  "name": "Star Wars Episode I Racer:",
-  "category": "Amateur Circuit - In Game Time",
+  "name": "Star Wars Episode I: Racer",
+  "category": "Amateur Circuit",
   "attempt_count": 0,
   "finished_count": 0,
   "splits": [
@@ -53,7 +53,7 @@
     "removeTabbedTime": false,
     "require1st": false,
     "startRaceTrig": false,
-    "useInRaceGT": true
+    "useInRaceGT": false
   },
   "comparison_method": 1,
   "width": 300,
