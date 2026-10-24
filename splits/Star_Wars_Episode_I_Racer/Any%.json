@@ -1,0 +1,61 @@
+{
+  "name": "Star Wars Episode I: Racer",
+  "category": "Any%",
+  "attempt_count": 0,
+  "finished_count": 0,
+  "splits": [
+    {
+      "title": "Executioner",
+      "time": "0.000000",
+      "best_time": "0.000000",
+      "best_segment": "0.000000"
+    },
+    {
+      "title": "Sebulba's Legacy",
+      "time": "0.000000",
+      "best_time": "0.000000",
+      "best_segment": "0.000000"
+    },
+    {
+      "title": "Grabvine Gateway",
+      "time": "0.000000",
+      "best_time": "0.000000",
+      "best_segment": "0.000000"
+    },
+    {
+      "title": "Andobi Mountain Run",
+      "time": "0.000000",
+      "best_time": "0.000000",
+      "best_segment": "0.000000"
+    },
+    {
+      "title": "Dethro's Revenge",
+      "time": "0.000000",
+      "best_time": "0.000000",
+      "best_segment": "0.000000"
+    },
+    {
+      "title": "Fire Mountain Rally",
+      "time": "0.000000",
+      "best_time": "0.000000",
+      "best_segment": "0.000000"
+    },
+    {
+      "title": "The Boonta Classic",
+      "time": "0.000000",
+      "best_time": "0.000000",
+      "best_segment": "0.000000"
+    }
+  ],
+  "auto_splitter": "",
+  "auto_splitter_settings": {
+    "autoReset": 2,
+    "removeTabbedTime": false,
+    "require1st": false,
+    "startRaceTrig": false,
+    "useInRaceGT": false
+  },
+  "comparison_method": 1,
+  "width": 300,
+  "height": 375
+}
