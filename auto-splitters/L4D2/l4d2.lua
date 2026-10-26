@@ -1,6 +1,6 @@
 -- Left 4 Dead 2 autosplitter
 -- Ported from the L4D2 LiveSplit ASL
-cmdline("left4dead2.exe")
+process("left4dead2.exe")
 
 local engineAndClientHashesAndOffsets = {
     -- V2000 offsets
