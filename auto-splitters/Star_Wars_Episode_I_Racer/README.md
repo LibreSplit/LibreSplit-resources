@@ -3,13 +3,8 @@
 Based on [Galeforce's LiveSplit Autosplitter](https://github.com/everalert/swe1r-autosplitter) v0.5.1  
 The same auto splitter logic converted to Lua, with some compatibility changes, and additions.
 
-> [!note]
-> This script has the requirements for all run categories, but some issues still remain, so is still somewhat a work in progress.
->   
-> *\*\*Starred Features\*\** indicate that, that feature currently has some kind issue. The details of any issue are provided under the relevant section in this readme.
-  
 ### Features
-* Auto start when file is opened, or *\*\*optionally when "Start Race" is selected\*\**
+* Auto start when file is opened, or when "Start Race" is selected
 * Auto split at race finish, with toggle for 1st place requirement
 * Auto reset, with choice of reset location
 * Choice of LRT, or IGT timing methods 
@@ -100,11 +95,6 @@ ___
 |  | "Start Race" Selected | File Opened |
 |:---:|:---:|:---:|
 |**startRaceTrig**| true | false |
-
-> [!important]
-> ***\*\*SEMIFUNCTIONAL\*\****
->   
-> Currently for the "START RACE" trigger to work, you must enter the track selection scene, then move directly to select "Start Race". If you deviate, just return to the track selection scene before heading to "Start Race".
 
 ___
 **Use In Race Game Time**
