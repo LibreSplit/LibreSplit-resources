@@ -96,17 +96,19 @@ local current = {
 
 local old = shallow_copy_tbl(current)
 
-function string:endsWith(suffix)
-    return self:sub(-#suffix) == suffix
+local function basename(path)
+    return (path or ""):match("([^/]+)$") or ""
 end
 
 local function getEngineClientMaps()
     local maps = getMaps()
     local output = {}
     for _, map in ipairs(maps) do
-        if map.name:endsWith("engine.dll") then
+        local name = basename(map.name)
+
+        if name == "engine.dll" then
             output["engineBase"] = map
-        elseif map.name:endsWith("Client.dll") then
+        elseif name == "Client.dll" then
             output["clientBase"] = map
         end
     end
