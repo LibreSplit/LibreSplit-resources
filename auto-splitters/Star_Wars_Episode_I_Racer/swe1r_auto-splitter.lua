@@ -87,7 +87,7 @@ function define_settings()
         name = "Auto start at Start Race",
         type = SETTING_BOOLEAN,
         default = false,
-        desc = "Timer will start when selecting Start Race instead of file select. **BUG** Currently for the \"START RACE\" trigger to work, you must enter the track selection scene, then move directly to select \"Start Race\". If you deviate, just return to the track selection scene before heading to \"Start Race\"."
+        desc = "Timer will start when selecting Start Race instead of file select."
     })
 
     settings.define("useInRaceGT", {
@@ -117,6 +117,9 @@ function state()
     current.gameTabbedOut = readAddress("byte", 0x10CB64)
     -- Limit string to 17 chars, sometimes odd chars are added at the end 
     current.menTxt1 = string.sub (readAddress("string17", 0xA2C380), 1, 17)
+    -- Holds "1" once "START RACE" is selected, and "0" once back in menu
+    current.levelEngaged = readAddress("byte", 0xEB448, 0x238)
+
 -- Nil guarded addresses, since they don't always hold a value, fixes bitwise errors
     current.selTrk = nilGuard(readAddress("byte", 0xBFDB8, 0x5D),
     "(0) [current.selTrk]")
@@ -145,7 +148,7 @@ function start()
     vars.loadBufferSize = 0
     -- Auto start trigger based on sets
     if sets.startRaceTrig then
-        return current.sceneId == 0 and old.sceneId == 260
+        return current.levelEngaged == 1 and old.levelEngaged == 0
     end
     return current.menTxt1 == "~F6~sBack" and old.menTxt1 == "~F6Current Player"
 end
@@ -231,4 +234,3 @@ function gameTime()
     -- IGT in milliseconds
     return math.floor((vars.gt + vars.gtAdd) * 1000)
 end
-
