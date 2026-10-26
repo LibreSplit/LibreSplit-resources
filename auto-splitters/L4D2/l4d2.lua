@@ -156,42 +156,22 @@ local campaignsLastMaps = {
 -- }
 -- stylua: ignore end
 
-local cutsceneStart = nil
+local cutsceneStart = 0
+local delayedSplitStart = 0
+
 local lastSplit = ""
 
-local tickCount = 0
-local ticksPerSec = 30
-
-local function ticksToMs(t)
-    return t * (1000 / ticksPerSec)
-end
-local function msToTicks(ms)
-    return math.ceil(ms * ticksPerSec / 1000)
-end
-local cutsceneMinTicks = msToTicks(250)
-
-local function cutsceneElapsed()
-    if cutsceneElapsed == nil then
-        return 0
-    end
-    return tickCount - cutsceneStart
-end
-
-local delayedSplitStart = nil
 function delayedStart()
-    if delayedSplitStart == nil then
-        delayedSplitStart = tickCount
+    if delayedSplitStart == 0 then
+        delayedSplitStart = os.clock()
     end
 end
 
-local function delayedReset()
-    delayedSplitStart = nil
-end
-local function delayedElapsedMs()
-    if delayedSplitStart == nil then
+local function delayedElapsed()
+    if delayedSplitStart == 0 then
         return 0
     end
-    return ticksToMs(tickCount - delayedSplitStart)
+    return os.clock() - delayedSplitStart
 end
 
 function define_settings()
@@ -212,6 +192,7 @@ end
 
 function startup()
     refreshRate = 30
+    mapsCacheCycles = 2
 end
 
 function state()
@@ -220,7 +201,6 @@ function state()
         return
     end
 
-    tickCount = tickCount + 1
     old = shallow_copy_tbl(current)
     -- stylua: ignore start
     current.whatsLoading      = readAddress("string30", "engine.dll", offsets.whatsLoading)
@@ -241,22 +221,23 @@ function state()
     -- print("finaleTrigger: " .. tostring(current.finaleTrigger))
     -- print("cutscenePlaying: " .. tostring(current.cutscenePlaying))
     -- print("lastSplit: " .. lastSplit)
+    -- print("cutsceneStart: " .. tostring(cutsceneStart))
     -- print()
 end
 
 function start()
     if current.svCheats then
-        cutsceneStart = nil
+        cutsceneStart = 0
         return false
     end
 
     if current.hasControl and not current.isLoading then
-        if cutsceneStart ~= nil and cutsceneElapsed() >= cutsceneMinTicks then
-            cutsceneStart = nil
+        if cutsceneStart ~= 0 and (os.clock() - cutsceneStart > 0.25) then
+            cutsceneStart = 0
             lastSplit = ""
             return true
-        elseif cutsceneStart ~= nil then
-            cutsceneStart = nil
+        elseif cutsceneStart ~= 0 then
+            cutsceneStart = 0
         end
     end
 
@@ -265,9 +246,9 @@ function start()
         and not current.hasControl
         and not current.isLoading
         and current.whatsLoading ~= ""
-        and cutsceneStart == nil
+        and cutsceneStart == 0
     then
-        cutsceneStart = tickCount
+        cutsceneStart = os.clock()
     end
 
     return false
@@ -276,7 +257,7 @@ end
 function split()
     -- This relies on having Game Instructor enabled
     if current.finaleTrigger and not old.finaleTrigger then
-        delayedReset()
+        delayedSplitStart = 0
         -- prevent double split
         if current.whatsLoading == lastSplit then
             return false
@@ -294,8 +275,8 @@ function split()
         end
     end
 
-    if delayedElapsedMs() >= 200 then
-        delayedReset()
+    if delayedElapsed() >= 0.2 then
+        delayedSplitStart = 0
         lastSplit = current.whatsLoading
         return true
     end
