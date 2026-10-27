@@ -163,15 +163,16 @@ local lastSplit = ""
 
 function delayedStart()
     if delayedSplitStart == 0 then
-        delayedSplitStart = os.clock()
+        delayedSplitStart = os.time_us()
     end
 end
 
-local function delayedElapsed()
-    if delayedSplitStart == 0 then
+local function elapsed_ms(start)
+    if start == 0 then
         return 0
     end
-    return os.clock() - delayedSplitStart
+
+    return os.difftime(os.time_us(), start) / 1000
 end
 
 function define_settings()
@@ -232,7 +233,7 @@ function start()
     end
 
     if current.hasControl and not current.isLoading then
-        if cutsceneStart ~= 0 and (os.clock() - cutsceneStart > 0.25) then
+        if elapsed_ms(cutsceneStart) >= 250 then
             cutsceneStart = 0
             lastSplit = ""
             return true
@@ -248,7 +249,7 @@ function start()
         and current.whatsLoading ~= ""
         and cutsceneStart == 0
     then
-        cutsceneStart = os.clock()
+        cutsceneStart = os.time_us()
     end
 
     return false
@@ -275,7 +276,7 @@ function split()
         end
     end
 
-    if delayedElapsed() >= 0.2 then
+    if elapsed_ms(delayedSplitStart) >= 250 then
         delayedSplitStart = 0
         lastSplit = current.whatsLoading
         return true
