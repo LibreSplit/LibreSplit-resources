@@ -109,12 +109,12 @@ function lookupClass(classCache, name)
 end
 
 function classFieldOffset(klass, name)
-    local classKind = bit.band((readAddress("byte", klass + 0x24)), 7)
+    local classKind = readAddress("byte", klass + 0x24) & 0x7
     while classKind == 3 do
         local ptr1 = readAddress("ulong", klass + 0xe0)
         local newKlass = readAddress("ulong", klass + 0xe0)
         klass = readAddress("ulong", newKlass)
-        classKind = bit.band((readAddress("byte", klass + 0x24)), 0x7)
+        classKind = readAddress("byte", klass + 0x24) & 0x7
     end
     local numFields = readAddress("int", klass + 0xf0)
     local fieldsPtr = readAddress("ulong", klass + 0x90)
@@ -128,7 +128,7 @@ function classFieldOffset(klass, name)
         if fieldName == name then
             local offset = (slice + 3) * 0x8
             offset = fieldsPtr + offset
-            local fieldOffset = bit.band(readAddress("ulong", offset), 0xffffffff)
+            local fieldOffset = readAddress("ulong", offset) & 0xffffffff
             return fieldOffset
         end
 
@@ -152,7 +152,7 @@ end
 
 function instanceClass(instance)
     local class = readAddress("ulong", instance)
-    local class = bit.band(class, bit.bnot(1))
+    local class = class & ~1
     return readAddress("ulong", class)
 end
 
@@ -185,11 +185,11 @@ end
 function startup()
     refreshRate = 60
     useGameTime = true
-    base = getBaseAddress()
 end
 
 function state()
     if autoSplitterObj == nil then
+        base = getBaseAddress()
         local celesteDomain = 0
         local domainList = readAddress("ulong", 0xA17698)
         local firstDomain = readAddress("ulong", domainList)
@@ -212,8 +212,8 @@ function state()
         current.chapterStarted = readAddress("bool", autoSplitterObj + 0x11)
         current.areaID = readAddress("int", autoSplitterObj + 0x8)
         current.areaDifficulty = readAddress("int", autoSplitterObj + 0xc)
-        current.gameTime = readAddress("long", autoSplitterObj + 0x28) / 10000
-        current.levelTime = readAddress("long", autoSplitterObj + 0x18) / 10000
+        current.gameTime = readAddress("long", autoSplitterObj + 0x28) // 10000
+        current.levelTime = readAddress("long", autoSplitterObj + 0x18) // 10000
         current.levelName = getLevelName(autoSplitterObj)
     end
 end
