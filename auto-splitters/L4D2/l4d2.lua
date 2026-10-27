@@ -203,13 +203,13 @@ function state()
 
     old = shallow_copy_tbl(current)
     -- stylua: ignore start
-    current.whatsLoading      = readAddress("string30", "engine.dll", offsets.whatsLoading)
-    current.isLoading         = readAddress("bool", "engine.dll", offsets.gameLoading)
-    current.hasControl        = readAddress("bool", "Client.dll", offsets.hasControl)
-    current.scoreboardLoading = readAddress("bool", "Client.dll", offsets.scoreboardLoad)
-    current.finaleTrigger     = readAddress("bool", "Client.dll", offsets.finaleTrigger)
-    current.svCheats          = readAddress("bool", "Client.dll", offsets.svCheats, 0x30)
-    current.cutscenePlaying   = readAddress("bool", "Client.dll", offsets.cutscenePlaying)
+    current.whatsLoading      = readAddress("string30", "engine.dll", offsets.whatsLoading, { pointerSize = POINTER_SIZE_32 })
+    current.isLoading         = readAddress("bool", "engine.dll", offsets.gameLoading,      { pointerSize = POINTER_SIZE_32 })
+    current.hasControl        = readAddress("bool", "Client.dll", offsets.hasControl,       { pointerSize = POINTER_SIZE_32 })
+    current.scoreboardLoading = readAddress("bool", "Client.dll", offsets.scoreboardLoad,   { pointerSize = POINTER_SIZE_32 })
+    current.finaleTrigger     = readAddress("bool", "Client.dll", offsets.finaleTrigger,    { pointerSize = POINTER_SIZE_32 })
+    current.svCheats          = readAddress("bool", "Client.dll", offsets.svCheats, 0x30,   { pointerSize = POINTER_SIZE_32 })
+    current.cutscenePlaying   = readAddress("bool", "Client.dll", offsets.cutscenePlaying,  { pointerSize = POINTER_SIZE_32 })
     -- stylua: ignore end
 
     -- UNCOMMENT WHEN DEBUGGING
