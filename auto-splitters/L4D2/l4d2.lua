@@ -119,7 +119,7 @@ end
 local function getOffsets()
     local gameMaps = getEngineClientMaps()
 
-    if gameMaps.engineBase ~= nil or gameMaps.clientBase ~= nil then
+    if gameMaps.engineBase ~= nil and gameMaps.clientBase ~= nil then
         local engineHash = md5sum(gameMaps.engineBase.name):upper()
         local clientHash = md5sum(gameMaps.clientBase.name):upper()
 
