@@ -18,7 +18,7 @@ local oldState = {
 local expectedLevels = { 1, 2, 3, 4, 5 , 6, 7, 8, 9 }
 local levelSplitIndex = 1;
 
--- This will allow us run episodeCompleted in any order we want
+-- This will allow us to run episodeCompleted in any order we want
 local episodeCompleted = { false, false, false, false }
 
 function startup( )
