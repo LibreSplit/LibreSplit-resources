@@ -1,5 +1,12 @@
 process('nblood')
 
+-- TODO: Add another offsets list for dauswectus srBlood fork
+local memoryOffsets = {
+	level = 0x381E20,
+	episode = 0x381E24,
+	menu = 0x6530B0,
+	credits = 0xD49D09
+}
 
 local currentState = {
 	level = 0,
@@ -18,7 +25,7 @@ local oldState = {
 local expectedLevels = { 1, 2, 3, 4, 5 , 6, 7, 8, 9 }
 local levelSplitIndex = 1;
 
--- This will allow us to run episodeCompleted in any order we want
+-- This will allow us to run episodes in any order we want
 local episodeCompleted = { false, false, false, false }
 
 function startup( )
@@ -28,16 +35,16 @@ end
 -- Memory addresses are up-to-date with the official NBlood repo. (Build 2026-11-04 )
 function state( )
 	oldState.level = currentState.level;
-	currentState.level = readAddress( "byte", 0x381E20 );
+	currentState.level = readAddress( "byte", memoryOffsets.level );
 
 	oldState.episode = currentState.episode;
-	currentState.episode = readAddress( "byte", 0x381E24 );
+	currentState.episode = readAddress( "byte", memoryOffsets.episode );
 
 	oldState.menu = currentState.menu;
-	currentState.menu = readAddress( "byte", 0x6530B0);
+	currentState.menu = readAddress( "byte", memoryOffsets.menu );
 
 	oldState.credits = currentState.credits;
-	currentState.credits = readAddress( "byte", 0xD49D09 );
+	currentState.credits = readAddress( "byte", memoryOffsets.credits );
 end
 
 function start( )
@@ -66,7 +73,6 @@ function update( )
 
 end
 
--- Function tells the LibreSplit when to split
 -- Checking if current map is what we expect to avoid repeated splits
 -- in case we load a save from previous map
 function split( )
@@ -83,8 +89,8 @@ function split( )
 	end
 end
 
--- Autoresets whenever you enter episode choose menu mid episode run
--- If you want to reset after finishing the episode
+-- Autoresets whenever we enter episode choose menu mid episode run
+-- If we want to reset after finishing the episode
 -- just start any other and go to the menu
 function reset( )
 	if ( currentState.menu == 2 or currentState.menu == 3 )
